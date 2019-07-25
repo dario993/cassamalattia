@@ -8,7 +8,9 @@ export class DataService {
 
 
   constructor() { 
-    this.family.push(new Person());
+    if(this.family.length == 0){
+      this.family.push(new Person());
+    }
   }
 
 

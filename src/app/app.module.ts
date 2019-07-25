@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule }   from 'angular-font-awesome';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PersonalDetails1Component } from './personal-details1/personal-details1.component';
 import { PersonalDetails2Component } from './personal-details2/personal-details2.component';
 import { RouterModule, Routes } from '@angular/router'; 
@@ -39,7 +40,8 @@ const routes: Routes = [
     BrowserModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

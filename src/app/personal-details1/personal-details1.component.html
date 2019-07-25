@@ -13,35 +13,39 @@
   </div>
 </div>
 
-<form *ngFor="let person of family index as i" class="form-lg" >
-    <div class="row">
-      <div class="col-6">
-          <input type="text"  class="form-control form-control-lg" id="nome" placeholder="Persona {{i}}">
-      </div>
-      <div class="col-3">
-          <input type="text" class="form-control form-control-lg" id="nascita" placeholder="GG.MM.AA">
-      </div>
-      <div class="col-2">
-        <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso" >
-            <label ngbButtonLabel class="btn-light">
-              <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
-            </label>
-           
-            <label ngbButtonLabel class="btn-light">
-              <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
-            </label>
-          </div>
-          <button type="button" class="btn btn-lg btn-link sm-1" style="margin-left: 10px" (click)="removePerson($event, i)"><fa name="times" ></fa></button>
-      </div>
-      
-    </div>
 
-</form>
+<form [formGroup]="myForm" class="form-lg" >
+    
+
+    <div formArrayName="persons">
+    
+      <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px">
+        <div class="col-6">
+            <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome" >
+        </div>
+        <div class="col-3">
+            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita">
+        </div>
+        <div class="col-2">
+          <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso"  >
+              <label ngbButtonLabel class="btn-light">
+                <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
+              </label>
+            
+              <label ngbButtonLabel class="btn-light">
+                <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
+              </label>
+            </div>
+            <button type="button" class="btn btn-lg btn-link sm-1" style="margin-left: 10px" (click)="deletePerson(i)"><fa name="times" ></fa></button>
+        </div>
+      </div>
+    </div>
+  </form>
 
 
 <div class="row">
-  <div class="col" style="padding-top:20px">
-    <button type="button" class="btn btn-light" (click)="addPerson($event)"><fa name="plus"></fa> </button>
+  <div class="col" >
+    <button type="button" class="btn btn-light" (click)="addPerson()"><fa name="plus"></fa> </button>
     <label>Aggiugi persona</label>
   </div>
 </div>
@@ -58,6 +62,6 @@
 <div class="row">
   <div class="col">
     <p>
-      {{ family | json }}</p>
+      {{myForm.value | json }}
   </div>
 </div>
