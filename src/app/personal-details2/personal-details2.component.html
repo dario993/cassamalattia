@@ -1,3 +1,61 @@
-<p>
-  personal-details2 works!
-</p>
+<div class="row">
+    <div class="col">
+        <label>NPA / Località</label>
+    </div>
+    <div class="col">
+        <label>Paese di domicilio</label>
+    </div>
+</div>
+
+
+<form [formGroup]="myForm" class="form-lg">
+  <div class="row">
+    <div class="col form-group" >
+        <input type="text"  class="form-control form-control-lg" placeholder="1000 - Lausanne"  formControlName="plz_localita" [ngbTypeahead]="search"
+        [ngClass]="{
+          'is-invalid': myForm.get('plz_localita').invalid && (myForm.get('plz_localita').dirty || myForm.get('plz_localita').touched),
+          'is-valid': myForm.get('plz_localita').valid && (myForm.get('plz_localita').dirty || myForm.get('plz_localita').touched) }">
+       
+  
+        <div *ngIf="myForm.get('plz_localita').dirty && myForm.get('plz_localita').touched && myForm.get('plz_localita').invalid">
+          <div class="text-danger" *ngIf="myForm.get('plz_localita').errors.required">
+            Il campo è richiesto!
+          </div>
+        </div>
+
+    </div>
+    <div class="col form-group">
+        
+          <input type="text"  class="form-control form-control-lg" placeholder=""  formControlName="paese_di_domicilio"
+          [ngClass]="{
+            'is-invalid': myForm.get('paese_di_domicilio').invalid && (myForm.get('paese_di_domicilio').dirty || myForm.get('paese_di_domicilio').touched),
+            'is-valid': myForm.get('paese_di_domicilio').valid && (myForm.get('paese_di_domicilio').dirty || myForm.get('paese_di_domicilio').touched) }">
+          
+    
+          <div *ngIf="myForm.get('paese_di_domicilio').dirty && myForm.get('paese_di_domicilio').touched && myForm.get('paese_di_domicilio').invalid">
+            <div class="text-danger" *ngIf="myForm.get('paese_di_domicilio').errors.required">
+              Il campo è richiesto!
+            </div>
+          </div>
+    
+    </div>
+  
+  </div>
+</form>
+
+
+<div class="row" style="margin-top: 20px">
+    <div class="col text-left">
+        <button type="button"   class="btn btn-link" (click)="backStep()">Indietro</button>
+        <button type="button"   [disabled]="myForm.invalid"  class="btn btn-primary" (click)="nextStep()">Avanti</button>
+     
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+      <p>
+        {{myForm.value | json }}
+    </div>
+  </div>

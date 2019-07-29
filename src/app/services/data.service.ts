@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
+import { Data } from '../classes/Data';
 
 @Injectable()
 export class DataService {
 
-  family: Person[]  = [];
+  data: Data;
 
+  persons: Array<Person>  = [];
 
   constructor() { 
-    if(this.family.length == 0){
-      this.family.push(new Person());
-    }
+    this.data = new Data();
+    this.data.plz_localita = '';
+    this.data.paese_di_domicilio = '';
+
+    this.persons.push(new Person());
+    this.data.persons = this.persons;
   }
 
-
-  getPersons(){
-    return this.family;
+  getData(){
+    return this.data;
   }
 
-  updateDataStep1( persons: Array<Person> ){
-    for (let i=0;  persons.length; i++ ){
-      this.family[i].nome = persons[i].nome;
-      this.family[i].nascita = persons[i].nascita;
-      this.family[i].sesso = persons[i].sesso; 
-       
-    }
+  setDataPersons(persons){
+    console.log("Store Data");
+    this.data.persons = persons;
+
+    console.log(this.data);
+  }
+
+  setGlobalData(data: Data){
+    this.data.plz_localita = data.plz_localita;
+    this.data.paese_di_domicilio = data.paese_di_domicilio;
   }
 
 }

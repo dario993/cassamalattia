@@ -20,11 +20,40 @@
     <div formArrayName="persons">
     
       <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px">
-        <div class="col-6">
-            <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome" >
+        <div class="col-6 form-group">
+            <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome"
+            [ngClass]="{
+              'is-invalid': person.controls.nome.invalid && (person.controls.nome.dirty || person.controls.nome.touched),
+              'is-valid': person.controls.nome.valid && (person.controls.nome.dirty || person.controls.nome.touched) }">
+           
+      
+            <div *ngIf="person.controls.nome.dirty && person.controls.nome.touched && person.controls.nome.invalid">
+              <div class="text-danger" *ngIf="person.controls.nome.errors.required">
+                Il campo nome è richiesto!
+              </div>
+              <div class="text-danger" *ngIf="person.controls.nome.errors.minlength">
+                Inserire almeno {{person.controls.nome.errors.minlength.requiredLength}} caratteri
+              </div>
+              <div class="text-danger" *ngIf="person.controls.nome.errors.pattern">
+                Inserire caratteri dall a-z
+              </div>
+            </div>
+
         </div>
         <div class="col-3">
-            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita">
+            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita"
+            [ngClass]="{
+              'is-invalid': person.controls.nascita.invalid && (person.controls.nascita.dirty || person.controls.nascita.touched),
+              'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
+              
+              <div *ngIf="person.controls.nascita.dirty && person.controls.nascita.touched && person.controls.nascita.invalid">
+                <div class="text-danger" *ngIf="person.controls.nascita.errors.required">
+                  Il campo nascita è richiesto!
+                </div>
+                <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern">
+                  Inserire data formato GG.MM.AAAA
+                </div>
+              </div>
         </div>
         <div class="col-2">
           <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso"  >
@@ -36,7 +65,8 @@
                 <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
               </label>
             </div>
-            <button type="button" class="btn btn-lg btn-link sm-1" style="margin-left: 10px" (click)="deletePerson(i)"><fa name="times" ></fa></button>
+            <button type="button" class="btn btn-lg btn-link sm-1" style="margin-left: 10px" (click)="deletePerson(i)"
+            *ngIf="personForms.controls?.length > 1" ><fa name="times" ></fa></button>
         </div>
       </div>
     </div>
@@ -46,16 +76,15 @@
 <div class="row">
   <div class="col" >
     <button type="button" class="btn btn-light" (click)="addPerson()"><fa name="plus"></fa> </button>
-    <label>Aggiugi persona</label>
+    <label style="margin-left: 15px">Aggiugi persona</label>
   </div>
 </div>
 
 <div class="row" style="margin-top: 20px">
     <div class="col text-left">
        
-            <button type="button" class="btn btn-primary" (click)="nextStep($event)">Avanti</button>
+            <button type="button"   [disabled]="myForm.invalid"  class="btn btn-primary" (click)="nextStep()">Avanti</button>
      
-      
     </div>
 </div>
 

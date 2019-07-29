@@ -9,6 +9,8 @@ import { PersonalDetails1Component } from './personal-details1/personal-details1
 import { PersonalDetails2Component } from './personal-details2/personal-details2.component';
 import { RouterModule, Routes } from '@angular/router'; 
 import { DataService } from './services/data.service';
+import { HttpClientService } from './services/http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -41,9 +43,10 @@ const routes: Routes = [
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     AngularFontAwesomeModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [DataService],
+  providers: [DataService, HttpClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
