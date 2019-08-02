@@ -61,8 +61,9 @@ export class PersonalDetails1Component implements OnInit {
       const franchigiaArray = (<FormArray>this.myForm.controls['persons']).at(k).get('franchigie') as FormArray;
 
       franchigiaArray.push(this.fb.group({
-        id:[''],
-        value: [this.data.persons[k].franchigie[i]]
+        id:[this.data.persons[k].franchigie[i].id],
+        value: [this.data.persons[k].franchigie[i].value],
+        selected: [this.data.persons[k].franchigie[i].selected]
       }));
 
     }
@@ -77,7 +78,7 @@ export class PersonalDetails1Component implements OnInit {
       sesso: ['', [Validators.required]]
     }));
     //da finire
-    this.initFranchigie(persons[i], i);
+    
   }
 
   deletePerson(i){
@@ -87,8 +88,9 @@ export class PersonalDetails1Component implements OnInit {
   public buildFormArray(controllers: any) {
     return controllers.map(ctrl => {
       return this.fb.group({
-        id: [''],
-        value: [ctrl, Validators.required]
+        id: [ctrl.id],
+        value: [ctrl.value, Validators.required],
+        selected: [ctrl.selected]
       });
     });
   }
