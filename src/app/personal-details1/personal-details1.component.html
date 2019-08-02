@@ -57,8 +57,8 @@
               </div>
         </div>
         <div class="col-3 form-group">
-           <select class="form-control form-control-lg" formArrayName="franchigie" >
-            <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id">{{franchigia.value.value}}</option>            
+           <select class="form-control form-control-lg" formArrayName="franchigie" (change)="changeFranchigia($event)">
+            <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id" [selected]="franchigia.value.selected == 'true'">{{franchigia.value.value}}</option>
           </select>
         </div>
         <div class="col-3">
