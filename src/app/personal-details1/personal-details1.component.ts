@@ -7,6 +7,13 @@ import { Data, Franchigia } from '../classes/Data';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+const defaultFranchigia = [ 
+  { id: "1", value: "100", selected: 'false' }, 
+  { id: "2", value: "200", selected: 'false' }, 
+  { id: "3", value: "300", selected: 'false' },
+  { id: "4", value: "600", selected: 'true' } 
+  ];
+
 @Component({
   selector: 'app-personal-details1',
   templateUrl: './personal-details1.component.html',
