@@ -46,9 +46,8 @@
 
 <div class="row" style="margin-top: 20px">
     <div class="col text-left">
-        <button type="button"   class="btn btn-link" (click)="backStep()">Indietro</button>
         <button type="button"   [disabled]="myForm.invalid"  class="btn btn-primary" (click)="nextStep()">Avanti</button>
-     
+        <button type="button"   class="btn btn-link" (click)="backStep()">Indietro</button>
     </div>
 </div>
 

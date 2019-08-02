@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 
 import { DataService } from '../services/data.service';
 import { Person } from '../classes/Person';
-import { Data } from '../classes/Data';
+import { Data, Franchigia } from '../classes/Data';
+import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -17,8 +18,10 @@ export class PersonalDetails1Component implements OnInit {
 
   data: Data;
 
+
   constructor(private service: DataService, private fb: FormBuilder, private router: Router){
     this.data = service.getData();
+    
   }
 
   ngOnInit(){
@@ -35,29 +38,46 @@ export class PersonalDetails1Component implements OnInit {
     return this.myForm.get('persons') as FormArray;
   }
 
-  getPeopleFormGroup(i){
-    this.myForm.get('persons')[i];
-  }
+
+  
 
   initPersons(){
     let persons: Array<Person> = this.data.persons;
     for(let i=0; i<persons.length; i++){
-      const person = this.fb.group({
+      
+      this.personForms.push(this.fb.group({
         nome: [persons[i].nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
         nascita: [persons[i].nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
+        franchigie: this.fb.array([]),
         sesso: [persons[i].sesso, [Validators.required]]
-      })
-      this.personForms.push(person);
+      }));
+
+      this.initFranchigie(persons[i], i);
     }
   }
 
+  initFranchigie(element, k){
+    for(let i=0; i< element.franchigie.length; i++){
+      const franchigiaArray = (<FormArray>this.myForm.controls['persons']).at(k).get('franchigie') as FormArray;
+
+      franchigiaArray.push(this.fb.group({
+        id:[''],
+        value: [this.data.persons[k].franchigie[i]]
+      }));
+
+    }
+  }
+
+
   addPerson(){
-    const person = this.fb.group({
+    this.personForms.push(this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       nascita: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
+      franchigie: this.fb.array([]),
       sesso: ['', [Validators.required]]
-    })
-    this.personForms.push(person);
+    }));
+    //da finire
+    this.initFranchigie(persons[i], i);
   }
 
   deletePerson(i){

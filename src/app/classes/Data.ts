@@ -6,3 +6,17 @@ export class Data {
     email: string;
     persons: Person[];
 }
+
+export class Franchigia{
+    id: string;
+    text: string;
+
+    constructor(){
+
+    }
+
+    setData(id: string, text: string){
+        this.id = id;
+        this.text = text;
+    }
+}

@@ -63,7 +63,7 @@ export class PersonalDetails2Component implements OnInit {
     console.log("Next step!");
     
     this.service.setGlobalData(this.myForm.value);
-    this.router.navigate(['personal-details2']);
+    this.router.navigate(['offer']);
     
   }
 

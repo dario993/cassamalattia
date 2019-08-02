@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-3">
       <label>Nome</label>
   </div>
   <div class="col-md-3">
       <label>Data di nascita</label>
   </div>
-  <div class="col-md-2">
-      <label>Sesso</label>
+  <div class="col-md-3">
+    <label>Franchigia</label>
   </div>
-  <div class="col-md-1">
-      <label></label>
+  <div class="col-md-3">
+      <label>Sesso</label>
   </div>
 </div>
 
@@ -20,7 +20,7 @@
     <div formArrayName="persons">
     
       <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px">
-        <div class="col-6 form-group">
+        <div class="col-3 form-group">
             <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome"
             [ngClass]="{
               'is-invalid': person.controls.nome.invalid && (person.controls.nome.dirty || person.controls.nome.touched),
@@ -40,6 +40,7 @@
             </div>
 
         </div>
+        
         <div class="col-3">
             <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita"
             [ngClass]="{
@@ -55,7 +56,12 @@
                 </div>
               </div>
         </div>
-        <div class="col-2">
+        <div class="col-3 form-group">
+           <select class="form-control form-control-lg" formArrayName="franchigie" >
+            <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id">{{franchigia.value.value}}</option>            
+          </select>
+        </div>
+        <div class="col-3">
           <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso"  >
               <label ngbButtonLabel class="btn-light">
                 <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
@@ -75,8 +81,7 @@
 
 <div class="row">
   <div class="col" >
-    <button type="button" class="btn btn-light" (click)="addPerson()"><fa name="plus"></fa> </button>
-    <label style="margin-left: 15px">Aggiugi persona</label>
+    <button type="button" class="btn btn-link" (click)="addPerson()" style="padding: 0" ><span style="margin-right: 15px" class="btn btn-outline-primary"><fa name="plus"></fa></span>Aggiugi persona</button>
   </div>
 </div>
 

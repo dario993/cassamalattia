@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
-import { Data } from '../classes/Data';
+import { Data, Franchigia } from '../classes/Data';
 
 @Injectable()
 export class DataService {
@@ -9,6 +9,7 @@ export class DataService {
 
   persons: Array<Person>  = [];
 
+
   constructor() { 
     this.data = new Data();
     this.data.plz_localita = '';
@@ -16,6 +17,8 @@ export class DataService {
 
     this.persons.push(new Person());
     this.data.persons = this.persons;
+
+     
   }
 
   getData(){
@@ -30,8 +33,21 @@ export class DataService {
   }
 
   setGlobalData(data: Data){
-    this.data.plz_localita = data.plz_localita;
-    this.data.paese_di_domicilio = data.paese_di_domicilio;
+    if(data.plz_localita !== undefined ){
+      this.data.plz_localita = data.plz_localita;
+    }
+    
+    if(data.paese_di_domicilio !== undefined ){
+      this.data.paese_di_domicilio = data.paese_di_domicilio;
+    }
+
+    if(data.email !== undefined ){
+      this.data.email = data.email;
+    }
+  }
+
+  getFranchigie() {
+    return ['100', '200', '300'];
   }
 
 }
