@@ -73,7 +73,7 @@ export class PersonalDetails1Component implements OnInit {
     this.personForms.push(this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       nascita: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
-      franchigie: this.fb.array([]),
+      franchigie: this.fb.array(this.buildFormArray(defaultFranchigia)),
       sesso: ['', [Validators.required]]
     }));
     //da finire
@@ -82,6 +82,15 @@ export class PersonalDetails1Component implements OnInit {
 
   deletePerson(i){
     this.personForms.removeAt(i);
+  }
+  
+  public buildFormArray(controllers: any) {
+    return controllers.map(ctrl => {
+      return this.fb.group({
+        id: [''],
+        value: [ctrl, Validators.required]
+      });
+    });
   }
 
   nextStep(){
