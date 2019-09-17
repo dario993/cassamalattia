@@ -1,0 +1,70 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 15/08/2019 09:36
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-leaf:before { content: "\f100"; }
+.flaticon-dumbbell:before { content: "\f101"; }
+.flaticon-pills:before { content: "\f102"; }
+.flaticon-lifeline-in-a-heart-outline:before { content: "\f103"; }
+.flaticon-heart:before { content: "\f104"; }
+.flaticon-stethoscope:before { content: "\f105"; }
+.flaticon-pregnant:before { content: "\f106"; }
+.flaticon-language:before { content: "\f107"; }
+.flaticon-glasses:before { content: "\f108"; }
+.flaticon-ambulance:before { content: "\f109"; }
+.flaticon-tooth:before { content: "\f10a"; }
+.flaticon-gavel:before { content: "\f10b"; }
+.flaticon-security:before { content: "\f10c"; }
+.flaticon-brain:before { content: "\f10d"; }
+.flaticon-pills-1:before { content: "\f10e"; }
+    
+    $font-Flaticon-leaf: "\f100";
+    $font-Flaticon-dumbbell: "\f101";
+    $font-Flaticon-pills: "\f102";
+    $font-Flaticon-lifeline-in-a-heart-outline: "\f103";
+    $font-Flaticon-heart: "\f104";
+    $font-Flaticon-stethoscope: "\f105";
+    $font-Flaticon-pregnant: "\f106";
+    $font-Flaticon-language: "\f107";
+    $font-Flaticon-glasses: "\f108";
+    $font-Flaticon-ambulance: "\f109";
+    $font-Flaticon-tooth: "\f10a";
+    $font-Flaticon-gavel: "\f10b";
+    $font-Flaticon-security: "\f10c";
+    $font-Flaticon-brain: "\f10d";
+    $font-Flaticon-pills-1: "\f10e";

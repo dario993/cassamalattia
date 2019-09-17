@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
-import { Data, Franchigia } from '../classes/Data';
+import { Data } from '../classes/Data';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
@@ -9,27 +10,39 @@ export class DataService {
 
   persons: Array<Person>  = [];
 
+  session: string;
 
-  constructor() { 
-    this.data = new Data();
-    this.data.plz_localita = '';
-    this.data.paese_di_domicilio = '';
+  private APIURL = "http://localhost/rechner_api/api/offer.php";
 
-    this.persons.push(new Person());
-    this.data.persons = this.persons;
+  constructor(private http: HttpClient) { 
+    if(localStorage.getItem('session')!=null){
+      this.session = localStorage.getItem('session');
+      this.data = JSON.parse(localStorage.getItem('data'));
+    }
+    else{
 
-     
+      
+      this.data
+
+      this.data = new Data();
+      this.data.plz_localita = '';
+      this.data.paese_di_domicilio = '';
+
+      this.persons.push(new Person());
+      this.data.persons = this.persons;
+      
+    }
   }
+
 
   getData(){
     return this.data;
   }
 
   setDataPersons(persons){
-    console.log("Store Data");
     this.data.persons = persons;
-
-    console.log(this.data);
+    console.log("Store data persons: " + this.data);
+    this.saveLocalData();
   }
 
   setGlobalData(data: Data){
@@ -44,10 +57,15 @@ export class DataService {
     if(data.email !== undefined ){
       this.data.email = data.email;
     }
+
+    this.saveLocalData();
   }
 
-  getFranchigie() {
-    return ['100', '200', '300'];
+  saveLocalData(){
+    localStorage.setItem('data', JSON.stringify(this.data));
+    localStorage.setItem('session', Math.random().toString(36).slice(2) );
   }
+  
+
 
 }

@@ -1,10 +1,7 @@
 import { PersonInterface } from '../interfaces/person';
+import { Utils } from './Data';
 
-const _franchigie = [ 
-  { id: "1", value: "100", selected: 'false' }, 
-  { id: "2", value: "200", selected: 'false' }, 
-  { id: "3", value: "300", selected: 'true' } 
-  ];
+
 
 export class Person implements PersonInterface{
   
@@ -18,9 +15,9 @@ export class Person implements PersonInterface{
     constructor(){
         this.nome = '';
         this.nascita = '';
-        this.franchigie = _franchigie;
+        this.franchigie = Utils.getFranchigiaAdulti();
         this.sesso = null;
     }
 
-
+    
 }

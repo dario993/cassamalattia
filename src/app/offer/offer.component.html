@@ -1,3 +1,62 @@
-<p>
-  offer works!
-</p>
+<div class="row">
+    <div class="col">
+      <h1>DATI INVIATI</h1>
+    <p>{{ data | json }}</p>
+    <h1>DATI FORM</h1>
+     <p>{{myForm.value | json}}</p>
+  </div>
+ </div> 
+
+
+<div id="benefits" class="">
+    <form [formGroup]="myForm" class="" >
+      
+      <div class="row">
+        <h3>Ciao {{person.nome}}</h3>
+      </div>
+      <div class="row">
+          <p>Ci esponga le sue esigenze e le consiglieremo le assicurazioni adeguate.</p>
+      </div>
+        
+      <div class="row basic-insurance"  style="margin-top: 2rem">
+          <h4>Assicurazione di base</h4>
+      </div>
+      
+
+      <div class="row basic-insurance" formArrayName="basics">
+          <div  *ngFor="let basic of basicsForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="selectBasic(basic, j)" [ngClass]="{'basic-insurance__tile--selected': isSelected(basic)}">
+            <div class="basic-insurance__tile--wrapper"  >
+              <div class="basic-insurance__tile--content">
+                <div >{{basic.value.title}}</div>
+              </div>
+              <div class="basic-insurance__tile--info">
+              </div>
+            </div>
+          </div>
+      </div>
+
+      
+      <div class="row additional-benefits"  style="margin-top: 2rem">
+        <h4>Assicurazione complementare</h4>
+      </div>
+      <div class="row additional-benefits"  formArrayName="benefits">
+        <div *ngFor="let benefit of benefitsForm.controls; let z=index" class="additional-benefits__tile" [formGroupName]="z" (click)="selectBenefit(benefit)" [ngClass]="{'additional-benefits__tile--selected': isSelected(benefit)}">
+          <div class="additional-benefits__tile--wrapper"  >
+            <i [ngClass]="benefit.value.icon"></i>
+            <div class="additional-benefits__tile--content"><!---->
+              <div>{{benefit.value.title}}</div>
+            </div>
+            <div class="additional-benefits__tile--info">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+     
+    </form>
+
+  
+  
+
+</div>

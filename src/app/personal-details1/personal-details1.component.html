@@ -42,7 +42,7 @@
         </div>
         
         <div class="col-3">
-            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita"
+            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita" (change)="refreshFranchigia($event, i)"
             [ngClass]="{
               'is-invalid': person.controls.nascita.invalid && (person.controls.nascita.dirty || person.controls.nascita.touched),
               'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
@@ -57,12 +57,21 @@
               </div>
         </div>
         <div class="col-3 form-group">
-           <select class="form-control form-control-lg" formArrayName="franchigie" (change)="changeFranchigia($event)">
+           <select class="form-control form-control-lg" formArrayName="franchigie" (change)="changeFranchigia($event, i)" required 
+           [ngClass]="{
+            'is-invalid': person.controls.franchigie.controls.invalid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched),
+            'is-valid': person.controls.franchigie.controls.valid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched) }">
+
+            <option  [value]="" disabled>Seleziona</option>
             <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id" [selected]="franchigia.value.selected == 'true'">{{franchigia.value.value}}</option>
           </select>
         </div>
+        
         <div class="col-3">
-          <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso"  >
+          <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso" 
+          [ngClass]="{
+            'is-invalid': person.controls.sesso.invalid && (person.controls.sesso.dirty || person.controls.sesso.touched),
+            'is-valid': person.controls.sesso.valid && (person.controls.sesso.dirty || person.controls.sesso.touched) }">
               <label ngbButtonLabel class="btn-light">
                 <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
               </label>
@@ -99,3 +108,4 @@
       {{myForm.value | json }}
   </div>
 </div>
+

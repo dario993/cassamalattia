@@ -1,1 +1,211 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+#benefits .basic-insurance {
+    margin-bottom: 1rem;
+    color: #a3a3a3;
+}
+
+#benefits .basic-insurance__header {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: .75rem
+}
+
+#benefits .basic-insurance__tiles {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#benefits .basic-insurance__tiles::after {
+    clear: both;
+    content: "";
+    display: block
+}
+
+
+#benefits .basic-insurance__tile {
+    position: relative;
+    width: 14.25rem;
+    height: 4rem;
+    margin-bottom: .75rem;
+    margin-right: .75rem;
+    float: left;
+    background: #fff;
+    cursor: pointer;
+    border: .1rem solid;
+}
+
+@media screen and (max-width:60rem) {
+    #benefits .basic-insurance__tile {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 60rem){
+   
+    #benefits .basic-insurance__tile:hover {
+        background: #8f8f8f4a;
+    }
+    #benefits .basic-insurance__tile--selected:hover{
+        background: #797979;
+    }
+}
+
+#benefits .basic-insurance__tile--selected {
+    background: #797979;
+    color: #fff;
+    font-weight: 700;
+}
+
+#benefits .basic-insurance__tile--wrapper {
+    line-height: 3.80rem;
+    vertical-align: middle;
+}
+
+#benefits .basic-insurance__tile--content {
+    font-family: akkurat-light,Helvetica Neue,sans-serif;
+    font-size: .875rem;
+    line-height: 1.5em;
+    display: inline-block;
+    padding-left: 1.25rem;
+    vertical-align: middle;
+}
+
+
+#benefits .basic-insurance__tile--info {
+    margin-top: .5rem;
+    padding-right: 1.875rem;
+    float: right;
+    line-height: 3rem;
+}
+
+#benefits .basic-insurance__tile--info .popover-icon {
+    margin: 0
+}
+
+#benefits .basic-insurance__tile .icon-benefits {
+    display: inline-block;
+}
+
+.icon-benefits{
+    vertical-align: middle;
+}
+.icon-benefits::before{
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+#benefits .basic-insurance__tile--content {
+    width: 100%;
+}
+
+
+
+
+
+#benefits .additional-benefits {
+    margin-bottom: 1rem;
+    color: #1289ba;
+}
+
+#benefits .additional-benefits__header {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: .75rem
+}
+
+#benefits .additional-benefits__tiles {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#benefits .additional-benefits__tiles::after {
+    clear: both;
+    content: "";
+    display: block
+}
+
+
+#benefits .additional-benefits__tile {
+    position: relative;
+    width: 14.25rem;
+    height: 4rem;
+    margin-bottom: .75rem;
+    margin-right: .75rem;
+    float: left;
+    background: #fff;
+    cursor: pointer;
+    border: .1rem solid;
+}
+
+@media screen and (max-width:60rem) {
+    #benefits .additional-benefits__tile {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 60rem){
+   
+    #benefits .additional-benefits__tile:hover {
+        background: #92b3c14a;
+    }
+    #benefits .additional-benefits__tile--selected:hover{
+        background: #1888ad;
+    }
+}
+
+#benefits .additional-benefits__tile--selected {
+    background: #1888ad;
+    color: #fff;
+    font-weight: 700;
+}
+
+#benefits .additional-benefits__tile--wrapper {
+    line-height: 3.80rem;
+    vertical-align: middle;
+}
+
+#benefits .additional-benefits__tile--content {
+    font-family: akkurat-light,Helvetica Neue,sans-serif;
+    font-size: .875rem;
+    line-height: 1.5em;
+    display: inline-block;
+    padding-left: 1.25rem;
+    vertical-align: middle;
+}
+
+
+#benefits .additional-benefits__tile--info {
+    margin-top: .5rem;
+    padding-right: 1.875rem;
+    float: right;
+    line-height: 3rem;
+}
+
+#benefits .additional-benefits__tile--info .popover-icon {
+    margin: 0
+}
+
+#benefits .additional-benefits__tile .icon-benefits {
+    display: inline-block;
+}
+
+.icon-benefits{
+    vertical-align: middle;
+}
+.icon-benefits::before{
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+#benefits .additional-benefits__tile--content {
+    width: 56%;
+}
+
+
+

@@ -3,16 +3,10 @@ import { Router } from '@angular/router';
 
 import { DataService } from '../services/data.service';
 import { Person } from '../classes/Person';
-import { Data, Franchigia } from '../classes/Data';
+import { Data, Utils } from '../classes/Data';
 import { Observable } from 'rxjs';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from '@angular/forms';
 
-const defaultFranchigia = [ 
-  { id: "1", value: "100", selected: 'false' }, 
-  { id: "2", value: "200", selected: 'false' }, 
-  { id: "3", value: "300", selected: 'false' },
-  { id: "4", value: "600", selected: 'true' } 
-  ];
 
 @Component({
   selector: 'app-personal-details1',
@@ -26,9 +20,11 @@ export class PersonalDetails1Component implements OnInit {
   data: Data;
 
 
-  constructor(private service: DataService, private fb: FormBuilder, private router: Router){
+  constructor(private service: DataService, 
+              private fb: FormBuilder, 
+              private router: Router){
+
     this.data = service.getData();
-    
   }
 
   ngOnInit(){
@@ -40,14 +36,6 @@ export class PersonalDetails1Component implements OnInit {
     this.initPersons();
   }
   
-  
-  get personForms(){
-    return this.myForm.get('persons') as FormArray;
-  }
-
-
-  
-
   initPersons(){
     let persons: Array<Person> = this.data.persons;
     for(let i=0; i<persons.length; i++){
@@ -58,33 +46,72 @@ export class PersonalDetails1Component implements OnInit {
         franchigie: this.fb.array([]),
         sesso: [persons[i].sesso, [Validators.required]]
       }));
-
       this.initFranchigie(persons[i], i);
     }
   }
 
-  initFranchigie(element, k){
-    for(let i=0; i< element.franchigie.length; i++){
-      const franchigiaArray = (<FormArray>this.myForm.controls['persons']).at(k).get('franchigie') as FormArray;
 
+  get personForms(){
+    return this.myForm.get('persons') as FormArray;
+  }
+
+
+  initFranchigie(person, k){
+    const franchigiaArray = (<FormArray>this.myForm.controls['persons']).at(k).get('franchigie') as FormArray;
+    while (franchigiaArray.length) {
+      franchigiaArray.removeAt(0);
+    }
+    for(let i=0; i< person.franchigie.length; i++){
       franchigiaArray.push(this.fb.group({
         id:[this.data.persons[k].franchigie[i].id],
-        value: [this.data.persons[k].franchigie[i].value],
+        value: [this.data.persons[k].franchigie[i].value, [Validators.required]],
         selected: [this.data.persons[k].franchigie[i].selected]
       }));
-
     }
   }
 
 
   addPerson(){
+    const person = new Person();
+    this.data.persons.push(person);
     this.personForms.push(this.fb.group({
-      nome: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-      nascita: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
-      franchigie: this.fb.array(this.buildFormArray(defaultFranchigia)),
-      sesso: ['', [Validators.required]]
+      nome: [person.nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
+      franchigie: this.fb.array(person.franchigie),
+      sesso: [person.sesso, [Validators.required]]
     }));
-    //da finire
+    
+  }
+
+  changeFranchigia(event, i){
+    let franchigie = this.myForm.value.persons[i].franchigie;
+    for(let j=0; j<franchigie.length; j++){
+      if(franchigie[j].id == event.target.value){
+        franchigie[j].selected = "true";
+      } 
+      else{
+        franchigie[j].selected = "false";
+      }
+    }
+  }
+
+  refreshFranchigia(event, i){
+    
+    // TO-DO
+    // solo se il campo è valido, e solo se diverso dal parametro precedente
+
+    let selectPerson = this.myForm.value.persons[i];
+    let bithday = new Date(event.target.value);
+    let age = this.data.calculateAge(bithday);
+    if(age>=0 && age<= 18){
+      console.log(Utils.getFranchigiaMinori());
+      this.data.persons[i].franchigie =  Utils.getFranchigiaMinori();
+    }
+    else if(age > 18){
+      this.data.persons[i].franchigie = Utils.getFranchigiaAdulti();
+    }
+
+    this.initFranchigie(this.myForm.value.persons[i], i);
     
   }
 
@@ -92,15 +119,7 @@ export class PersonalDetails1Component implements OnInit {
     this.personForms.removeAt(i);
   }
   
-  public buildFormArray(controllers: any) {
-    return controllers.map(ctrl => {
-      return this.fb.group({
-        id: [ctrl.id],
-        value: [ctrl.value, Validators.required],
-        selected: [ctrl.selected]
-      });
-    });
-  }
+
 
   nextStep(){
     
@@ -110,4 +129,6 @@ export class PersonalDetails1Component implements OnInit {
     this.router.navigate(['personal-details2']);
     
   }
+
+  
 }
