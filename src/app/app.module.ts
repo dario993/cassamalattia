@@ -16,6 +16,7 @@ import { OfferComponent } from './offer/offer.component';
 import { RoutingModule } from './routing.module';
 import { AuthService } from './services/auth.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { DetailOfferComponent } from './detail-offer/detail-offer.component';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
     AppComponent,
     PersonalDetails1Component,
     PersonalDetails2Component,
-    OfferComponent
+    OfferComponent,
+    DetailOfferComponent
   ],
   imports: [
     BrowserModule,

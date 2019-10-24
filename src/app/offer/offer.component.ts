@@ -42,7 +42,6 @@ export class OfferComponent implements OnInit {
     let i = 0;
 
     let basics = persons[i]['basics'];
-   
     for(let j=0; j<basics.length; j++){
       this.basicsForm.push(this.fb.group({
         title: [basics[j].title],
@@ -54,7 +53,6 @@ export class OfferComponent implements OnInit {
     }
 
     let benefits = persons[i]['benefits'];
-    console.log(benefits);
     for(let j=0; j<benefits.length; j++){
       this.benefitsForm.push(this.fb.group({
         title: [benefits[j].title],
@@ -80,20 +78,24 @@ export class OfferComponent implements OnInit {
 
   selectBasic(basic, i){
     let basics = this.myForm.value.basics;
-    console.log(basics);
     for(let j=0; j< basics.length; j++){
       if(basics[j].code == basic.controls.code.value){
-        basics[j].selected = "true";
+        console.log("selected: " + basic.controls.selected.value);
+        if(basic.controls.selected.value == "true"){
+          basics[j].selected = "false";
+          basic.controls.selected.value = "false";
+        }
+        else{
+          basics[j].selected = "true";
+          basic.controls.selected.value = "true";
+        }
+       
       } 
-      else{
-        basics[j].selected = "false";
-      }
     }
   }
 
   selectBenefit(benefit){
     let benefits = this.myForm.value.benefits;
-    //console.log(benefits);
     for(let j=0; j< benefits.length; j++){
       if(benefits[j].code == benefit.controls.code.value){
         console.log("selected: " + benefit.controls.selected.value);
@@ -144,5 +146,19 @@ export class OfferComponent implements OnInit {
       }
     );
   }
+
+  backStep(){
+    this.router.navigate(['personal-details2']);
+  }
+
+  nextStep(){
+    
+    console.log("Next step!");
+    
+    this.service.setGlobalData(this.myForm.value);
+    this.router.navigate(['detail-offer']);
+    
+  }
+
 
 }

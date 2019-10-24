@@ -19,7 +19,7 @@
       </div>
         
       <div class="row basic-insurance"  style="margin-top: 2rem">
-          <h4>Assicurazione di base</h4>
+          <h4>Assicurazione di base <fa name="info-circle" style="font-size: 0.7em" popoverTitle="Pop title" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" ></fa></h4>
       </div>
       
 
@@ -30,6 +30,7 @@
                 <div >{{basic.value.title}}</div>
               </div>
               <div class="basic-insurance__tile--info">
+                <fa name="info-circle" font-size="medium" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" ></fa>
               </div>
             </div>
           </div>
@@ -46,7 +47,8 @@
             <div class="additional-benefits__tile--content"><!---->
               <div>{{benefit.value.title}}</div>
             </div>
-            <div class="additional-benefits__tile--info">
+            <div class="basic-insurance__tile--info">
+              <fa name="info-circle" font-size="medium" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" ></fa>
             </div>
           </div>
         </div>
@@ -55,6 +57,13 @@
 
      
     </form>
+
+    <div class="row" style="margin-top: 20px">
+      <div class="col text-left">
+          <button type="button"   [disabled]="myForm.invalid"  class="btn btn-primary" (click)="nextStep()">Avanti</button>
+          <button type="button"   class="btn btn-link" (click)="backStep()">Indietro</button>
+      </div>
+  </div>
 
   
   

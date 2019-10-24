@@ -44,7 +44,8 @@ export class PersonalDetails1Component implements OnInit {
         nome: [persons[i].nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
         nascita: [persons[i].nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
         franchigie: this.fb.array([]),
-        sesso: [persons[i].sesso, [Validators.required]]
+        sesso: [persons[i].sesso, [Validators.required]],
+        infortunio: [persons[i].infortunio, [Validators.required]]
       }));
       this.initFranchigie(persons[i], i);
     }
@@ -78,7 +79,8 @@ export class PersonalDetails1Component implements OnInit {
       nome: [person.nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
       franchigie: this.fb.array(person.franchigie),
-      sesso: [person.sesso, [Validators.required]]
+      sesso: [person.sesso, [Validators.required]],
+      infortunio: [person.infortunio, [Validators.required]]
     }));
     
   }
@@ -102,7 +104,7 @@ export class PersonalDetails1Component implements OnInit {
 
     let selectPerson = this.myForm.value.persons[i];
     let bithday = new Date(event.target.value);
-    let age = this.data.calculateAge(bithday);
+    let age = Utils.calculateAge(bithday)
     if(age>=0 && age<= 18){
       console.log(Utils.getFranchigiaMinori());
       this.data.persons[i].franchigie =  Utils.getFranchigiaMinori();

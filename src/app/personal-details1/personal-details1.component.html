@@ -20,68 +20,88 @@
     <div formArrayName="persons">
     
       <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px">
-        <div class="col-3 form-group">
-            <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome"
-            [ngClass]="{
-              'is-invalid': person.controls.nome.invalid && (person.controls.nome.dirty || person.controls.nome.touched),
-              'is-valid': person.controls.nome.valid && (person.controls.nome.dirty || person.controls.nome.touched) }">
-           
-      
-            <div *ngIf="person.controls.nome.dirty && person.controls.nome.touched && person.controls.nome.invalid">
-              <div class="text-danger" *ngIf="person.controls.nome.errors.required">
-                Il campo nome è richiesto!
-              </div>
-              <div class="text-danger" *ngIf="person.controls.nome.errors.minlength">
-                Inserire almeno {{person.controls.nome.errors.minlength.requiredLength}} caratteri
-              </div>
-              <div class="text-danger" *ngIf="person.controls.nome.errors.pattern">
-                Inserire caratteri dall a-z
-              </div>
-            </div>
-
-        </div>
-        
-        <div class="col-3">
-            <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita" (change)="refreshFranchigia($event, i)"
-            [ngClass]="{
-              'is-invalid': person.controls.nascita.invalid && (person.controls.nascita.dirty || person.controls.nascita.touched),
-              'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
-              
-              <div *ngIf="person.controls.nascita.dirty && person.controls.nascita.touched && person.controls.nascita.invalid">
-                <div class="text-danger" *ngIf="person.controls.nascita.errors.required">
-                  Il campo nascita è richiesto!
-                </div>
-                <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern">
-                  Inserire data formato GG.MM.AAAA
-                </div>
-              </div>
-        </div>
-        <div class="col-3 form-group">
-           <select class="form-control form-control-lg" formArrayName="franchigie" (change)="changeFranchigia($event, i)" required 
-           [ngClass]="{
-            'is-invalid': person.controls.franchigie.controls.invalid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched),
-            'is-valid': person.controls.franchigie.controls.valid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched) }">
-
-            <option  [value]="" disabled>Seleziona</option>
-            <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id" [selected]="franchigia.value.selected == 'true'">{{franchigia.value.value}}</option>
-          </select>
-        </div>
-        
-        <div class="col-3">
-          <div class="btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso" 
-          [ngClass]="{
-            'is-invalid': person.controls.sesso.invalid && (person.controls.sesso.dirty || person.controls.sesso.touched),
-            'is-valid': person.controls.sesso.valid && (person.controls.sesso.dirty || person.controls.sesso.touched) }">
-              <label ngbButtonLabel class="btn-light">
-                <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
-              </label>
+        <div class="row col-lg-5">
+          <div class="col-6 form-group">
+              <input type="text"  class="form-control form-control-lg" placeholder="Persona {{i+1}}"  formControlName="nome"
+              [ngClass]="{
+                'is-invalid': person.controls.nome.invalid && (person.controls.nome.dirty || person.controls.nome.touched),
+                'is-valid': person.controls.nome.valid && (person.controls.nome.dirty || person.controls.nome.touched) }">
             
-              <label ngbButtonLabel class="btn-light">
-                <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
-              </label>
-            </div>
-            <button type="button" class="btn btn-lg btn-link sm-1" style="margin-left: 10px" (click)="deletePerson(i)"
-            *ngIf="personForms.controls?.length > 1" ><fa name="times" ></fa></button>
+        
+              <div *ngIf="person.controls.nome.dirty && person.controls.nome.touched && person.controls.nome.invalid">
+                <div class="text-danger" *ngIf="person.controls.nome.errors.required">
+                  Il campo nome è richiesto!
+                </div>
+                <div class="text-danger" *ngIf="person.controls.nome.errors.minlength">
+                  Inserire almeno {{person.controls.nome.errors.minlength.requiredLength}} caratteri
+                </div>
+                <div class="text-danger" *ngIf="person.controls.nome.errors.pattern">
+                  Inserire caratteri dall a-z
+                </div>
+              </div>
+
+          </div>
+          
+          <div class="col-6">
+              <input type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita" (change)="refreshFranchigia($event, i)"
+              [ngClass]="{
+                'is-invalid': person.controls.nascita.invalid && (person.controls.nascita.dirty || person.controls.nascita.touched),
+                'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
+                
+                <div *ngIf="person.controls.nascita.dirty && person.controls.nascita.touched && person.controls.nascita.invalid">
+                  <div class="text-danger" *ngIf="person.controls.nascita.errors.required">
+                    Il campo nascita è richiesto!
+                  </div>
+                  <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern">
+                    Inserire data formato GG.MM.AAAA
+                  </div>
+                </div>
+          </div>
+        </div>
+        
+        <div class="row col-lg-7">
+          <div class="col-4 form-group">
+            <select class="form-control form-control-lg" formArrayName="franchigie" (change)="changeFranchigia($event, i)" required 
+            [ngClass]="{
+              'is-invalid': person.controls.franchigie.controls.invalid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched),
+              'is-valid': person.controls.franchigie.controls.valid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched) }">
+
+              <option  [value]="" disabled>Seleziona</option>
+              <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id" [selected]="franchigia.value.selected == 'true'">{{franchigia.value.value}}</option>
+            </select>
+          </div>
+          
+          <div class="row col-6 form-group" >
+            <div class="col-6 btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="infortunio"  formControlName="infortunio" 
+            [ngClass]="{
+              'is-invalid': person.controls.infortunio.invalid && (person.controls.infortunio.dirty || person.controls.infortunio.touched),
+              'is-valid': person.controls.infortunio.valid && (person.controls.infortunio.dirty || person.controls.infortunio.touched) }">
+                <label ngbButtonLabel class="btn-light">
+                  <input ngbButton type="radio" [value]="true" >Si
+                </label>
+              
+                <label ngbButtonLabel class="btn-light">
+                  <input ngbButton type="radio" [value]="false">No
+                </label>
+              </div>
+              
+              <div class="col-6 btn-group btn-group-toggle btn-group-lg" ngbRadioGroup name="sesso"  formControlName="sesso" 
+            [ngClass]="{
+              'is-invalid': person.controls.sesso.invalid && (person.controls.sesso.dirty || person.controls.sesso.touched),
+              'is-valid': person.controls.sesso.valid && (person.controls.sesso.dirty || person.controls.sesso.touched) }">
+                <label ngbButtonLabel class="btn-light">
+                  <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
+                </label>
+              
+                <label ngbButtonLabel class="btn-light">
+                  <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
+                </label>
+              </div>
+          </div>
+          <div class="col-1">
+              <button type="button" class="btn btn-lg btn-link sm-1"  (click)="deletePerson(i)"
+              *ngIf="personForms.controls?.length > 1" ><fa name="times" ></fa></button>
+          </div>
         </div>
       </div>
     </div>

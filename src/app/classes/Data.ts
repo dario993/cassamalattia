@@ -6,11 +6,7 @@ export class Data {
     email: string;
     persons: Person[];
 
-    public calculateAge(birthday) { // birthday is a date
-        var ageDifMs = Date.now() - birthday.getTime();
-        var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-       }
+    
 }
 
 export class Utils{
@@ -39,6 +35,12 @@ export class Utils{
             ];
         return franchigia; 
       }
+
+    public static calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - birthday.getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+       }
 
     constructor(){
 
