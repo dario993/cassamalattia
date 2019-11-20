@@ -126,11 +126,24 @@ export class PersonalDetails1Component implements OnInit {
   nextStep(){
     
     console.log("Next step!");
+
+    this.updateData();
     
-    this.service.setDataPersons(this.myForm.value.persons);
+    this.service.setDataPersons(this.data.persons);
     this.router.navigate(['personal-details2']);
     
   }
 
+
+  updateData(){
+
+    for(let i = 0; i < this.myForm.value.persons.length; i++){
+      this.data.persons[i].nome = this.myForm.value.persons[i].nome;
+      this.data.persons[i].nascita = this.myForm.value.persons[i].nascita;
+      this.data.persons[i].franchigie = this.myForm.value.persons[i].franchigie;
+      this.data.persons[i].infortunio = this.myForm.value.persons[i].infortunio;
+      this.data.persons[i].sesso = this.myForm.value.persons[i].sesso;
+    }
+  }
   
 }

@@ -19,29 +19,32 @@ export class OfferComponent implements OnInit {
 
   data: Data;
 
+  selectedPerson: number;
+
   constructor(
     private service: DataService, 
     private fb: FormBuilder, 
     private router: Router,
     private http: HttpClientService){
-    this.data = service.getData();
-    this.person = this.data.persons[0];
+      this.selectedPerson = 0;
+      this.data = service.getData();
+      this.getDataPerson(this.selectedPerson);     
+}
+
+getDataPerson(p:number){
+  this.person = this.data.persons[p];
 }
 
   ngOnInit() {
     this.initOffer();
-    this.myForm = this.fb.group({
-      basics: this.fb.array([]),
-      benefits: this.fb.array([])
-    })
+    
     
   }
 
   initForm(){
     let persons: Array<Person> = this.data.persons;
-    let i = 0;
-
-    let basics = persons[i]['basics'];
+    
+    let basics = persons[this.selectedPerson]['basics'];
     for(let j=0; j<basics.length; j++){
       this.basicsForm.push(this.fb.group({
         title: [basics[j].title],
@@ -52,7 +55,7 @@ export class OfferComponent implements OnInit {
       }));
     }
 
-    let benefits = persons[i]['benefits'];
+    let benefits = persons[this.selectedPerson]['benefits'];
     for(let j=0; j<benefits.length; j++){
       this.benefitsForm.push(this.fb.group({
         title: [benefits[j].title],
@@ -80,7 +83,7 @@ export class OfferComponent implements OnInit {
     let basics = this.myForm.value.basics;
     for(let j=0; j< basics.length; j++){
       if(basics[j].code == basic.controls.code.value){
-        console.log("selected: " + basic.controls.selected.value);
+        //console.log("selected: " + basic.controls.selected.value);
         if(basic.controls.selected.value == "true"){
           basics[j].selected = "false";
           basic.controls.selected.value = "false";
@@ -98,7 +101,7 @@ export class OfferComponent implements OnInit {
     let benefits = this.myForm.value.benefits;
     for(let j=0; j< benefits.length; j++){
       if(benefits[j].code == benefit.controls.code.value){
-        console.log("selected: " + benefit.controls.selected.value);
+        //console.log("selected: " + benefit.controls.selected.value);
         if(benefit.controls.selected.value == "true"){
           benefits[j].selected = "false";
           benefit.controls.selected.value = "false";
@@ -131,11 +134,20 @@ export class OfferComponent implements OnInit {
     return this.myForm.get('benefits') as FormArray;
   }
 
+  resetForm(){
+    this.myForm = this.fb.group({
+      basics: this.fb.array([]),
+      benefits: this.fb.array([])
+    });
+  }
+
   initOffer(){
+    this.resetForm();
+    
     this.http.initOffer(this.data).subscribe(
       response => {
         if(response['success'] == 'true'){
-          alert(response['data']);
+          //alert(response['data']);
           console.log(response['data']);
           this.data = response['data'];
           this.initForm();
@@ -148,15 +160,37 @@ export class OfferComponent implements OnInit {
   }
 
   backStep(){
-    this.router.navigate(['personal-details2']);
+    if(this.selectedPerson > 0 ){
+      this.selectedPerson--;
+      this.getDataPerson(this.selectedPerson);
+      this.resetForm();
+      this.initForm();
+    }
+    else{
+      this.router.navigate(['personal-details2']);
+    }
+    
   }
 
   nextStep(){
     
-    console.log("Next step!");
+    this.data.persons[this.selectedPerson].basics = this.myForm.value.basics;
+    this.data.persons[this.selectedPerson].benefits = this.myForm.value.benefits;
+    console.log("total persons: " + this.data.persons.length);
+    console.log("seleted persons: " + this.selectedPerson);
     
-    this.service.setGlobalData(this.myForm.value);
-    this.router.navigate(['detail-offer']);
+    if(this.data.persons.length-1 == this.selectedPerson){
+      console.log(this.data);
+      this.service.setDataPersons(this.data.persons);
+      this.router.navigate(['detail-offer']);
+    }
+    else{
+      this.selectedPerson++;
+      this.getDataPerson(this.selectedPerson);
+      this.resetForm();
+      this.initForm();
+    }
+    
     
   }
 

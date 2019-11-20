@@ -41,7 +41,7 @@ export class DataService {
 
   setDataPersons(persons){
     this.data.persons = persons;
-    console.log("Store data persons: " + this.data);
+    console.log("Store data persons: " + this.data.persons);
     this.saveLocalData();
   }
 

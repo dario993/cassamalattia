@@ -10,6 +10,8 @@ export class Person implements PersonInterface{
     franchigie: Array<any>;
     sesso: boolean;
     infortunio: boolean;
+    basics: Array<any>;
+    benefits: Array<any>;
     
     
 
@@ -19,6 +21,8 @@ export class Person implements PersonInterface{
         this.franchigie = Utils.getFranchigiaAdulti();
         this.sesso = null;
         this.infortunio = null;
+        this.basics = null;
+        this.benefits = null;
     }
 
     

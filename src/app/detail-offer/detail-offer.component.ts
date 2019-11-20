@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpClientService } from '../services/http.service';
+import { Data } from '../classes/Data';
+import { Person } from '../classes/Person';
+
 
 @Component({
   selector: 'app-detail-offer',
@@ -7,9 +14,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailOfferComponent implements OnInit {
 
-  constructor() { }
+
+  myForm: FormGroup; 
+
+  person : Person;
+
+  data: Data;
+
+  selectedPerson: number;
+
+  constructor(
+    private service: DataService, 
+    private fb: FormBuilder, 
+    private router: Router,
+    private http: HttpClientService){
+      this.selectedPerson = 0;
+      this.data = service.getData();
+     
+}
+
 
   ngOnInit() {
+    
   }
 
 }
