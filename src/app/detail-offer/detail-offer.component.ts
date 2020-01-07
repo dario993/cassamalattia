@@ -35,6 +35,35 @@ export class DetailOfferComponent implements OnInit {
 
 
   ngOnInit() {
+    this.resetForm();
+    
+    this.http.getOffer(this.data).subscribe(
+      response => {
+        if(response['success'] == 'true'){
+          //alert(response['data']);
+          //console.log(response['data']);
+          this.data = response['data'];
+          this.initForm();
+        }
+        else{
+          alert(response['message']);
+        }
+      }
+    );
+  }
+
+
+  resetForm(){
+    this.myForm = this.fb.group({
+      
+    });
+  }
+
+  initForm(){
+    console.log(this.data);
+  }
+
+  getOffert(){
     
   }
 

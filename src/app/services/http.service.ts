@@ -22,6 +22,10 @@ export class HttpClientService {
     }
 
     initOffer(data: Data){
-        return this.http.post(this.APIURL+"offer.php?XDEBUG_SESSION_START=netbeans-xdebug" , { "data" : data}, httpOptions);
+        return this.http.post(this.APIURL+"init_offer.php?XDEBUG_SESSION_START=netbeans-xdebug" , { "data" : data}, httpOptions);
+    }
+
+    getOffer(data: Data){
+       return this.http.post(this.APIURL+"get_offer.php?XDEBUG_SESSION_START=netbeans-xdebug",  { "data" : data}, httpOptions);
     }
 }
