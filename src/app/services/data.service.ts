@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
-import { Data } from '../classes/Data';
+import { Data, Plz } from '../classes/Data';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -22,10 +22,8 @@ export class DataService {
     else{
 
       
-      this.data
-
       this.data = new Data();
-      this.data.plz_localita = '';
+      this.data.plz_localita = new Plz();
       this.data.paese_di_domicilio = '';
 
       this.persons.push(new Person());
@@ -41,7 +39,7 @@ export class DataService {
 
   setDataPersons(persons){
     this.data.persons = persons;
-    console.log("Store data persons: " + this.data.persons);
+    console.log("Store data persons: " + this.data.persons.toString());
     this.saveLocalData();
   }
 
@@ -56,6 +54,10 @@ export class DataService {
 
     if(data.email !== undefined ){
       this.data.email = data.email;
+    }
+
+    if(data.persons !== undefined){
+      this.data.persons = data.persons;
     }
 
     this.saveLocalData();

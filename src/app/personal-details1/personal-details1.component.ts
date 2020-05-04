@@ -6,6 +6,7 @@ import { Person } from '../classes/Person';
 import { Data, Utils } from '../classes/Data';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from '@angular/forms';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 
 @Component({
@@ -29,12 +30,16 @@ export class PersonalDetails1Component implements OnInit {
 
   ngOnInit(){
     this.myForm = this.fb.group({
-      plz_localita: this.data.plz_localita,
+      plz_localita: this.fb.group({
+        id:  this.data.plz_localita.id,
+        plz: this.data.plz_localita.plz 
+      }), 
       paese_di_domicilio:  this.data.paese_di_domicilio,
       persons: this.fb.array([])
     })
     this.initPersons();
   }
+
   
   initPersons(){
     let persons: Array<Person> = this.data.persons;
@@ -103,8 +108,8 @@ export class PersonalDetails1Component implements OnInit {
     // solo se il campo è valido, e solo se diverso dal parametro precedente
 
     let selectPerson = this.myForm.value.persons[i];
-    let bithday = new Date(event.target.value);
-    let age = Utils.calculateAge(bithday)
+    let age = Utils.calculateAge(event.target.value);
+    console.log('eta' + age);
     if(age>=0 && age<= 18){
       console.log(Utils.getFranchigiaMinori());
       this.data.persons[i].franchigie =  Utils.getFranchigiaMinori();
@@ -119,6 +124,8 @@ export class PersonalDetails1Component implements OnInit {
 
   deletePerson(i){
     this.personForms.removeAt(i);
+    this.data.persons.splice(i, 1);
+    
   }
   
 
@@ -136,7 +143,6 @@ export class PersonalDetails1Component implements OnInit {
 
 
   updateData(){
-
     for(let i = 0; i < this.myForm.value.persons.length; i++){
       this.data.persons[i].nome = this.myForm.value.persons[i].nome;
       this.data.persons[i].nascita = this.myForm.value.persons[i].nascita;

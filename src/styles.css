@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+    color: #333;
+}
 
 #benefits .basic-insurance {
     margin-bottom: 1rem;
@@ -207,5 +210,14 @@
     width: 56%;
 }
 
+
+.btn{
+    border-radius: 0px;
+}
+
+.nopadding{
+    padding: 0px;
+    margin: 0px;
+}
 
 

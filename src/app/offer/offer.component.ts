@@ -29,22 +29,20 @@ export class OfferComponent implements OnInit {
       this.selectedPerson = 0;
       this.data = service.getData();
       this.getDataPerson(this.selectedPerson);     
-}
+  } 
 
-getDataPerson(p:number){
-  this.person = this.data.persons[p];
-}
+  getDataPerson(p:number){
+    this.person = this.data.persons[p];
+  }
 
   ngOnInit() {
     this.initOffer();
-    
-    
-  }
+   }
 
   initForm(){
     let persons: Array<Person> = this.data.persons;
     
-    let basics = persons[this.selectedPerson]['basics'];
+    let basics = persons[0]['basics'];
     for(let j=0; j<basics.length; j++){
       this.basicsForm.push(this.fb.group({
         title: [basics[j].title],
@@ -67,8 +65,6 @@ getDataPerson(p:number){
       }));
     }
 
-
-   
   }
 
   initBasics(){
@@ -143,7 +139,6 @@ getDataPerson(p:number){
 
   initOffer(){
     this.resetForm();
-    
     this.http.initOffer(this.data).subscribe(
       response => {
         if(response['success'] == 'true'){
@@ -155,7 +150,8 @@ getDataPerson(p:number){
         else{
           alert(response['message']);
         }
-      }
+      },
+      error => alert("error subscribe")
     );
   }
 
@@ -174,7 +170,7 @@ getDataPerson(p:number){
 
   nextStep(){
     
-    this.data.persons[this.selectedPerson].basics = this.myForm.value.basics;
+    this.data.persons[0].basics = this.myForm.value.basics;
     this.data.persons[this.selectedPerson].benefits = this.myForm.value.benefits;
     console.log("total persons: " + this.data.persons.length);
     console.log("seleted persons: " + this.selectedPerson);

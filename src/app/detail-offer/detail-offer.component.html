@@ -1,9 +1,53 @@
+<div class="row">
+  <div class="col">
+    <h1>I suoi risultati</h1>
+    
+  </div>
+</div>
+
 
 <div class="row">
   <div class="col">
-    <h1>DATI INVIATI</h1>
-  <p>{{ data | json }}</p>
-  <h1>DATI FORM</h1>
-   <p>{{myForm.value | json}}</p>
-</div>
+    <div id="dataResult" *ngFor="let row  of results; index as i" class="row resultset">
+      <div [attr.data-index]="i" class="col-12 col-md-8 ">
+        <div class="row">
+          <div class="col-8">
+            <h5><strong>{{row.persone[0].nome}} </strong></h5>
+          </div>
+          <div class="col-4">
+            <h6>Premio / mese</h6>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <h6>{{row.persone[0].it}}</h6>
+        </div>
+          <div class="col-4">
+              <h5><strong>{{row.totale | number : '1.2-2'}}</strong> CHF</h5>
+          </div>
+        </div>
+        <div class="row" *ngIf="row.persone?.length > 1">
+          <div class="col">
+              <button class="btn btn-link nopadding"  role="button" (click)="isCollapsed[i] = !isCollapsed[i]" [attr.aria-expanded]="!isCollapsed[i]"  >
+                  <fa name="angle-down" style="padding-right: 6px" rotate="180"></fa>Dettaglio
+                </button>
+                <div id="collapse{{i}}" style="margin-left: 18px" [ngbCollapse]="!isCollapsed[i]">
+                    <div class="row" *ngFor="let persona of row.persone; index as p">
+                      <div class="col-8">
+                        {{data.persons[p]['nome']}}:
+                      </div>
+                      <div class="col-4">
+                        {{persona['premio'] | number : '1.2-2'}} CHF
+                      </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-12 col-md-4">
+          <button type="button" [disabled]="row.persone[0].contratto == 0"  class="btn btn-primary btn-block" (click)="nextStep()">RICHIEDI OFFERTA</button>
+      </div>
+    </div>
+  </div>
 </div> 

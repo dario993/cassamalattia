@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Data } from '../classes/Data';
+import { Data, Plz } from '../classes/Data';
 import { DataService } from '../services/data.service';
 import { HttpClientService } from '../services/http.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, switchMap, catchError, filter} from 'rxjs/operators';
-
 
 
 @Component({
@@ -19,6 +18,8 @@ export class PersonalDetails2Component implements OnInit {
   myForm: FormGroup;
 
   data: Data;
+
+  model_plz: Plz;
 
   constructor(private service: DataService, 
               private fb: FormBuilder, 
@@ -34,13 +35,28 @@ export class PersonalDetails2Component implements OnInit {
     })
   }
 
+  
+  plz_localita(){
+    return this.myForm.get('plz_localita');
+  }
+
+  resultFormatPlz(value: any){
+    return value.plz;
+  }
+
+  inputFormatPlz(value: any){
+    if(value.plz){
+      return value.plz;
+    }
+    return value;
+  }
+
   search = (text$: Observable<string>) => {
     return text$.pipe(
-      filter( (str: string) => str.length>3 ),
       debounceTime(200),
-      //switchMap
+      distinctUntilChanged(),
+      filter( (str: string) => str.length>3 ),
       switchMap( (searchText) =>  this.http.getPlz(searchText) )
-              
     );
   }
 
