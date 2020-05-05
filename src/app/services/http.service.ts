@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Data } from '../classes/Data';
-import { Observable } from 'rxjs';
-import { Offerta } from '../classes/Offerta';
 import { IOfferta } from '../interfaces/interface-offerta';
 
 
@@ -34,6 +32,6 @@ export class HttpClientService {
     }
 
     getOfferta (data: Data){
-        return this.http.post<Offerta[]>(this.APIURL+"get_offer.php?XDEBUG_SESSION_START=netbeans-xdebug",  { "data" : data}, httpOptions);
+        return this.http.post<IOfferta[]>(this.APIURL+"get_offer.php?XDEBUG_SESSION_START=netbeans-xdebug",  { "data" : data}, httpOptions);
      }
 }
