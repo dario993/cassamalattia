@@ -3,7 +3,6 @@ import { NgModule} from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgSelectModule } from '@ng-select/ng-select';
-import { AngularFontAwesomeModule }   from 'angular-font-awesome';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PersonalDetails1Component } from './personal-details1/personal-details1.component';
@@ -17,6 +16,7 @@ import { RoutingModule } from './routing.module';
 import { AuthService } from './services/auth.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { DetailOfferComponent } from './detail-offer/detail-offer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -54,12 +54,12 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     NgSelectModule,
-    NgbModule.forRoot(),
+    NgbModule,
     RoutingModule,
-    AngularFontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    FontAwesomeModule
     
   ],
   providers: [DataService, HttpClientService, AuthService],
