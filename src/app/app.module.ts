@@ -14,9 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { OfferComponent } from './offer/offer.component';
 import { RoutingModule } from './routing.module';
 import { AuthService } from './services/auth.service';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { DetailOfferComponent } from './detail-offer/detail-offer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -57,9 +55,7 @@ const routes: Routes = [
     NgbModule,
     RoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    AngularSvgIconModule,
-    FontAwesomeModule
+    ReactiveFormsModule
     
   ],
   providers: [DataService, HttpClientService, AuthService],

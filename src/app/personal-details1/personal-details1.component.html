@@ -90,17 +90,17 @@
               'is-invalid': person.controls.sesso.invalid && (person.controls.sesso.dirty || person.controls.sesso.touched),
               'is-valid': person.controls.sesso.valid && (person.controls.sesso.dirty || person.controls.sesso.touched) }">
                 <label ngbButtonLabel class="btn-light">
-                  <input ngbButton type="radio" [value]="true"><fa name="male"></fa>
+                  <input ngbButton type="radio" [value]="true"><i class="fas fa-male"></i>
                 </label>
               
                 <label ngbButtonLabel class="btn-light">
-                  <input ngbButton type="radio" [value]="false"><fa name="female"></fa>
+                  <input ngbButton type="radio" [value]="false"><i class="fas fa-female"></i>
                 </label>
               </div>
           </div>
           <div class="col-1">
               <button type="button" class="btn btn-lg btn-link sm-1"  (click)="deletePerson(i)"
-              *ngIf="personForms.controls?.length > 1" ><fa name="times" ></fa></button>
+              *ngIf="personForms.controls?.length > 1" ><i class="fas fa-times" ></i></button>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
 
 <div class="row">
   <div class="col" >
-    <button type="button" class="btn btn-link" (click)="addPerson()" style="padding: 0" ><span style="margin-right: 15px" class="btn btn-outline-primary"><fa name="plus"></fa></span>Aggiugi persona</button>
+    <button type="button" class="btn btn-link" (click)="addPerson()" style="padding: 0" ><span style="margin-right: 15px" class="btn btn-outline-primary"><i class="fas fa-plus"></i></span>Aggiugi persona</button>
   </div>
 </div>
 

@@ -29,7 +29,7 @@
         <div class="row" *ngIf="row.persone?.length > 1">
           <div class="col">
               <button class="btn btn-link nopadding"  role="button" (click)="isCollapsed[i] = !isCollapsed[i]" [attr.aria-expanded]="!isCollapsed[i]"  >
-                  <fa name="angle-down" style="padding-right: 6px" rotate="180"></fa>Dettaglio
+                <i class="fas fa-angle-down" style="padding-right: 6px" rotate="180"></i>Dettaglio
                 </button>
                 <div id="collapse{{i}}" style="margin-left: 18px" [ngbCollapse]="!isCollapsed[i]">
                     <div class="row" *ngFor="let persona of row.persone; index as p">
