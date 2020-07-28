@@ -1,10 +1,40 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
-<div class="container">
-  <div class="row">
-      <div class="col-md">
-          <router-outlet></router-outlet>
-        </div>
+
+<!-- INTESTAZIONE -->
+<header class="dark-background color-light" style="border-bottom: 1px solid #bfbfbf">
+  <div class="container">
+    <div class="row" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+      <div class="col-md-6">
+        <img src="../assets/img/logo-vb-krankenkassen-normal-white.png" >
+      </div>
+      <div class="col-md-6">
+        <p style="text-align: right; margin-top: 1rem;">+41 (0)58 255 06 00 | contact@versicherungs-broker.ch</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div id="page-content">
+  <div class="container container-router">
+    <div class="row justify-content-center">
+        <div class="col-md">
+            <router-outlet></router-outlet>
+          </div>
+    </div>
   </div>
 </div>
+
+<footer  id="sticky-footer" class="py-4 dark-background color-light" style="border-top: 1px solid #bfbfbf">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p style="margin-bottom: 0; text-align: center; font-size: 0.8rem;">- © Copyright 2010 - 2020 | Versicherungs-Broker.ch | All Rights Reserved | professional risk management AG -</p>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+
+
 

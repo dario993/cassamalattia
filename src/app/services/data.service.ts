@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
-import { Data, Plz } from '../classes/Data';
-import { HttpClient } from '@angular/common/http';
+import { Data, Plz, DataCliente } from '../classes/Data';
+import { HttpClientService } from '../services/http.service';
 
 @Injectable()
 export class DataService {
 
   data: Data;
+
+   
 
   persons: Array<Person>  = [];
 
@@ -14,7 +16,7 @@ export class DataService {
 
   private APIURL = "http://localhost/rechner_api/api/offer.php";
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClientService) { 
     if(localStorage.getItem('session')!=null){
       this.session = localStorage.getItem('session');
       this.data = JSON.parse(localStorage.getItem('data'));
@@ -25,9 +27,11 @@ export class DataService {
       this.data = new Data();
       this.data.plz_localita = new Plz();
       this.data.paese_di_domicilio = '';
+      this.data.id_offerta = 0; 
 
       this.persons.push(new Person());
       this.data.persons = this.persons;
+      this.data.dataCliente = new DataCliente();
       
     }
   }
@@ -43,7 +47,13 @@ export class DataService {
     this.saveLocalData();
   }
 
+  setOffertData(offert){
+    this.data.offert = offert;
+    this.saveLocalData();
+  }
+
   setGlobalData(data: Data){
+    
     if(data.plz_localita !== undefined ){
       this.data.plz_localita = data.plz_localita;
     }
@@ -52,22 +62,40 @@ export class DataService {
       this.data.paese_di_domicilio = data.paese_di_domicilio;
     }
 
-    if(data.email !== undefined ){
-      this.data.email = data.email;
-    }
 
     if(data.persons !== undefined){
       this.data.persons = data.persons;
     }
 
+    if(data.offert !== undefined){
+      this.data.offert = data.offert;
+    }
+
+    if(data.dataCliente !== undefined){
+      this.data.dataCliente = data.dataCliente;
+    }
+
+
     this.saveLocalData();
   }
 
+  setSelectedOffert(offert){
+    this.data.selectedOffert = offert;
+  }
+
+  getSelectedOffert(){
+    return this.data.selectedOffert;
+  }
+
+
   saveLocalData(){
     localStorage.setItem('data', JSON.stringify(this.data));
-    localStorage.setItem('session', Math.random().toString(36).slice(2) );
+    if(localStorage.getItem('session')==null){
+      localStorage.setItem('session', Math.random().toString(36).slice(2) );
+    }
   }
   
+
 
 
 }

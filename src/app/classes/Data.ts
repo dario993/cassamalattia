@@ -1,11 +1,17 @@
 import { Person } from './Person';
+import {formatDate} from '@angular/common';
 
 export class Data {
+
+    
+    id_offerta: number;
     plz_localita: Plz;
     paese_di_domicilio: string;
-    email: string;
+    
     persons: Person[];
-
+    offert: string;
+    selectedOffert: string;
+    dataCliente: DataCliente;
     
 }
 
@@ -13,6 +19,23 @@ export class Plz{
     id: number;
     plz: string;
     paese: string;
+}
+
+export class DataCliente{
+    
+    assicurato_presso: string = '';
+    inizio_assicurazione: string = '';
+    durata_assicurazione: string = '';
+    plz_localita: Plz;
+    paese_di_domicilio: string = '';
+    via: string = '';
+    
+
+    nome_contraente: string = '';
+    lingua: string = '';
+    email: string = '';
+    telefono: string = '';
+    
 }
 
 export class Utils{

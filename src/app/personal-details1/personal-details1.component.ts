@@ -12,7 +12,7 @@ import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from
 @Component({
   selector: 'app-personal-details1',
   templateUrl: './personal-details1.component.html',
-  styleUrls: ['./personal-details1.component.css']
+  styleUrls: ['./personal-details1.component.css',]
 })
 export class PersonalDetails1Component implements OnInit {
 

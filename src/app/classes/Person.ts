@@ -6,6 +6,7 @@ import { Utils } from './Data';
 export class Person implements PersonInterface{
   
     nome: string;
+    cognome: string;
     nascita: string;
     franchigie: Array<any>;
     sesso: boolean;
@@ -17,6 +18,7 @@ export class Person implements PersonInterface{
 
     constructor(){
         this.nome = '';
+        this.cognome = '';
         this.nascita = '';
         this.franchigie = Utils.getFranchigiaAdulti();
         this.sesso = null;

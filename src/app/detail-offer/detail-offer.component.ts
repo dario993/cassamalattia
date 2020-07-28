@@ -13,7 +13,6 @@ import { IOfferta } from '../interfaces/interface-offerta';
   styleUrls: ['./detail-offer.component.css']
 })
 export class DetailOfferComponent implements OnInit {
-
  
 
   data: Data;
@@ -44,7 +43,6 @@ export class DetailOfferComponent implements OnInit {
           if(response['success'] == "true"){
             this.results = response['data'] as IOfferta[];
             this.setCollapse();
-            this.calcolaTotali();
             this.ordinaRisultati();
             //console.log(response)
           }
@@ -66,37 +64,24 @@ export class DetailOfferComponent implements OnInit {
   }
   
 
-
-  calcolaTotali(){
-    this.results.forEach(row => {
-        let totale = this.calcolaTotalePersona(row['persone']);
-        row['totale'] = totale.toFixed(2);
-    });
-    console.log(this.results);
-  }
-
-
-  calcolaTotalePersona(persone){
-    let totale: number = 0.00;
-    persone.forEach(persona => {
-        totale += parseFloat(persona['premio']);
-        let totalePersona = parseFloat(persona['premio']);
-
-        if(persona['benefits'] !== undefined){
-           totale += parseFloat(persona['benefits']['totale']);
-           totalePersona += parseFloat(persona['benefits']['totale']);    
-        }
-
-        persona['totale_persona'] = totalePersona.toFixed(2);
-       
-      });
-    return totale;
-  }
+  
 
   ordinaRisultati(){
     this.results.sort(function(a, b){
        return parseFloat(a['totale']) - parseFloat(b['totale']);
     })
+  }
+
+  nextStep(row){
+    
+    console.log(row);
+
+
+    this.service.setSelectedOffert(row);
+    this.service.setDataPersons(this.data.persons);
+    this.service.setOffertData(this.data.offert);
+    this.router.navigate(['selected-offer']);
+    
   }
 
 }

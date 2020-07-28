@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col">
-        <label>NPA / Località</label>
+        <label i18n>NPA / Località</label>
     </div>
     <div class="col">
-        <label>Paese di domicilio</label>
+        <label i18n>Paese di domicilio</label>
     </div>
 </div>
 
@@ -21,10 +21,8 @@
           'is-valid': myForm.get('plz_localita').valid && (myForm.get('plz_localita').dirty || myForm.get('plz_localita').touched) }">
 
 
-<div *ngIf="myForm.get('plz_localita').dirty && myForm.get('plz_localita').touched && myForm.get('plz_localita').invalid">
-          <div class="text-danger" *ngIf="myForm.get('plz_localita').errors.required">
-            Inserire PLZ valido!
-          </div>
+    <div *ngIf="myForm.get('plz_localita').dirty && myForm.get('plz_localita').touched && myForm.get('plz_localita').invalid">
+          <div class="text-danger" *ngIf="myForm.get('plz_localita').errors.required" i18n >Inserire PLZ valido!</div>
         </div>
       
     </div>
@@ -37,9 +35,7 @@
           
     
           <div *ngIf="myForm.get('paese_di_domicilio').dirty && myForm.get('paese_di_domicilio').touched && myForm.get('paese_di_domicilio').invalid">
-            <div class="text-danger" *ngIf="myForm.get('paese_di_domicilio').errors.required">
-              Il campo è richiesto!
-            </div>
+            <div class="text-danger" *ngIf="myForm.get('paese_di_domicilio').errors.required" i18n="il campo e richiesto">Il campo è richiesto!</div>
           </div>
     
     </div>
@@ -50,17 +46,12 @@
 </form>
 
 
-<div class="row" style="margin-top: 20px">
-    <div class="col text-left">
-        <button type="button"   [disabled]="myForm.invalid"  class="btn btn-primary" (click)="nextStep()">Avanti</button>
-        <button type="button"   class="btn btn-link" (click)="backStep()">Indietro</button>
+<div class="row nopadding row-avanti-indietro border-top" style="margin-top: 20px">
+    <div class="col text-left nopadding">
+        <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n="indietro">Indietro</button>
+    </div>
+    <div class="col nopadding">
+       <button type="button"   [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
     </div>
 </div>
 
-
-<div class="row">
-    <div class="col">
-      <p>
-        {{myForm.value | json }}
-    </div>
-  </div>

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <h1>I suoi risultati</h1>
+    <h1 i18n>I suoi risultati</h1>
     
   </div>
 </div>
@@ -9,45 +9,74 @@
 <div class="row">
   <div class="col">
     <div id="dataResult" *ngFor="let row  of results; index as i" class="row resultset">
-      <div [attr.data-index]="i" class="col-12 col-md-8 ">
+      
+      <!-- colonna 1-->
+      <div [attr.data-index]="i" class="col-12 col-md-4 ">
+        <!-- RIGA 1 -->
         <div class="row">
-          <div class="col-8">
-            <h5><strong>{{row.persone[0].nome}} </strong></h5>
-          </div>
-          <div class="col-4">
-            <h6>Premio / mese</h6>
+          <div class="col-12">
+            <!-- NOME ASSICURAZIONE <h5><strong>{{row.persone[0].nome}} </strong></h5> -->
+            <img class="image" src="../assets/img/loghi/{{row.persone[0].img}}" >
+            <p>{{row.persone[0].nome}}</p>
           </div>
         </div>
+
+        <!-- RIGA 2 -->
         <div class="row">
-          <div class="col-8">
-            <h6>{{row.persone[0].it}}</h6>
-        </div>
-          <div class="col-4">
-              <h5><strong>{{row.totale | number : '1.2-2'}}</strong> CHF</h5>
+          <div class="col-6">
+             
           </div>
         </div>
-        <div class="row" *ngIf="row.persone?.length > 1">
-          <div class="col">
-              <button class="btn btn-link nopadding"  role="button" (click)="isCollapsed[i] = !isCollapsed[i]" [attr.aria-expanded]="!isCollapsed[i]"  >
-                <i class="fas fa-angle-down" style="padding-right: 6px" rotate="180"></i>Dettaglio
-                </button>
-                <div id="collapse{{i}}" style="margin-left: 18px" [ngbCollapse]="!isCollapsed[i]">
-                    <div class="row" *ngFor="let persona of row.persone; index as p">
-                      <div class="col-8">
-                        {{data.persons[p]['nome']}}:
-                      </div>
-                      <div class="col-4">
-                        {{persona['premio'] | number : '1.2-2'}} CHF
-                      </div>
-                    </div>
-                </div>
-          </div>
-        </div>
-        
       </div>
+
+      <!-- colonna 2-->
       <div class="col-12 col-md-4">
-          <button type="button" [disabled]="row.persone[0].contratto == 0"  class="btn btn-primary btn-block" (click)="nextStep()">RICHIEDI OFFERTA</button>
+        <div class="row" style="margin-bottom: 0.3rem;">
+          <div class="col">
+            <h5 i18n>Modello:</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col ">
+            <!-- TIPOLOGIA DI ASSICURAZIONE -->
+            <h6>{{row.persone[0].it}}</h6>             
+          </div>
+        </div>
+          
       </div>
+
+      <!-- colonna 3 -->
+      <div class="col-12 col-md-4">
+        <div class="row" style="margin-bottom: 0.3rem;">
+          <div class="col text-right">
+            <h5><span style="font-size: 0.9rem; padding-right: 5px" i18n>Premio / mese</span> <strong>{{row.totale | number : '1.2-2'}}</strong> CHF</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col ">
+            <button type="button" [disabled]="row.persone[0].contratto == 0"  class="btn btn-block btn-dark" (click)="nextStep(row)" i18n>RICHIEDI OFFERTA</button>
+          </div>
+        </div>
+          
+      </div>
+
+       <!-- colonna sotto DETTAGLIO -->
+       <div class="col-12" *ngIf="row.persone?.length > 1">
+          <div class="row-dettaglio">
+            <button class="btn btn-link nopadding"  role="button" (click)="isCollapsed[i] = !isCollapsed[i]" [attr.aria-expanded]="!isCollapsed[i]"  >
+              <i class="fas fa-angle-down" style="padding-right: 6px" rotate="180"></i><span i18n>Dettaglio </span></button>
+              <div id="collapse{{i}}" style="margin-left: 18px" [ngbCollapse]="!isCollapsed[i]">
+                  <div class="row" *ngFor="let persona of row.persone; index as p">
+                    <div class="col-4">
+                      {{data.persons[p]['nome']}}:
+                    </div>
+                    <div class="col-4">
+                      {{persona['premio'] | number : '1.2-2'}} CHF
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </div>
   </div>
 </div> 

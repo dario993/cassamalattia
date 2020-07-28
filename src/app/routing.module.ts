@@ -5,6 +5,8 @@ import { PersonalDetails2Component } from './personal-details2/personal-details2
 import { OfferComponent } from './offer/offer.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { DetailOfferComponent } from './detail-offer/detail-offer.component';
+import { SelectedOfferComponent } from './selected-offer/selected-offer.component';
+import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
 
 const routes: Routes = [
   {
@@ -35,8 +37,19 @@ const routes: Routes = [
     path: 'detail-offer',
     component: DetailOfferComponent,
     canActivate: [RouteGuardService]
-  }
+  },
 
+  {
+    path: 'selected-offer',
+    component: SelectedOfferComponent,
+    canActivate: [RouteGuardService]
+  },
+
+  {
+    path: 'selected-offer-step2',
+    component: SelectedOfferStep2Component,
+    canActivate: [RouteGuardService]
+  }
 
 ]
 

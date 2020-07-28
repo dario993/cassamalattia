@@ -15,39 +15,21 @@ import { OfferComponent } from './offer/offer.component';
 import { RoutingModule } from './routing.module';
 import { AuthService } from './services/auth.service';
 import { DetailOfferComponent } from './detail-offer/detail-offer.component';
+import { SelectedOfferComponent } from './selected-offer/selected-offer.component';
+import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
+import { NavbarStepComponent } from './navbar-step/navbar-step.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'personal-details1',
-    pathMatch: 'full',
-  },
-
-  {
-    path: 'personal-details1',
-    component: PersonalDetails1Component
-  },
-
-  {
-    path: 'personal-details2',
-    component: PersonalDetails2Component
-  },
-
-  {
-    path: 'offer',
-    component: OfferComponent
-  }
-
-
-]
 
 @NgModule({
   declarations: [
+    NavbarStepComponent,
     AppComponent,
     PersonalDetails1Component,
     PersonalDetails2Component,
     OfferComponent,
-    DetailOfferComponent
+    DetailOfferComponent,
+    SelectedOfferComponent,
+    SelectedOfferStep2Component
   ],
   imports: [
     BrowserModule,
@@ -55,7 +37,7 @@ const routes: Routes = [
     NgbModule,
     RoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
   ],
   providers: [DataService, HttpClientService, AuthService],

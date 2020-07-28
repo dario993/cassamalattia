@@ -1,7 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+@media (min-width: 1200px) {
+    .container {
+      width: 970px;
+    }
+  }
 
-body{
+
+
+html, body{
     color: #333;
+    height: 100%;
+    
+}
+#page-content {
+    flex: 1 0 auto;
+  }
+  
+#sticky-footer {
+flex-shrink: none;
+}
+  
+app-root {
+height: 100vh;
+display: flex;
+flex-direction: column;
+}
+
+.dark-background{
+   background-color: #333c4e;
+}
+
+.color-light{
+    color: #cfcfcf;
+}
+
+.card, .btn, .form-control {
+    border-radius: 0;
+ }
+
+ .btn-group-lg>.btn, .btn-lg {
+     border-radius: 0;
+ }
+
+ .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
+    color: #3bafbf;
+    background-color: #fff;
+    border-color: #3bafbf;
+}
+.btn-light {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ced4da;
 }
 
 #benefits .basic-insurance {
@@ -30,7 +79,7 @@ body{
 
 #benefits .basic-insurance__tile {
     position: relative;
-    width: 14.25rem;
+    width: 13.93rem;
     height: 4rem;
     margin-bottom: .75rem;
     margin-right: .75rem;
@@ -61,6 +110,7 @@ body{
     background: #797979;
     color: #fff;
     font-weight: 700;
+    border: .1rem solid #797979;
 }
 
 #benefits .basic-insurance__tile--wrapper {
@@ -135,7 +185,7 @@ body{
 
 #benefits .additional-benefits__tile {
     position: relative;
-    width: 14.25rem;
+    width: 13.93rem;
     height: 4rem;
     margin-bottom: .75rem;
     margin-right: .75rem;
@@ -166,6 +216,7 @@ body{
     background: #1888ad;
     color: #fff;
     font-weight: 700;
+    border: .1rem solid #1888ad;
 }
 
 #benefits .additional-benefits__tile--wrapper {
@@ -211,13 +262,100 @@ body{
 }
 
 
-.btn{
-    border-radius: 0px;
-}
-
 .nopadding{
     padding: 0px;
     margin: 0px;
 }
+
+
+
+
+
+.btn-large{
+    min-width: 10rem;
+}
+
+.link{
+    color: #3bafbf;
+}
+
+
+
+.btn-dark{
+    background-color: #3bafbf;
+    border: 2px solid #3bafbf;
+    color: #fff; 
+    
+}
+
+.btn-dark:hover{
+    background-color: #fff;
+    border: 2px solid #3bafbf;
+    color: #3bafbf;
+}
+
+.btn-dark.disabled, .btn-dark:disabled {
+    background-color: #3bafbf;
+    border: 2px solid #3bafbf;
+    color: #fff;
+}
+
+
+.btn-link {
+    font-weight: 400;
+    color: #3bafbf;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #333c4e;
+    text-decoration: underline;
+}
+
+.btn-outline-primary {
+    color: #3bafbf;
+    border: 2px solid #3bafbf;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #3bafbf;
+    border: 2px solid #3bafbf;
+}
+
+  .title{
+      margin-top:1rem;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: 0;
+      border-bottom: 1px solid #dee2e6;
+      
+  }
+
+
+  .background-grey{
+    background-color: #f7f7f7;
+  }
+
+  .container-router{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+ 
+
+  .myform{
+}
+
+
+.row-avanti-indietro{
+    padding-top: 1rem;
+}
+
+
+.box-dati-personali{
+    border: 1px solid #dee2e6;
+}
+
 
 
