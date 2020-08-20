@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APIURL : "http://localhost/rechner_api/api/",
+  API_PDF : "http://localhost/phpreport/src/"
 };
 
 /*

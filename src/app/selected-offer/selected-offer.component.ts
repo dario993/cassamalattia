@@ -87,8 +87,7 @@ export class SelectedOfferComponent implements OnInit {
     this.data = service.getData();
     this.selectedOffert = this.data.selectedOffert;
     this.formOffer = fb.group({
-      inizio_assicurazione: [ this.data.dataCliente.inizio_assicurazione, Validators.required],
-      durata_assicurazione: [ this.data.dataCliente.durata_assicurazione, Validators.required]
+      inizio_assicurazione: [ this.data.dataCliente.inizio_assicurazione, Validators.required]
     });
   }
 
@@ -98,7 +97,6 @@ export class SelectedOfferComponent implements OnInit {
 
   nextStep(){
     this.data.dataCliente.inizio_assicurazione = this.formOffer.value.inizio_assicurazione;
-    this.data.dataCliente.durata_assicurazione = this.formOffer.value.durata_assicurazione;
 
     this.service.setGlobalData(this.data);
     this.router.navigate(['selected-offer-step2']);

@@ -75,6 +75,10 @@ export class DataService {
       this.data.dataCliente = data.dataCliente;
     }
 
+    if(data.level_offert !== undefined){
+      this.data.level_offert = data.level_offert;
+    }
+
 
     this.saveLocalData();
   }

@@ -40,6 +40,18 @@ export class OfferComponent implements OnInit {
    }
 
   initForm(){
+    let level  = this.data.level_offert;
+
+    for(let j=0; j<level.length; j++){
+      this.levelForm.push(this.fb.group({
+        title: [level[j]['title']],
+        code: [level[j]['code']],
+        descrizione_poupop: [level[j]['descrizione_poupop']],
+        selected: [level[j]['selected']]
+      }));
+    }
+    
+
     let persons: Array<Person> = this.data.persons;
     
     let basics = persons[0]['basics'];
@@ -64,7 +76,7 @@ export class OfferComponent implements OnInit {
         icon: [benefits[j].icon]
       }));
     }
-
+    
   }
 
   initBasics(){
@@ -76,6 +88,9 @@ export class OfferComponent implements OnInit {
   }
 
   selectBasic(basic, i){
+    if(this.selectedPerson !== 0){
+      return false;
+    }
     let basics = this.myForm.value.basics;
     for(let j=0; j< basics.length; j++){
       if(basics[j].code == basic.controls.code.value){
@@ -111,15 +126,55 @@ export class OfferComponent implements OnInit {
     }
   }
 
-  
 
-  isSelected(basic){
-    if(basic.value.selected == "true"){
+  isDisabled(){
+    if(this.selectedPerson !== 0){
       return true;
     }
     else{
       return false;
     }
+  }
+
+  fireEvent(e){
+    console.log(e.type);
+    e.preventDefault();
+  }
+
+
+  changeLevel(level){
+    if(this.selectedPerson !== 0){
+      return false;
+    }
+
+    let levels = this.myForm.value.level;
+
+    for(let j=0; j< levels.length; j++){
+      if(levels[j].code == level.controls.code.value){
+          levels[j].selected = "true";
+          level.controls.selected.value = "true";
+      }
+      else{
+        levels[j].selected = "false";
+        level.controls.selected.value = "false";
+      }
+    }
+  }
+    
+
+  
+
+  isSelected(select){
+    if(select.value.selected == "true"){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  get levelForm(){
+    return this.myForm.get('level') as FormArray;
   }
 
   get basicsForm(){
@@ -132,6 +187,7 @@ export class OfferComponent implements OnInit {
 
   resetForm(){
     this.myForm = this.fb.group({
+      level: this.fb.array([]),
       basics: this.fb.array([]),
       benefits: this.fb.array([])
     });
@@ -170,6 +226,7 @@ export class OfferComponent implements OnInit {
 
   nextStep(){
     
+    this.data.level_offert = this.myForm.value.level;
     this.data.persons[0].basics = this.myForm.value.basics;
     this.data.persons[this.selectedPerson].benefits = this.myForm.value.benefits;
     console.log("total persons: " + this.data.persons.length);
@@ -177,7 +234,8 @@ export class OfferComponent implements OnInit {
     
     if(this.data.persons.length-1 == this.selectedPerson){
       console.log(this.data);
-      this.service.setDataPersons(this.data.persons);
+      this.service.setGlobalData(this.data);
+      //this.service.setDataPersons(this.data.persons);
       this.router.navigate(['detail-offer']);
     }
     else{

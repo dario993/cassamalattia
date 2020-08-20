@@ -1,6 +1,6 @@
 <div class="row title" style="margin-top: 5rem;">
     <div class="col nopadding">
-        <h2 style="margin-bottom: 0; color: #636363" i18n>Persone assicurate</h2>
+        <h2 style="margin-bottom: 0; color: #636363" i18n="persone assicurate">Persone assicurate</h2>
     </div>
 </div>
 
@@ -12,17 +12,17 @@
                 <!-- Person n-->
                 <div class="row" style="margin-top: 25px; padding-bottom: 25px; color:#636363; padding-left: 25px; padding-right:25px; border-bottom: solid 1px #dee2e6;">
                     <div class="col">
-                        <h4 style="line-height: 1;"><span i18n>Persona {{i+1}}</span></h4>
+                        <h4 style="line-height: 1;"><span i18n="persona n">Persona {{i+1}}</span></h4>
                     </div>
                 </div>
 
                 <div class="center-data" style="padding: 25px; margin-top: 10px;">
                     <div class="row">
                         <div class="col">
-                            <label i18n>Nome</label>
+                            <label i18n="nome">Nome</label>
                         </div>
                         <div class="col">
-                            <label i18n>Cognome</label>
+                            <label i18n="cognome">Cognome</label>
                         </div>
                     </div>
 
@@ -31,7 +31,14 @@
                             <input type="text" formControlName="nome"  class="form-control form-control-lg" value=" " disabled >
                         </div>
                         <div class="col">
-                            <input type="text" formControlName="cognome" class="form-control form-control-lg" value=" "  >
+                            <input type="text" formControlName="cognome" class="form-control form-control-lg" value=" " 
+                            [ngClass]="{
+                                'is-invalid': person.controls.cognome.invalid && (person.controls.cognome.dirty || person.controls.cognome.touched),
+                                'is-valid': person.controls.cognome.valid && (person.controls.cognome.dirty || person.controls.cognome.touched) }">
+                            <div *ngIf="person.controls.cognome.dirty && person.controls.cognome.touched && cognome.invalid">
+                                <div class="text-danger" *ngIf="person.controls.errors.required" i18n="il campo e richiesto">Il campo Cognome è richiesto!</div>
+                                <div class="text-danger" *ngIf="person.controls.errors.pattern" i18n="inserisci cognome valido">Inserisci cognome valido</div>
+                            </div> 
                         </div>
                     </div>
 
@@ -45,7 +52,7 @@
 
     <div class="row title" style="margin-top: 5rem;">
         <div class="col nopadding">
-            <h2 style="margin-bottom: 0; color: #636363" i18n>Dati di contatto</h2>
+            <h2 style="margin-bottom: 0; color: #636363" i18n="dati di contatto">Dati di contatto</h2>
         </div>
     </div>
 
@@ -53,15 +60,17 @@
 
     <div class="row" style="margin-top: 20px">
         <div class="col-6">
-            <label i18n>Nome contraente</label>
+            <label i18n="nome contraente">Nome contraente</label>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="col-6">
-            <select class="form-control form-control-lg"  formControlName="nome_contraente"  required 
-              [ngClass]="">
-                <option value="" selected i18n>Seleziona...</option>
+            <select class="form-control form-control-lg"  formControlName="nome_contraente"   
+            [ngClass]="{
+                'is-invalid':  nome_contraente.invalid && (nome_contraente.dirty || nome_contraente.touched),
+                'is-valid': nome_contraente.valid && (nome_contraente.dirty || nome_contraente.touched) }">
+                <option value="" selected i18n="seleziona">Seleziona...</option>
                 <option  *ngFor="let persona of data.persons" [value]="persona.nome">{{persona.nome}}</option>
               </select>
         </div>
@@ -70,10 +79,10 @@
         
     <div class="row" style="margin-top: 20px">
         <div class="col">
-            <label i18n>NPA / Località</label>
+            <label i18n="npa / localita">NPA / Località</label>
         </div>
         <div class="col">
-            <label i18n>Via, n°</label>
+            <label i18n="via, n.">Via, n°</label>
         </div>
     </div>
 
@@ -82,26 +91,51 @@
             <input type="text" formControlName="plz"  class="form-control form-control-lg" disabled >
         </div>
         <div class="col-6">
-            <input type="text" formControlName="via" class="form-control form-control-lg">
+            <input type="text" formControlName="via" class="form-control form-control-lg"
+            [ngClass]="{
+                'is-invalid': via.invalid && (via.dirty || via.touched),
+                'is-valid': via.valid && (via.dirty || via.touched) }">
+            <div *ngIf="via.dirty && via.touched && via.invalid">
+                <div class="text-danger" *ngIf="via.errors.required" i18n="il campo via e richiesto">Il campo via è richiesto!</div>
+                <div class="text-danger" *ngIf="via.errors.pattern" i18n="inserisci via valida">Inserisci via valida</div>
+            </div>
         </div>
     </div>
 
 
     <div class="row" style="margin-top: 20px">
         <div class="col">
-            <label i18n>Telefono</label>
+            <label i18n="telefono">Telefono</label>
         </div>
         <div class="col">
-            <label i18n>Email</label>
+            <label i18n="email">Email</label>
         </div>
     </div>
 
     <div class="row"  > 
         <div class="col-6">
-            <input type="text" formControlName="telefono" class="form-control form-control-lg"    >
+            <input type="text" formControlName="telefono" class="form-control form-control-lg"    
+            [ngClass]="{
+                'is-invalid': telefono.invalid && (telefono.dirty || telefono.touched),
+                'is-valid': telefono.valid && (telefono.dirty || telefono.touched) }">
+
+            <div *ngIf="telefono.dirty && telefono.touched && telefono.invalid">
+                <div class="text-danger" *ngIf="telefono.errors.required" i18n="il campo telefono e richiesto">Il campo telefono è richiesto!</div>
+                <div class="text-danger" *ngIf="telefono.errors.minlength" i18n="inserire almeno * numeri">Inserire almeno {{telefono.errors.minlength.requiredLength}} numeri</div>
+                <div class="text-danger" *ngIf="telefono.errors.pattern" i18n="inserisci un numero valido">Inserisci un numero valido</div>
+            </div>
+  
         </div>
         <div class="col-6">
-            <input type="text" formControlName="email"  class="form-control form-control-lg"    >
+            <input type="text" formControlName="email"  class="form-control form-control-lg"    
+            [ngClass]="{
+                'is-invalid': email.invalid && (email.dirty || email.touched),
+                'is-valid': email.valid && (email.dirty || email.touched) }">
+
+            <div *ngIf="email.dirty && email.touched && email.invalid">
+                <div class="text-danger" *ngIf="email.errors.required" i18n="il campo email e richiesto">Il campo email è richiesto!</div>
+                <div class="text-danger" *ngIf="email.errors.pattern" i18n="inserisci una email valida">Inserisci una email valida</div>
+            </div>
         </div>
     </div>
 
@@ -115,12 +149,14 @@
     <div class="row">
         <div class="col-6">
             <select class="form-control form-control-lg"  formControlName="lingua"  required 
-              [ngClass]="">
-                <option  value="" selected i18n>Seleziona...</option>
-                <option  value="tedesco" i18n>Tedesco</option>
-                <option  value="inglese" i18n>Inglese</option>
-                <option  value="francese" i18n>Francese</option>
-                <option  value="italiano" i18n>Italiano</option>
+            [ngClass]="{
+                'is-invalid': lingua.invalid && (lingua.dirty || lingua.touched),
+                'is-valid': lingua.valid && (lingua.dirty || lingua.touched) }" >
+                <option  value="" selected i18n="seleziona">Seleziona...</option>
+                <option  value="tedesco" i18n="tedesco">Tedesco</option>
+                <option  value="inglese" i18n="inglese">Inglese</option>
+                <option  value="francese" i18n="francese">Francese</option>
+                <option  value="italiano" i18n="italiano">Italiano</option>
               </select>
         </div>
     </div>
@@ -130,10 +166,10 @@
 
     <div class="row nopadding row-avanti-indietro border-top" style="margin-top: 25px; padding-top: 1rem">
         <div class="col text-left nopadding">
-            <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n>Indietro</button>
+            <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n="indietro">Indietro</button>
         </div>
         <div class="col nopadding">
-           <button type="button"   [disabled]="!formDataPerson.valid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n>Avanti</button>
+           <button type="button"   [disabled]="!formDataPerson.valid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
         </div>
       </div>
     

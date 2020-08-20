@@ -7,6 +7,7 @@ export class Data {
     id_offerta: number;
     plz_localita: Plz;
     paese_di_domicilio: string;
+    level_offert: string;
     
     persons: Person[];
     offert: string;
@@ -16,8 +17,8 @@ export class Data {
 }
 
 export class Plz{
-    id: number;
-    plz: string;
+    id: number = 4646;
+    plz: string = "1000 Lausanne";
     paese: string;
 }
 
@@ -25,7 +26,6 @@ export class DataCliente{
     
     assicurato_presso: string = '';
     inizio_assicurazione: string = '';
-    durata_assicurazione: string = '';
     plz_localita: Plz;
     paese_di_domicilio: string = '';
     via: string = '';

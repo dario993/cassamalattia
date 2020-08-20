@@ -1,6 +1,6 @@
 <div class="row title">
   <div class="col nopadding">
-      <h2 i18n>Dati persona</h2>
+      <h2 i18n="dati persona">Dati persona</h2>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
         <label i18n="nome">Nome</label>
       </div>
       <div class="col-6">
-        <label i18n>Data di Nascita</label>
+        <label i18n="data di nascita">Data di Nascita</label>
       </div>
   </div>
   </div>
@@ -52,9 +52,9 @@
               
           
                 <div *ngIf="person.controls.nome.dirty && person.controls.nome.touched && person.controls.nome.invalid">
-                  <div class="text-danger" *ngIf="person.controls.nome.errors.required" i18n>Il campo nome è richiesto!</div>
-                  <div class="text-danger" *ngIf="person.controls.nome.errors.minlength" i18n>Inserire almeno {{person.controls.nome.errors.minlength.requiredLength}} caratteri</div>
-                  <div class="text-danger" *ngIf="person.controls.nome.errors.pattern" i18n>Inserire caratteri dall a-z</div>
+                  <div class="text-danger" *ngIf="person.controls.nome.errors.required" i18n="Il campo nome e richiesto">Il campo nome è richiesto!</div>
+                  <div class="text-danger" *ngIf="person.controls.nome.errors.minlength" i18n="inserire almeno * caratteri">Inserire almeno {{person.controls.nome.errors.minlength.requiredLength}} caratteri</div>
+                  <div class="text-danger" *ngIf="person.controls.nome.errors.pattern" i18n="inserire caratteri dalla a-z">Inserire caratteri dalla a-z-A-Z</div>
                 </div>
 
             </div>
@@ -67,8 +67,8 @@
                   'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
                   
                   <div *ngIf="person.controls.nascita.dirty && person.controls.nascita.touched && person.controls.nascita.invalid">
-                    <div class="text-danger" *ngIf="person.controls.nascita.errors.required" i18n>Il campo nascita è richiesto!</div>
-                    <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern" i18n>Inserire data formato GG.MM.AAAA</div>
+                    <div class="text-danger" *ngIf="person.controls.nascita.errors.required" i18n="il campo nascita e richiesto">Il campo nascita è richiesto!</div>
+                    <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern" i18n="inserire data formato">Inserire data formato GG.MM.AAAA</div>
                   </div>
             </div>
           </div>
@@ -82,7 +82,7 @@
                 'is-invalid': person.controls.franchigie.controls.invalid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched),
                 'is-valid': person.controls.franchigie.controls.valid && (person.controls.franchigie.controls.dirty || person.controls.franchigie.controls.touched) }">
 
-                <option  [value]="" disabled  i18n="Seleziona">Seleziona</option>
+                <option  [value]="" disabled  i18n="seleziona">Seleziona</option>
                 <option  *ngFor="let franchigia of person.controls['franchigie'].controls; let j = index" [formGroupName]="j"  [value]="franchigia.value.id" [selected]="franchigia.value.selected == 'true'">{{franchigia.value.value}}</option>
               </select>
             </div>
@@ -135,7 +135,7 @@
     <button type="button" class="btn btn-outline-primary" (click)="addPerson()"><span style="margin-right: 15px" class="" ><i class="fas fa-plus"></i></span><span i18n="aggiungi persona">Aggiugi persona</span></button>
   </div>
   <div class="col nopadding">
-    <button type="button"   [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="Avanti">Avanti</button>
+    <button type="button"   [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
   </div>
 </div>
 

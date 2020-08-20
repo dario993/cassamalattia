@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Data, Plz } from '../classes/Data';
 import { DataService } from '../services/data.service';
 import { HttpClientService } from '../services/http.service';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, Form } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map, switchMap, catchError, filter} from 'rxjs/operators';
 
@@ -21,6 +21,8 @@ export class PersonalDetails2Component implements OnInit {
 
   model_plz: Plz;
 
+  formatter = (plz_localita: Plz) => plz_localita.plz;
+
   constructor(private service: DataService, 
               private fb: FormBuilder, 
               private router: Router,
@@ -30,14 +32,24 @@ export class PersonalDetails2Component implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      plz_localita: [this.data.plz_localita, [Validators.required]],
+      plz_localita:  [this.data.plz_localita,  [Validators.required]],
       paese_di_domicilio:  [this.data.paese_di_domicilio, [Validators.required]]
     })
   }
 
   
-  plz_localita(){
+  get plz_localita(){
     return this.myForm.get('plz_localita');
+  }
+
+  get plz(){
+    return this.plz_localita.get('plz');
+  }
+
+  changePlz($event){
+    console.log($event.target.value);
+    this.myForm.value.plz_localita = this.model_plz;
+    return;
   }
 
   resultFormatPlz(value: any){

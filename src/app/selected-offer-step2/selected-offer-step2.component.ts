@@ -39,11 +39,11 @@ export class SelectedOfferStep2Component implements OnInit {
         plz: [this.data.plz_localita.plz],
         id: [this.data.plz_localita.id]
       }),
-      nome_contraente: [this.data.dataCliente.nome_contraente],
-      via: [this.data.dataCliente.via],
-      telefono: [this.data.dataCliente.telefono],
-      email: [this.data.dataCliente.email],
-      lingua: [this.data.dataCliente.lingua]
+      nome_contraente: [this.data.dataCliente.nome_contraente, [Validators.required]  ],
+      via: [this.data.dataCliente.via,  [ Validators.required]],
+      telefono: [this.data.dataCliente.telefono, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      email: [this.data.dataCliente.email, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+      lingua: [this.data.dataCliente.lingua, [Validators.required]]
 
     });
     this.initPersons();
@@ -69,6 +69,14 @@ export class SelectedOfferStep2Component implements OnInit {
   }
 
 
+  get nome_contraente() { return this.formDataPerson.get('nome_contraente'); }
+  get via() { return this.formDataPerson.get('via'); }
+  get telefono() { return this.formDataPerson.get('telefono'); }
+  get email() { return this.formDataPerson.get('email'); }
+  get lingua() { return this.formDataPerson.get('lingua'); }
+
+
+
   nextStep(){
     this.data.dataCliente.assicurato_presso = this.data.selectedOffert['persone'][0]['nome_display'];
     this.data.dataCliente.nome_contraente = this.formDataPerson.value.nome_contraente;
@@ -88,7 +96,10 @@ export class SelectedOfferStep2Component implements OnInit {
         if(response['success'] == 'true'){
           this.data.id_offerta = response['id_offerta'];
           this.service.setGlobalData(this.data);
+          localStorage.removeItem('session');
+          localStorage.removeItem('data'); 
           window.open(this.http.getPdf(this.data.id_offerta));
+          this.router.navigate['/'];
         }
         else{
           alert(response['message']);

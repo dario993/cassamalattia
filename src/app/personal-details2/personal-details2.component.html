@@ -1,29 +1,24 @@
 <div class="row">
     <div class="col">
-        <label i18n>NPA / Località</label>
+        <label i18n="npa / lacalita">NPA / Località</label>
     </div>
     <div class="col">
-        <label i18n>Paese di domicilio</label>
+        <label i18n="paese di domicilio">Paese di domicilio</label>
     </div>
 </div>
 
 
 <form [formGroup]="myForm" class="form-lg">
   <div class="row">
-    <div class="col form-group" >
+    <div class="col form-group"  >
         <input type="text"  class="form-control form-control-lg" placeholder="1000 - Lausanne" formControlName="plz_localita" 
+        
+        [maxlength]="4"
         [ngbTypeahead]="search"
         [inputFormatter]="inputFormatPlz"
         [resultFormatter]="resultFormatPlz"
         [editable]='false'
-        [ngClass]="{
-          'is-invalid': myForm.get('plz_localita').invalid && (myForm.get('plz_localita').dirty || myForm.get('plz_localita').touched),
-          'is-valid': myForm.get('plz_localita').valid && (myForm.get('plz_localita').dirty || myForm.get('plz_localita').touched) }">
-
-
-    <div *ngIf="myForm.get('plz_localita').dirty && myForm.get('plz_localita').touched && myForm.get('plz_localita').invalid">
-          <div class="text-danger" *ngIf="myForm.get('plz_localita').errors.required" i18n >Inserire PLZ valido!</div>
-        </div>
+        >
       
     </div>
     <div class="col form-group">
@@ -54,4 +49,3 @@
        <button type="button"   [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
     </div>
 </div>
-

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Data } from '../classes/Data';
 import { IOfferta } from '../interfaces/interface-offerta';
-
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -12,8 +12,8 @@ const httpOptions = {
  
 @Injectable()
 export class HttpClientService {
-    private APIURL = "http://localhost/rechner_api/api/";
-    private APIURL_PDF = "http://localhost/phpreport/src/";
+    private APIURL = environment.APIURL ;
+    private APIURL_PDF = environment.API_PDF;
     
     constructor(private http: HttpClient){
 

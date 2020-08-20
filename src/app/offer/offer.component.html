@@ -8,25 +8,46 @@
       
       <div class="row">
         <div class="col">
-          <h3 i18n>Ciao {{person.nome}}</h3>
+          <h2 i18n="ciao">Ciao {{person.nome}}</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <p i18n>Ci esponga le sue esigenze e le consiglieremo le assicurazioni adeguate.</p>
+          <p style="font-size: 1.2rem" i18n="ci espogna le sue eisgneze">Ci esponga le sue esigenze e le consiglieremo le assicurazioni adeguate.</p>
         </div>
       </div>
-        
-      <div class="row basic-insurance title"  style="margin-top: 2rem">
+
+      
+      <div class="row level-offert title" style="margin-top: 2rem">
         <div class="col nopadding">
-          <h4><span i18n>Assicurazione di base</span> <i class="fas fa-info-circle" style="font-size: 0.7em" popoverTitle="Pop title" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" ></i></h4>
+          <h4><span i18n="livello assicurazione">Livello di assicurazione</span></h4>
+        </div>
+      </div>
+      <div class="row basic-insurance" formArrayName="level">
+        <div class="col">
+          <div  *ngFor="let level of levelForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="changeLevel(level)" [ngClass]="{'basic-insurance__tile--selected': isSelected(level), 'basic-insurance__tile--disabled': isDisabled() }" >
+            <div class="basic-insurance__tile--wrapper"  >
+              <div class="basic-insurance__tile--content">
+                <div >{{level.value.title}}</div>
+              </div>
+              <div class="basic-insurance__tile--info">
+                <i class="fas fa-info-circle" font-size="medium" ngbPopover="{{level.value.descrizione_poupop}}" triggers="mouseenter:mouseleave" ></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
 
+
+      <div class="row basic-insurance title"  style="margin-top: 2rem;">
+        <div class="col nopadding">
+          <h4><span i18n="assicurazione di base">Assicurazione di base</span> </h4>
+        </div>
+      </div>
       <div class="row basic-insurance" formArrayName="basics">
         <div class="col">
-          <div  *ngFor="let basic of basicsForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="selectBasic(basic, j)" [ngClass]="{'basic-insurance__tile--selected': isSelected(basic)}">
+          <div  *ngFor="let basic of basicsForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="selectBasic(basic, j)" [ngClass]="{'basic-insurance__tile--selected': isSelected(basic), 'basic-insurance__tile--disabled': isDisabled() }">
             <div class="basic-insurance__tile--wrapper"  >
               <div class="basic-insurance__tile--content">
                 <div >{{basic.value.title}}</div>
@@ -42,7 +63,7 @@
       
       <div class="row additional-benefits title"  style="margin-top: 2rem">
         <div class="col nopadding">
-          <h4 i18n>Assicurazione complementare</h4>
+          <h4 i18n="assicurazione complementare">Assicurazione complementare</h4>
         </div>
       </div>
       <div class="row additional-benefits"  formArrayName="benefits">
@@ -54,7 +75,7 @@
                 <div>{{benefit.value.title}}</div>
               </div>
               <div class="basic-insurance__tile--info">
-                <i class="fas fa-info-circle" font-size="medium" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" ></i>
+                <i class="fas fa-info-circle" font-size="medium" ngbPopover="{{benefit.value.descrizione_poupop}}" triggers="mouseenter:mouseleave" ></i>
               </div>
             </div>
           </div>
@@ -64,10 +85,10 @@
 
     <div class="row nopadding row-avanti-indietro border-top" style="margin-top: 20px">
       <div class="col nopadding">
-          <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n>Indietro</button>
+          <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n="indietro">Indietro</button>
       </div>
       <div class="col nopadding">
-        <button type="button"  style="margin-right: 0.75rem;"  [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n>Avanti</button>
+        <button type="button"  style="margin-right: 0.75rem;"  [disabled]="myForm.invalid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
       </div>
   </div>
 

@@ -55,7 +55,7 @@ flex-direction: column;
 
 #benefits .basic-insurance {
     margin-bottom: 1rem;
-    color: #a3a3a3;
+    color: #7c7c7c;
 }
 
 #benefits .basic-insurance__header {
@@ -111,6 +111,10 @@ flex-direction: column;
     color: #fff;
     font-weight: 700;
     border: .1rem solid #797979;
+}
+
+#benefits .basic-insurance__tile--disabled {
+    opacity: 0.5;
 }
 
 #benefits .basic-insurance__tile--wrapper {
