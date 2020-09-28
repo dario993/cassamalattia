@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Data } from '../classes/Data';
 import { IOfferta } from '../interfaces/interface-offerta';
@@ -14,9 +14,10 @@ const httpOptions = {
 export class HttpClientService {
     private APIURL = environment.APIURL ;
     private APIURL_PDF = environment.API_PDF;
+    private lang;
     
-    constructor(private http: HttpClient){
-
+    constructor(private http: HttpClient, @Inject(LOCALE_ID) lang: string){
+        this.lang = lang;
     }
 
 
@@ -25,7 +26,7 @@ export class HttpClientService {
     }
 
     initOffer(data: Data){
-        return this.http.post(this.APIURL+"init_offer.php?XDEBUG_SESSION_START=netbeans-xdebug" , { "data" : data}, httpOptions);
+        return this.http.post(this.APIURL+"init_offer.php?XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.lang, { "data" : data}, httpOptions);
     }
 
     getOffer(data: Data){
@@ -45,8 +46,13 @@ export class HttpClientService {
     }
 
     getPdf(id: number){
-        return this.APIURL_PDF+"view_pdf.php?id="+id;
+        return this.APIURL_PDF+"view_pdf.php?XDEBUG_SESSION_START=netbeans-xdebug&id="+id;
     }
+
+    sendMail(id: number){
+        return this.http.get(this.APIURL+"api_data.php?act=sendMail&XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.lang+"&id="+id);
+    }
+
 
 
 }

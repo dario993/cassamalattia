@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DataService } from '../services/data.service';

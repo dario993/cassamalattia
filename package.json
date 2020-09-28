@@ -1,13 +1,14 @@
 {
   "name": "cassamalattia",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "extract-i18n": "ng xi18n --output-path i18n && xliffmerge --profile xliffmerge.json en de"
   },
   "private": true,
   "dependencies": {
@@ -27,18 +28,19 @@
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
+    "ng-wizard": "^1.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.4",
+    "@angular-devkit/build-angular": "^0.1001.3",
     "@angular/cli": "~9.1.4",
     "@angular/compiler-cli": "~9.1.4",
     "@angular/language-service": "~9.1.4",
-    "@types/node": "~13.13.4",
     "@types/jasmine": "~3.5.10",
     "@types/jasminewd2": "~2.0.8",
+    "@types/node": "~13.13.4",
     "codelyzer": "^5.0.1",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.2",

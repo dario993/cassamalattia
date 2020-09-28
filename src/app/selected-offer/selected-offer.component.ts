@@ -89,6 +89,33 @@ export class SelectedOfferComponent implements OnInit {
     this.formOffer = fb.group({
       inizio_assicurazione: [ this.data.dataCliente.inizio_assicurazione, Validators.required]
     });
+
+    this.setSelectedBenefits();   
+  }
+
+  checkBenefits(persona){
+    if(persona['benefits'] == null || persona['benefits'] == undefined){
+      return false;
+    }
+    return true;
+
+  }
+
+  setSelectedBenefits(){
+    for(let i=0; i< this.data.persons.length; i++){
+      let listbenefits = this.getListElementSelected(this.data.persons[i].benefits);
+      this.data.selectedOffert['persone'][i]['listbenefits'] = listbenefits;
+    }      
+  }
+
+  getListElementSelected(benefits){
+    let list = [];
+    benefits.forEach(benefit => {
+      if(benefit['selected'] == 'true'){
+        list.push(benefit['title']);
+      }
+    });
+    return list;
   }
 
   ngOnInit(): void {

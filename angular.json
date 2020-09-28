@@ -9,21 +9,41 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
+      "i18n": {
+        "sourceLocale" : "it",
+        "locales": {
+          "de" : {
+            "translation": "src/locale/messages.de.xlf",
+            "baseHref": "/de/"
+          },
+          "fr" : {
+            "translation": "src/locale/messages.fr.xlf",
+            "baseHref": "/fr/"
+          },
+          "en" : {
+            "translation": "src/locale/messages.en.xlf",
+            "baseHref": "/en/"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cassamalattia",
+            "localize": false,
+            "aot" : true,
+            "i18nMissingTranslation": "warning",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/broker_fav.png",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",  
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css",
               "src/assets/Lato/latofonts.css",
@@ -35,6 +55,15 @@
             "es5BrowserSupport": true
           },
           "configurations": {
+            "de": {
+              "localize": ["de"]
+              },
+            "fr": {
+              "localize": ["fr"]
+            },
+            "en": {
+              "localize": ["en"]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -67,6 +96,18 @@
             "browserTarget": "cassamalattia:build"
           },
           "configurations": {
+            "de": {
+              "browserTarget": "cassamalattia:build:de"
+            },
+            "fr": {
+              "browserTarget": "cassamalattia:build:fr"
+            },
+            "en": {
+              "browserTarget": "cassamalattia:build:en"
+            },
+            "it": {
+              "browserTarget": "cassamalattia:build:it"
+            },
             "production": {
               "browserTarget": "cassamalattia:build:production"
             }
@@ -90,7 +131,7 @@
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
+              "src/broker_fav.png",
               "src/assets"
             ]
           }

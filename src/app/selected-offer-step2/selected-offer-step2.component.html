@@ -18,20 +18,13 @@
 
                 <div class="center-data" style="padding: 25px; margin-top: 10px;">
                     <div class="row">
-                        <div class="col">
-                            <label i18n="nome">Nome</label>
+                        <div class="col-12 col-md-6 form-group">
+                            <label for="inputNome" i18n="nome">Nome</label>
+                            <input  id="inputNome" type="text" formControlName="nome"  class="form-control form-control-lg" value=" " disabled >
                         </div>
-                        <div class="col">
-                            <label i18n="cognome">Cognome</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" formControlName="nome"  class="form-control form-control-lg" value=" " disabled >
-                        </div>
-                        <div class="col">
-                            <input type="text" formControlName="cognome" class="form-control form-control-lg" value=" " 
+                        <div class="col-12 col-md-6">
+                            <label for="inputCognome" i18n="cognome">Cognome</label>
+                            <input  id="inputCognome" type="text" formControlName="cognome" class="form-control form-control-lg" value=" " 
                             [ngClass]="{
                                 'is-invalid': person.controls.cognome.invalid && (person.controls.cognome.dirty || person.controls.cognome.touched),
                                 'is-valid': person.controls.cognome.valid && (person.controls.cognome.dirty || person.controls.cognome.touched) }">
@@ -58,15 +51,11 @@
 
     <div>
 
-    <div class="row" style="margin-top: 20px">
-        <div class="col-6">
-            <label i18n="nome contraente">Nome contraente</label>
-        </div>
-    </div>
     
     <div class="row">
-        <div class="col-6">
-            <select class="form-control form-control-lg"  formControlName="nome_contraente"   
+        <div class="col-12 col-md-6 form-group">
+            <label for="inputNomeContraente" i18n="nome contraente">Nome contraente</label>
+            <select id="inputNomeContraente" class="form-control form-control-lg"  formControlName="nome_contraente"   
             [ngClass]="{
                 'is-invalid':  nome_contraente.invalid && (nome_contraente.dirty || nome_contraente.touched),
                 'is-valid': nome_contraente.valid && (nome_contraente.dirty || nome_contraente.touched) }">
@@ -74,81 +63,9 @@
                 <option  *ngFor="let persona of data.persons" [value]="persona.nome">{{persona.nome}}</option>
               </select>
         </div>
-    </div>
-
-        
-    <div class="row" style="margin-top: 20px">
-        <div class="col">
-            <label i18n="npa / localita">NPA / Località</label>
-        </div>
-        <div class="col">
-            <label i18n="via, n.">Via, n°</label>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-6"  formGroupName="plz_localita" >
-            <input type="text" formControlName="plz"  class="form-control form-control-lg" disabled >
-        </div>
-        <div class="col-6">
-            <input type="text" formControlName="via" class="form-control form-control-lg"
-            [ngClass]="{
-                'is-invalid': via.invalid && (via.dirty || via.touched),
-                'is-valid': via.valid && (via.dirty || via.touched) }">
-            <div *ngIf="via.dirty && via.touched && via.invalid">
-                <div class="text-danger" *ngIf="via.errors.required" i18n="il campo via e richiesto">Il campo via è richiesto!</div>
-                <div class="text-danger" *ngIf="via.errors.pattern" i18n="inserisci via valida">Inserisci via valida</div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col">
-            <label i18n="telefono">Telefono</label>
-        </div>
-        <div class="col">
-            <label i18n="email">Email</label>
-        </div>
-    </div>
-
-    <div class="row"  > 
-        <div class="col-6">
-            <input type="text" formControlName="telefono" class="form-control form-control-lg"    
-            [ngClass]="{
-                'is-invalid': telefono.invalid && (telefono.dirty || telefono.touched),
-                'is-valid': telefono.valid && (telefono.dirty || telefono.touched) }">
-
-            <div *ngIf="telefono.dirty && telefono.touched && telefono.invalid">
-                <div class="text-danger" *ngIf="telefono.errors.required" i18n="il campo telefono e richiesto">Il campo telefono è richiesto!</div>
-                <div class="text-danger" *ngIf="telefono.errors.minlength" i18n="inserire almeno * numeri">Inserire almeno {{telefono.errors.minlength.requiredLength}} numeri</div>
-                <div class="text-danger" *ngIf="telefono.errors.pattern" i18n="inserisci un numero valido">Inserisci un numero valido</div>
-            </div>
-  
-        </div>
-        <div class="col-6">
-            <input type="text" formControlName="email"  class="form-control form-control-lg"    
-            [ngClass]="{
-                'is-invalid': email.invalid && (email.dirty || email.touched),
-                'is-valid': email.valid && (email.dirty || email.touched) }">
-
-            <div *ngIf="email.dirty && email.touched && email.invalid">
-                <div class="text-danger" *ngIf="email.errors.required" i18n="il campo email e richiesto">Il campo email è richiesto!</div>
-                <div class="text-danger" *ngIf="email.errors.pattern" i18n="inserisci una email valida">Inserisci una email valida</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px">
-        <div class="col">
-            <label i18n>Lingua dell'offerta</label>
-        </div>
-       
-    </div>
-
-    <div class="row">
-        <div class="col-6">
-            <select class="form-control form-control-lg"  formControlName="lingua"  required 
+        <div class="col-12 col-md-6 form-group">
+            <label for="inputLingua" i18n>Lingua dell'offerta</label>
+            <select id="inputLingua" class="form-control form-control-lg"  formControlName="lingua"  required 
             [ngClass]="{
                 'is-invalid': lingua.invalid && (lingua.dirty || lingua.touched),
                 'is-valid': lingua.valid && (lingua.dirty || lingua.touched) }" >
@@ -160,6 +77,58 @@
               </select>
         </div>
     </div>
+
+   
+    <div class="row">
+        <div class="col-12 col-md-6 form-group"  formGroupName="plz_localita" >
+            <label for="inputNPA" i18n="npa / localita">NPA / Località</label>
+            <input  id="inputNPA" type="text" formControlName="plz"  class="form-control form-control-lg" disabled >
+        </div>
+        <div class="col-12 col-md-6 form-group">
+            <label for="inputVia" i18n="via, n.">Via, n°</label>
+            <input  id="inputVia" type="text" formControlName="via" class="form-control form-control-lg"
+            [ngClass]="{
+                'is-invalid': via.invalid && (via.dirty || via.touched),
+                'is-valid': via.valid && (via.dirty || via.touched) }">
+            <div *ngIf="via.dirty && via.touched && via.invalid">
+                <div class="text-danger" *ngIf="via.errors.required" i18n="il campo via e richiesto">Il campo via è richiesto!</div>
+                <div class="text-danger" *ngIf="via.errors.pattern" i18n="inserisci via valida">Inserisci via valida</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row"  > 
+        <div class="col-12 col-md-6" style="margin-bottom:10px">
+            <label for="inputTelefono" i18n="telefono">Telefono</label>
+            <input  id="inputTelefono" type="text" formControlName="telefono" class="form-control form-control-lg"    
+            [ngClass]="{
+                'is-invalid': telefono.invalid && (telefono.dirty || telefono.touched),
+                'is-valid': telefono.valid && (telefono.dirty || telefono.touched) }">
+
+            <div *ngIf="telefono.dirty && telefono.touched && telefono.invalid">
+                <div class="text-danger" *ngIf="telefono.errors.required" i18n="il campo telefono e richiesto">Il campo telefono è richiesto!</div>
+                <div class="text-danger" *ngIf="telefono.errors.minlength" i18n="inserire almeno * numeri">Inserire almeno {{telefono.errors.minlength.requiredLength}} numeri</div>
+                <div class="text-danger" *ngIf="telefono.errors.pattern" i18n="inserisci un numero valido">Inserisci un numero valido</div>
+            </div>
+  
+        </div>
+        <div class="col-12 col-md-6" style="margin-bottom:10px">
+            <label for="inputEmail" i18n="email">Email</label>
+            <input  id="inputEmail" type="text" formControlName="email"  class="form-control form-control-lg"    
+            [ngClass]="{
+                'is-invalid': email.invalid && (email.dirty || email.touched),
+                'is-valid': email.valid && (email.dirty || email.touched) }">
+
+            <div *ngIf="email.dirty && email.touched && email.invalid">
+                <div class="text-danger" *ngIf="email.errors.required" i18n="il campo email e richiesto">Il campo email è richiesto!</div>
+                <div class="text-danger" *ngIf="email.errors.pattern" i18n="inserisci una email valida">Inserisci una email valida</div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row">
+       
+    </div>
 </div>
             
 
@@ -169,7 +138,7 @@
             <button type="button"   class="btn btn-outline-primary btn-large" (click)="backStep()" i18n="indietro">Indietro</button>
         </div>
         <div class="col nopadding">
-           <button type="button"   [disabled]="!formDataPerson.valid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="avanti">Avanti</button>
+           <button type="button"   [disabled]="!formDataPerson.valid"  class="btn btn-large btn-dark float-right" (click)="nextStep()" i18n="Invia">Invia</button>
         </div>
       </div>
     

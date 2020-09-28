@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { LOCALE_ID, NgModule} from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -18,6 +18,7 @@ import { DetailOfferComponent } from './detail-offer/detail-offer.component';
 import { SelectedOfferComponent } from './selected-offer/selected-offer.component';
 import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
 import { NavbarStepComponent } from './navbar-step/navbar-step.component';
+import '@angular/common/locales/global/de-CH';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { NavbarStepComponent } from './navbar-step/navbar-step.component';
     ReactiveFormsModule,
     
   ],
-  providers: [DataService, HttpClientService, AuthService],
+  providers: [DataService, HttpClientService, AuthService, { provide: LOCALE_ID, useValue: 'de-CH' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

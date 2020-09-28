@@ -96,10 +96,21 @@ export class SelectedOfferStep2Component implements OnInit {
         if(response['success'] == 'true'){
           this.data.id_offerta = response['id_offerta'];
           this.service.setGlobalData(this.data);
-          localStorage.removeItem('session');
-          localStorage.removeItem('data'); 
-          window.open(this.http.getPdf(this.data.id_offerta));
-          this.router.navigate['/'];
+          this.http.sendMail(this.data.id_offerta).subscribe(
+            response =>{
+              if(response['result'] == true){
+                alert(response['message']);
+                localStorage.removeItem('session');
+                localStorage.removeItem('data'); 
+                this.router.navigate(['/']);
+              }
+              else{
+                alert(response['message']);
+              }
+            },
+            error => alert("error subscirbe email")
+          );
+          
         }
         else{
           alert(response['message']);

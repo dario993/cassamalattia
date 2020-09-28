@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   APIURL : "http://localhost/rechner_api/api/",
-  API_PDF : "http://localhost/phpreport/src/"
+  API_PDF : "http://localhost/rechner_api/api/"
+  //API_PDF : "http://localhost/phpreport/src/"
 };
 
 /*

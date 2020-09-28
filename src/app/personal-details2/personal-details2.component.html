@@ -1,17 +1,10 @@
-<div class="row">
-    <div class="col">
-        <label i18n="npa / lacalita">NPA / Località</label>
-    </div>
-    <div class="col">
-        <label i18n="paese di domicilio">Paese di domicilio</label>
-    </div>
-</div>
-
 
 <form [formGroup]="myForm" class="form-lg">
   <div class="row">
-    <div class="col form-group"  >
-        <input type="text"  class="form-control form-control-lg" placeholder="1000 - Lausanne" formControlName="plz_localita" 
+    <div class="col-md-6 form-group"  >
+
+        <label for="inputPlz" i18n="npa / lacalita">NPA / Località</label>
+        <input  id="inputPlz" type="text"  class="form-control form-control-lg" placeholder="1000 - Lausanne" formControlName="plz_localita" 
         
         [maxlength]="4"
         [ngbTypeahead]="search"
@@ -21,9 +14,9 @@
         >
       
     </div>
-    <div class="col form-group">
-        
-          <input type="text"  class="form-control form-control-lg" placeholder=""  formControlName="paese_di_domicilio"
+    <div class="col-md-6 form-group">
+          <label for="inputDomicilio" i18n="paese di domicilio">Paese di domicilio</label>
+          <input  id="inputDomicilio" type="text"  class="form-control form-control-lg" placeholder=""  formControlName="paese_di_domicilio"
           [ngClass]="{
             'is-invalid': myForm.get('paese_di_domicilio').invalid && (myForm.get('paese_di_domicilio').dirty || myForm.get('paese_di_domicilio').touched),
             'is-valid': myForm.get('paese_di_domicilio').valid && (myForm.get('paese_di_domicilio').dirty || myForm.get('paese_di_domicilio').touched) }">
