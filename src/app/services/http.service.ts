@@ -15,9 +15,24 @@ export class HttpClientService {
     private APIURL = environment.APIURL ;
     private APIURL_PDF = environment.API_PDF;
     private lang;
+
+    siteLanguage: string = 'English';
+    siteLocale: string;
+    languageList = [{ code: 'en', label: 'English' },
+                    { code: 'fr', label: 'Français' },
+                    { code: 'de', label: 'Deutsch' },
+                    { code: 'it', label: 'Italian' }];
+
     
     constructor(private http: HttpClient, @Inject(LOCALE_ID) lang: string){
-        this.lang = lang;
+        this.siteLocale = 'it';
+      
+
+        if (environment.production == true) {
+            this.siteLocale = window.location.pathname.split('/')[1];
+            this.siteLanguage = this.languageList.find(f => f.code === this.siteLocale).label;
+        }
+
     }
 
 
@@ -26,7 +41,7 @@ export class HttpClientService {
     }
 
     initOffer(data: Data){
-        return this.http.post(this.APIURL+"init_offer.php?XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.lang, { "data" : data}, httpOptions);
+        return this.http.post(this.APIURL+"init_offer.php?XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.siteLocale, { "data" : data}, httpOptions);
     }
 
     getOffer(data: Data){
@@ -50,7 +65,7 @@ export class HttpClientService {
     }
 
     sendMail(id: number){
-        return this.http.get(this.APIURL+"api_data.php?act=sendMail&XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.lang+"&id="+id);
+        return this.http.get(this.APIURL+"api_data.php?act=sendMail&XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.siteLocale+"&id="+id);
     }
 
 

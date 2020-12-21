@@ -10,7 +10,7 @@ export class AppComponent {
     { code: 'de', label: 'Tedesco' },
     { code: 'fr', label: 'Francese' }
   ]
-
-
   title = 'cassamalattia';
+
+
 }

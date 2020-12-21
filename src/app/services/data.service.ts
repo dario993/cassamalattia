@@ -25,7 +25,7 @@ export class DataService {
 
       
       this.data = new Data();
-      this.data.plz_localita = new Plz();
+      this.data.plz_localita = '';
       this.data.paese_di_domicilio = '';
       this.data.id_offerta = 0; 
 

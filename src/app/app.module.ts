@@ -10,7 +10,7 @@ import { PersonalDetails2Component } from './personal-details2/personal-details2
 import { Routes } from '@angular/router'; 
 import { DataService } from './services/data.service';
 import { HttpClientService } from './services/http.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OfferComponent } from './offer/offer.component';
 import { RoutingModule } from './routing.module';
 import { AuthService } from './services/auth.service';
@@ -19,7 +19,13 @@ import { SelectedOfferComponent } from './selected-offer/selected-offer.componen
 import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
 import { NavbarStepComponent } from './navbar-step/navbar-step.component';
 import '@angular/common/locales/global/de-CH';
+import { NgWizardModule } from '@cmdap/ng-wizard';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { HttpErrorIntercept } from './http-interceptors/http-error.interceptor';
 
+const httpInterceptProviders= [
+  { provide: HTTP_INTERCEPTORS, useClass: HttpErrorIntercept, multi: true }
+];
 
 @NgModule({
   declarations: [
@@ -30,7 +36,8 @@ import '@angular/common/locales/global/de-CH';
     OfferComponent,
     DetailOfferComponent,
     SelectedOfferComponent,
-    SelectedOfferStep2Component
+    SelectedOfferStep2Component,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +46,9 @@ import '@angular/common/locales/global/de-CH';
     RoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    NgWizardModule
   ],
-  providers: [DataService, HttpClientService, AuthService, { provide: LOCALE_ID, useValue: 'de-CH' } ],
+  providers: [DataService, HttpClientService, httpInterceptProviders, AuthService, { provide: LOCALE_ID, useValue: 'de-CH' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

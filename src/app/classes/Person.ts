@@ -13,6 +13,7 @@ export class Person implements PersonInterface{
     infortunio: boolean;
     basics: Array<any>;
     benefits: Array<any>;
+    hospital: Array<any>;
     
     
 
@@ -25,6 +26,7 @@ export class Person implements PersonInterface{
         this.infortunio = null;
         this.basics = null;
         this.benefits = null;
+        this.hospital = null;
     }
 
     

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClientService } from '../services/http.service';
 import { Data } from '../classes/Data';
 import { IOfferta } from '../interfaces/interface-offerta';
+import { NgWizardStep } from '@cmdap/ng-wizard';
 
 
 @Component({
@@ -12,15 +13,18 @@ import { IOfferta } from '../interfaces/interface-offerta';
   templateUrl: './detail-offer.component.html',
   styleUrls: ['./detail-offer.component.css']
 })
-export class DetailOfferComponent implements OnInit {
+export class DetailOfferComponent extends NgWizardStep implements OnInit {
  
 
   data: Data;
  
-  results: Array<IOfferta>;
+  results: any;
 
-  isCollapsed: boolean[] = new Array();
+  resultsBenefits: any = new Array();
 
+  resultsBase: any = new Array();
+
+  isCollapsedSupp: boolean[] = new Array();
 
   selectedPerson: number;
 
@@ -29,6 +33,7 @@ export class DetailOfferComponent implements OnInit {
     private fb: FormBuilder, 
     private router: Router,
     private http: HttpClientService){
+      super();
       this.selectedPerson = 0;
       this.data = service.getData();
      
@@ -41,33 +46,42 @@ export class DetailOfferComponent implements OnInit {
      .subscribe(
       response => {
           if(response['success'] == "true"){
-            this.results = response['data'] as IOfferta[];
-            this.setCollapse();
-            this.ordinaRisultati();
+            this.results = response['data'] ;
+            this.divideResult();
+            //this.setCollapse();
+            //this.ordinaRisultati();
             //console.log(response)
           }
           else{
-            console.log("error");
+            console.log(response['message']);
             alert(response['message']);
           }
          },
-      error => alert("Errore! Contattare il webmaster")
+      error => {
+        alert("Errore! Contattare il webmaster");
+      } 
      );
-
-   
   }
 
-  setCollapse(){
-    for(let i=0; i < this.results.length; i++){
-      this.isCollapsed.push(false);
-    }
+  divideResult(){
+    this.results.forEach(row => {
+        if(row['persone'][0].benefitsexist == true){
+          this.resultsBenefits.push(row);
+        }      
+        else{
+          this.resultsBase.push(row);
+        }
+    });
+    this.ordinaRisultati(this.resultsBenefits);
+    this.ordinaRisultati(this.resultsBase);
   }
-  
 
   
+  
+  
 
-  ordinaRisultati(){
-    this.results.sort(function(a, b){
+  ordinaRisultati(array){
+    array.sort(function(a, b){
        return parseFloat(a['totale']) - parseFloat(b['totale']);
     })
   }
@@ -80,8 +94,12 @@ export class DetailOfferComponent implements OnInit {
     this.service.setSelectedOffert(row);
     this.service.setDataPersons(this.data.persons);
     this.service.setOffertData(this.data.offert);
-    this.router.navigate(['selected-offer']);
+    this.router.navigate(['rechner/step-4']);
     
+  }
+
+  goStep1(){
+    this.router.navigate(['rechner/step-1']);
   }
 
 }

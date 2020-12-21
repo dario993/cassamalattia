@@ -30,7 +30,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": false,
+            "localize": true,
             "aot" : true,
             "i18nMissingTranslation": "warning",
             "outputPath": "dist/",
@@ -46,6 +46,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",  
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/@ng-select/ng-select/themes/default.theme.css",
+              "node_modules/@cmdap/ng-wizard/themes/default.scss",
               "src/assets/Lato/latofonts.css",
               "src/assets/Lato/latostyle.css",
               "src/assets/icon/flaticon.css",
@@ -63,6 +64,9 @@
             },
             "en": {
               "localize": ["en"]
+            },
+            "it":{
+              "localize" : ["it"]
             },
             "production": {
               "fileReplacements": [

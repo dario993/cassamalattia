@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { HttpClientService } from '../services/http.service';
 import { Data } from '../classes/Data';
 import { Person } from '../classes/Person';
+import { NgWizardStep } from '@cmdap/ng-wizard';
 
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
   styleUrls: ['./offer.component.css']
 })
-export class OfferComponent implements OnInit {
+export class OfferComponent extends NgWizardStep implements OnInit {
 
   myForm: FormGroup; 
 
@@ -21,11 +22,14 @@ export class OfferComponent implements OnInit {
 
   selectedPerson: number;
 
+  holdHospitalSelected;
+
   constructor(
     private service: DataService, 
     private fb: FormBuilder, 
     private router: Router,
     private http: HttpClientService){
+      super();
       this.selectedPerson = 0;
       this.data = service.getData();
       this.getDataPerson(this.selectedPerson);     
@@ -50,6 +54,8 @@ export class OfferComponent implements OnInit {
         selected: [level[j]['selected']]
       }));
     }
+
+    
     
 
     let persons: Array<Person> = this.data.persons;
@@ -76,16 +82,20 @@ export class OfferComponent implements OnInit {
         icon: [benefits[j].icon]
       }));
     }
-    
+
+    let hospital = persons[this.selectedPerson]['hospital'];
+    for(let j=0; j<hospital.length; j++){
+      this.hospitalForm.push(this.fb.group({
+        title: [hospital[j].title],
+        code: [hospital[j].code],
+        title_poupop: [hospital[j].title_poupop],
+        descrizione_poupop: [hospital[j].descrizione_poupop],
+        selected: [hospital[j].selected],
+        icon: [hospital[j].icon]
+      }));
+    }
   }
 
-  initBasics(){
-
-  }
-
-  initBenefits(){
-    
-  }
 
   selectBasic(basic, i){
     if(this.selectedPerson !== 0){
@@ -125,6 +135,31 @@ export class OfferComponent implements OnInit {
       } 
     }
   }
+
+
+  changeHospital(level){
+   
+    let hospital = this.myForm.value.hospital;
+
+    for(let j=0; j< hospital.length; j++){
+      if(hospital[j].code == level.controls.code.value){
+        if(hospital[j].selected == "true"){
+          hospital[j].selected = "false";
+          level.controls.selected.value = "false";
+        }
+        else{
+          hospital[j].selected = "true";
+          level.controls.selected.value = "true";
+        }
+      }
+      else{
+        hospital[j].selected = "false";
+        level.controls.selected.value = "false";
+      }
+    }
+
+  }
+  
 
 
   isDisabled(){
@@ -185,11 +220,16 @@ export class OfferComponent implements OnInit {
     return this.myForm.get('benefits') as FormArray;
   }
 
+  get hospitalForm(){
+    return this.myForm.get('hospital') as FormArray;
+  }
+
   resetForm(){
     this.myForm = this.fb.group({
       level: this.fb.array([]),
       basics: this.fb.array([]),
-      benefits: this.fb.array([])
+      benefits: this.fb.array([]),
+      hospital: this.fb.array([]),
     });
   }
 
@@ -219,7 +259,7 @@ export class OfferComponent implements OnInit {
       this.initForm();
     }
     else{
-      this.router.navigate(['personal-details2']);
+      this.router.navigate(['rechner/step-1']);
     }
     
   }
@@ -229,6 +269,7 @@ export class OfferComponent implements OnInit {
     this.data.level_offert = this.myForm.value.level;
     this.data.persons[0].basics = this.myForm.value.basics;
     this.data.persons[this.selectedPerson].benefits = this.myForm.value.benefits;
+    this.data.persons[this.selectedPerson].hospital = this.myForm.value.hospital;
     console.log("total persons: " + this.data.persons.length);
     console.log("seleted persons: " + this.selectedPerson);
     
@@ -236,7 +277,7 @@ export class OfferComponent implements OnInit {
       console.log(this.data);
       this.service.setGlobalData(this.data);
       //this.service.setDataPersons(this.data.persons);
-      this.router.navigate(['detail-offer']);
+      this.router.navigate(['rechner/step-3']);
     }
     else{
       this.selectedPerson++;

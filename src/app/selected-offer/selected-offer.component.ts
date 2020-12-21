@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgbDateStruct, NgbCalendar, NgbDateParserFormatter, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientService } from '../services/http.service';
+import { NgWizardStep } from '@cmdap/ng-wizard';
 
 
 @Injectable()
@@ -63,7 +64,7 @@ export class CustomDateParserFormatter extends NgbDateParserFormatter {
     {provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter}
   ]
 })
-export class SelectedOfferComponent implements OnInit {
+export class SelectedOfferComponent extends NgWizardStep implements OnInit {
 
   data: Data;
 
@@ -82,13 +83,11 @@ export class SelectedOfferComponent implements OnInit {
                private ngbCalendar: NgbCalendar 
                ) { 
     
-    
+    super();
     this.today = this.ngbCalendar.getToday();
     this.data = service.getData();
     this.selectedOffert = this.data.selectedOffert;
-    this.formOffer = fb.group({
-      inizio_assicurazione: [ this.data.dataCliente.inizio_assicurazione, Validators.required]
-    });
+    
 
     this.setSelectedBenefits();   
   }
@@ -123,15 +122,15 @@ export class SelectedOfferComponent implements OnInit {
   }
 
   nextStep(){
-    this.data.dataCliente.inizio_assicurazione = this.formOffer.value.inizio_assicurazione;
+    //this.data.dataCliente.inizio_assicurazione = this.formOffer.value.inizio_assicurazione;
 
-    this.service.setGlobalData(this.data);
-    this.router.navigate(['selected-offer-step2']);
+    //this.service.setGlobalData(this.data);
+    this.router.navigate(['rechner/step-5']);
   }
 
 
   backStep(){
-    this.router.navigate(['detail-offer']);
+    this.router.navigate(['rechner/step-3']);
   }
 
   reportOffert(){

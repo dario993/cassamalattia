@@ -5,7 +5,7 @@ export class Data {
 
     
     id_offerta: number;
-    plz_localita: Plz;
+    plz_localita: string;
     paese_di_domicilio: string;
     level_offert: string;
     

@@ -3,9 +3,13 @@ import { Router } from '@angular/router';
 
 import { DataService } from '../services/data.service';
 import { Person } from '../classes/Person';
-import { Data, Utils } from '../classes/Data';
+import { Data, Utils, Plz } from '../classes/Data';
 import { Observable } from 'rxjs';
 import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from '@angular/forms';
+import {debounceTime, distinctUntilChanged, map, switchMap, catchError, filter} from 'rxjs/operators';
+import { HttpClientService } from '../services/http.service';
+import { NgWizardStep } from '@cmdap/ng-wizard';
+import { NgWizardStepInterface } from '@cmdap/ng-wizard/lib/ng-wizard-step/ng-wizard-step.interface';
 
 
 
@@ -14,33 +18,54 @@ import { FormArray, FormBuilder, FormGroup, Validators, FormControl, Form } from
   templateUrl: './personal-details1.component.html',
   styleUrls: ['./personal-details1.component.css',]
 })
-export class PersonalDetails1Component implements OnInit {
+export class PersonalDetails1Component  extends NgWizardStep  implements OnInit {
 
   myForm: FormGroup;
 
   data: Data;
 
-
+  model_plz: Plz;
+  
   constructor(private service: DataService, 
               private fb: FormBuilder, 
-              private router: Router){
-
+              private router: Router,
+              private http: HttpClientService){
+    super();
     this.data = service.getData();
   }
 
+
+
   ngOnInit(){
     this.myForm = this.fb.group({
-      plz_localita: this.fb.group({
-        id:  this.data.plz_localita.id,
-        plz: this.data.plz_localita.plz 
-      }), 
+      plz_localita: [this.data.plz_localita,  [Validators.required]],
       paese_di_domicilio:  this.data.paese_di_domicilio,
       persons: this.fb.array([])
     })
     this.initPersons();
   }
 
-  
+
+  resultFormatPlz(value: any){
+    return value.plz;
+  }
+
+  inputFormatPlz(value: any){
+    if(value.plz){
+      return value.plz;
+    }
+    return value;
+  }
+
+  search = (text$: Observable<string>) => {
+    return text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      filter( (str: string) => str.length>2 ),
+      switchMap( (searchText) =>  this.http.getPlz(searchText) )
+    );
+  }
+ 
   initPersons(){
     let persons: Array<Person> = this.data.persons;
     for(let i=0; i<persons.length; i++){
@@ -81,7 +106,7 @@ export class PersonalDetails1Component implements OnInit {
     const person = new Person();
     this.data.persons.push(person);
     this.personForms.push(this.fb.group({
-      nome: [person.nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      nome: [person.nome, [Validators.required, Validators.minLength(3) ]],
       nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
       franchigie: this.fb.array(person.franchigie),
       sesso: [person.sesso, [Validators.required]],
@@ -137,12 +162,13 @@ export class PersonalDetails1Component implements OnInit {
     this.updateData();
     
     this.service.setDataPersons(this.data.persons);
-    this.router.navigate(['personal-details2']);
+    this.router.navigate(['rechner/step-2']);
     
   }
 
 
   updateData(){
+    this.data.plz_localita = this.myForm.value.plz_localita;
     for(let i = 0; i < this.myForm.value.persons.length; i++){
       this.data.persons[i].nome = this.myForm.value.persons[i].nome;
       this.data.persons[i].nascita = this.myForm.value.persons[i].nascita;

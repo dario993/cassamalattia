@@ -5,13 +5,14 @@ import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormArray, Validators, FormGroup } from '@angular/forms';
 import { Person } from '../classes/Person';
+import { NgWizardStep } from '@cmdap/ng-wizard';
 
 @Component({
   selector: 'app-selected-offer-step2',
   templateUrl: './selected-offer-step2.component.html',
   styleUrls: ['./selected-offer-step2.component.css']
 })
-export class SelectedOfferStep2Component implements OnInit {
+export class SelectedOfferStep2Component extends NgWizardStep implements OnInit {
 
   data: Data;
 
@@ -24,7 +25,7 @@ export class SelectedOfferStep2Component implements OnInit {
               private service: DataService,
               private fb: FormBuilder,
               private router: Router,) { 
-
+                super();
                 this.data = service.getData();
                 this.dataCliente = this.data.dataCliente;
                 this.selectedOffert = this.data.selectedOffert;
@@ -35,10 +36,7 @@ export class SelectedOfferStep2Component implements OnInit {
 
     this.formDataPerson = this.fb.group({
       persons: this.fb.array([]),
-      plz_localita: this.fb.group({
-        plz: [this.data.plz_localita.plz],
-        id: [this.data.plz_localita.id]
-      }),
+      plz_localita: [this.data.plz_localita['plz']],
       nome_contraente: [this.data.dataCliente.nome_contraente, [Validators.required]  ],
       via: [this.data.dataCliente.via,  [ Validators.required]],
       telefono: [this.data.dataCliente.telefono, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
@@ -75,7 +73,7 @@ export class SelectedOfferStep2Component implements OnInit {
   get email() { return this.formDataPerson.get('email'); }
   get lingua() { return this.formDataPerson.get('lingua'); }
 
-
+ 
 
   nextStep(){
     this.data.dataCliente.assicurato_presso = this.data.selectedOffert['persone'][0]['nome_display'];
@@ -102,7 +100,7 @@ export class SelectedOfferStep2Component implements OnInit {
                 alert(response['message']);
                 localStorage.removeItem('session');
                 localStorage.removeItem('data'); 
-                this.router.navigate(['/']);
+                this.router.navigate(['rechner/step-1']);
               }
               else{
                 alert(response['message']);
@@ -123,7 +121,7 @@ export class SelectedOfferStep2Component implements OnInit {
 
 
   backStep(){
-    this.router.navigate(['selected-offer']);
+    this.router.navigate(['rechner/step-4']);
   }
 
 

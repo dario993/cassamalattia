@@ -1,18 +1,42 @@
-<div class="row title">
-  <div class="col nopadding">
-      <h2 i18n="dati persona">Dati persona</h2>
-  </div>
-</div>
+
 
 
 
 
 <form [formGroup]="myForm" class="form-lg myform">
+    <div class="row title">
+      <div class="col nopadding">
+          <h2 i18n="dati persona">Località</h2>
+      </div>
+    </div>
     
+  
+    <div class="row" style="margin-bottom:1rem" >
+    
+      <div class="col-sm-7 form-group " >
+
+          <label for="inputPlz" i18n= "npa / lacalita">NPA / Località</label>
+          <input  id="inputPlz" type="text"  class="form-control form-control-lg" placeholder="" formControlName="plz_localita" 
+          
+          [maxlength]="4"
+          [ngbTypeahead]="search"
+          [inputFormatter]="inputFormatPlz"
+          [resultFormatter]="resultFormatPlz"
+          [editable]='false'
+          >
+        
+      </div>
+    </div>
+
+    <div class="row title" style="margin-top: 2rem">
+      <div class="col nopadding">
+          <h2 i18n="dati persona">Dati persona</h2>
+      </div>
+    </div>
 
     <div formArrayName="persons">
     
-      <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px">
+      <div *ngFor="let person of  personForms.controls; let i=index" class="row" [formGroupName]="i" style="margin-bottom: 30px;">
         <div class="col-lg-5">
           <div class="row">
             <div class="col-md-6 form-group">
@@ -108,10 +132,11 @@
           </div>
         </div>
       </div>
-
-      
-
     </div>
+
+
+   
+    
   </form>
 
 

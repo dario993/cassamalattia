@@ -1,7 +1,4 @@
 
-<div class="row">
-</div> 
-
 
 <div id="benefits" class="">
     <form [formGroup]="myForm" class="myform" >
@@ -76,6 +73,25 @@
               </div>
               <div class="basic-insurance__tile--info">
                 <i class="fas fa-info-circle" font-size="medium" ngbPopover="{{benefit.value.descrizione_poupop}}" triggers="mouseenter:mouseleave" ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row basic-insurance title"  style="margin-top: 2rem">
+        <div class="col nopadding">
+          <h4 i18n="assicurazione ospedaliera">Assicurazioni ospedaliere</h4>
+        </div>
+      </div>
+      <div class="row basic-insurance" formArrayName="hospital">
+        <div class="col">
+          <div  *ngFor="let hospital of hospitalForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="changeHospital(hospital)" [ngClass]="{'basic-insurance__tile--selected': isSelected(hospital), 'basic-insurance__tile--disabled': isDisabled() }" >
+            <div class="basic-insurance__tile--wrapper"  >
+              <div class="basic-insurance__tile--content">
+                <div >{{hospital.value.title}}</div>
               </div>
             </div>
           </div>
