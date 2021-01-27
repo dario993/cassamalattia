@@ -1,5 +1,5 @@
 import { Component, OnInit, LOCALE_ID } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { DataService } from '../services/data.service';
 import { Person } from '../classes/Person';
@@ -25,11 +25,14 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
   data: Data;
 
   model_plz: Plz;
+
+  param;
   
   constructor(private service: DataService, 
               private fb: FormBuilder, 
               private router: Router,
-              private http: HttpClientService){
+              private http: HttpClientService,
+              private route: ActivatedRoute){
     super();
     this.data = service.getData();
   }
@@ -37,6 +40,9 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
 
 
   ngOnInit(){
+    
+  
+
     this.myForm = this.fb.group({
       plz_localita: [this.data.plz_localita,  [Validators.required]],
       paese_di_domicilio:  this.data.paese_di_domicilio,

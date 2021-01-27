@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { Person } from '../classes/Person';
 import { Data, Plz, DataCliente } from '../classes/Data';
 import { HttpClientService } from '../services/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class DataService {
 
   data: Data;
 
-   
+  queryParams;
+  datadinascita;
+  NPALocalita_id;
+  NPALocalita;
 
   persons: Array<Person>  = [];
 
@@ -16,24 +20,39 @@ export class DataService {
 
   private APIURL = "http://localhost/rechner_api/api/offer.php";
 
-  constructor(private http: HttpClientService) { 
-    if(localStorage.getItem('session')!=null){
-      this.session = localStorage.getItem('session');
-      this.data = JSON.parse(localStorage.getItem('data'));
-    }
-    else{
-
+    constructor(private http: HttpClientService, private route: ActivatedRoute) { 
+      this.queryParams = this.route.queryParams.subscribe( params => {
+      this.datadinascita = params['datadinascita'];
+      this.NPALocalita_id = params['NPALocalita_id'];
+      this.NPALocalita = params['NPALocalita'];
+      });
       
-      this.data = new Data();
-      this.data.plz_localita = '';
-      this.data.paese_di_domicilio = '';
-      this.data.id_offerta = 0; 
+      if(this.datadinascita !== undefined && this.NPALocalita_id !== undefined){
+        localStorage.removeItem('session');
+        localStorage.removeItem('data');
+      }
 
-      this.persons.push(new Person());
-      this.data.persons = this.persons;
-      this.data.dataCliente = new DataCliente();
+      if(localStorage.getItem('session')!==null){
+        this.session = localStorage.getItem('session');
+        this.data = JSON.parse(localStorage.getItem('data'));
+      }
+      else{ 
+        this.data = new Data();
+        this.data.plz_localita = '';
+        this.data.paese_di_domicilio = '';
+        this.data.id_offerta = 0; 
+
+        this.persons.push(new Person());
+        this.data.persons = this.persons;
+        this.data.dataCliente = new DataCliente();
+      }
+
+      if(this.datadinascita !== undefined && this.NPALocalita_id !== undefined){
+         this.data.plz_localita = { 'id' : this.NPALocalita_id, 'plz' : this.NPALocalita };
+         this.data.persons[0].nascita = this.datadinascita;
+      }
       
-    }
+   
   }
 
 
