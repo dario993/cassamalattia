@@ -47,7 +47,8 @@ export class DetailOfferComponent extends NgWizardStep implements OnInit {
       response => {
           if(response['success'] == "true"){
             this.results = response['data'] ;
-            this.divideResult();
+            this.ordinaRisultatiPremioBase(this.results);
+            //this.divideResult();
             //this.setCollapse();
             //this.ordinaRisultati();
             //console.log(response)
@@ -77,7 +78,11 @@ export class DetailOfferComponent extends NgWizardStep implements OnInit {
   }
 
   
-  
+  ordinaRisultatiPremioBase(array){
+    array.sort(function(a, b){
+      return parseFloat(a['totale_base']) - parseFloat(b['totale_base']);
+   })
+  }
   
 
   ordinaRisultati(array){

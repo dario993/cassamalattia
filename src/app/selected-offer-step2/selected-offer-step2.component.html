@@ -28,12 +28,13 @@
                             [ngClass]="{
                                 'is-invalid': person.controls.cognome.invalid && (person.controls.cognome.dirty || person.controls.cognome.touched),
                                 'is-valid': person.controls.cognome.valid && (person.controls.cognome.dirty || person.controls.cognome.touched) }">
-                            <div *ngIf="person.controls.cognome.dirty && person.controls.cognome.touched && cognome.invalid">
-                                <div class="text-danger" *ngIf="person.controls.errors.required" i18n="il campo e richiesto">Il campo Cognome è richiesto!</div>
-                                <div class="text-danger" *ngIf="person.controls.errors.pattern" i18n="inserisci cognome valido">Inserisci cognome valido</div>
+                            <div *ngIf="person.controls.cognome.dirty && person.controls.cognome.touched && person.controls.cognome.invalid">
+                                <div class="text-danger" *ngIf="person.controls.cognome.errors.required" i18n="il campo e richiesto">Il campo Cognome è richiesto!</div>
+                                <div class="text-danger" *ngIf="person.controls.cognome.errors.pattern" i18n="inserisci cognome valido">Inserisci cognome valido</div>
                             </div> 
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -70,7 +71,7 @@
                 'is-invalid': lingua.invalid && (lingua.dirty || lingua.touched),
                 'is-valid': lingua.valid && (lingua.dirty || lingua.touched) }" >
                 <option  value="" selected i18n="seleziona">Seleziona...</option>
-                <option  value="tedesco" i18n="tedesco">Tedesco</option>
+                <option  value="tedesco" selected i18n="tedesco">Tedesco</option>
                 <option  value="inglese" i18n="inglese">Inglese</option>
                 <option  value="francese" i18n="francese">Francese</option>
                 <option  value="italiano" i18n="italiano">Italiano</option>

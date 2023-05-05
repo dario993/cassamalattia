@@ -14,6 +14,9 @@ export class Person implements PersonInterface{
     basics: Array<any>;
     benefits: Array<any>;
     hospital: Array<any>;
+
+    nomeMedico: string;
+    plzMedico: string;
     
     
 
@@ -27,6 +30,9 @@ export class Person implements PersonInterface{
         this.basics = null;
         this.benefits = null;
         this.hospital = null;
+
+        this.nomeMedico = '';
+        this.plzMedico = '';
     }
 
     

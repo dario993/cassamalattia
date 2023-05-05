@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col">
-    <h3 *ngIf="resultsBenefits?.length > 0" i18n="i suoi risultati base e supplementari">I suoi risultati base e supplementari</h3>
+    <h3 *ngIf="results?.length > 0" i18n="i suoi risultati">I suoi risultati</h3>
     
   </div>
 </div>
@@ -17,7 +17,7 @@
 
 <div class="row">
   <div class="col">
-    <div id="dataResultSupplementari" *ngFor="let row  of resultsBenefits; index as i" class="row resultset">
+    <div id="dataResultSupplementari" *ngFor="let row  of results; index as i" class="row resultset">
      
       <!-- colonna 1-->
       <div [attr.data-index]="i" class="col-12 col-md-4 ">
@@ -39,7 +39,7 @@
       </div>
 
       <!-- colonna 2-->
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-3">
         <div class="row" style="margin-bottom: 0.3rem;">
           <div class="col">
             <h5 i18n>Modello:</h5>
@@ -54,10 +54,11 @@
       </div>
 
       <!-- colonna 3 -->
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-5">
         <div class="row" style="margin-bottom: 0.3rem;">
           <div class="col text-right">
-            <h5><span style="font-size: 0.9rem; padding-right: 5px" i18n>Premio / mese</span> <strong>{{row.totale | number : '1.2-2'}}</strong> CHF</h5>
+            <h5><span style="font-size: 0.9rem; padding-right: 5px" i18n>Premio totale base / mese</span> <strong>{{row.totale_base | number : '1.2-2'}}</strong> CHF</h5>
+            <h5 *ngIf="row.totale_benefits != 0" ><span style="font-size: 0.9rem; padding-right: 5px" i18n>Premio totale benefits / mese</span>{{row.totale_benefits | number : '1.2-2'}} CHF</h5>
           </div>
         </div>
         <div class="row">

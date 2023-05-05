@@ -18,11 +18,15 @@ export class OfferComponent extends NgWizardStep implements OnInit {
 
   person : Person;
 
+  
+
   data: Data;
 
   selectedPerson: number;
 
   holdHospitalSelected;
+
+  viewMedico = false;
 
   constructor(
     private service: DataService, 
@@ -54,14 +58,17 @@ export class OfferComponent extends NgWizardStep implements OnInit {
         selected: [level[j]['selected']]
       }));
     }
-
     
-    
-
     let persons: Array<Person> = this.data.persons;
     
     let basics = persons[0]['basics'];
     for(let j=0; j<basics.length; j++){
+      if((j==1 || j==2) && basics[j].selected == 'true' ){
+        this.viewMedico = true;
+      }
+      else{
+        this.viewMedico = false;
+      }
       this.basicsForm.push(this.fb.group({
         title: [basics[j].title],
         code: [basics[j].code],
@@ -94,17 +101,44 @@ export class OfferComponent extends NgWizardStep implements OnInit {
         icon: [hospital[j].icon]
       }));
     }
+     
   }
+
+  
 
 
   selectBasic(basic, i){
     if(this.selectedPerson !== 0){
       return false;
     }
+
     let basics = this.myForm.value.basics;
+    if(i==1){
+      if(basic.controls.selected.value == "false"){
+        this.viewMedico = true;
+      }
+      else{
+        if(basics[2].selected == "false"){
+          this.viewMedico = false;
+        }
+      }
+    }
+    if(i==2){
+      if(basic.controls.selected.value == "false"){
+        this.viewMedico = true;
+      }
+      else{
+        if(basics[1].selected == "false"){
+          this.viewMedico = false;
+        }
+      }
+    }
+
+    
     for(let j=0; j< basics.length; j++){
       if(basics[j].code == basic.controls.code.value){
         //console.log("selected: " + basic.controls.selected.value);
+        
         if(basic.controls.selected.value == "true"){
           basics[j].selected = "false";
           basic.controls.selected.value = "false";
@@ -224,12 +258,17 @@ export class OfferComponent extends NgWizardStep implements OnInit {
     return this.myForm.get('hospital') as FormArray;
   }
 
+
   resetForm(){
     this.myForm = this.fb.group({
       level: this.fb.array([]),
       basics: this.fb.array([]),
       benefits: this.fb.array([]),
       hospital: this.fb.array([]),
+      person : this.fb.group({
+          nomeMedico: this.person.nomeMedico,
+          plzMedico: this.person.plzMedico
+      })
     });
   }
 
@@ -251,6 +290,8 @@ export class OfferComponent extends NgWizardStep implements OnInit {
     );
   }
 
+
+ 
   backStep(){
     if(this.selectedPerson > 0 ){
       this.selectedPerson--;
@@ -270,6 +311,8 @@ export class OfferComponent extends NgWizardStep implements OnInit {
     this.data.persons[0].basics = this.myForm.value.basics;
     this.data.persons[this.selectedPerson].benefits = this.myForm.value.benefits;
     this.data.persons[this.selectedPerson].hospital = this.myForm.value.hospital;
+    this.data.persons[this.selectedPerson].nomeMedico = this.myForm.value.person.nomeMedico;
+    this.data.persons[this.selectedPerson].plzMedico = this.myForm.value.person.plzMedico;
     console.log("total persons: " + this.data.persons.length);
     console.log("seleted persons: " + this.selectedPerson);
     

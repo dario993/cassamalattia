@@ -29,7 +29,7 @@ export class SelectedOfferStep2Component extends NgWizardStep implements OnInit 
                 this.data = service.getData();
                 this.dataCliente = this.data.dataCliente;
                 this.selectedOffert = this.data.selectedOffert;
-                
+                this.setSelectedBenefits();
               }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class SelectedOfferStep2Component extends NgWizardStep implements OnInit 
       plz_localita: [this.data.plz_localita['plz']],
       nome_contraente: [this.data.dataCliente.nome_contraente, [Validators.required]  ],
       via: [this.data.dataCliente.via,  [ Validators.required]],
-      telefono: [this.data.dataCliente.telefono, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
+      telefono: [this.data.dataCliente.telefono, [Validators.pattern("^[0-9]*$"), Validators.minLength(8)]],
       email: [this.data.dataCliente.email, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       lingua: [this.data.dataCliente.lingua, [Validators.required]]
 
@@ -50,6 +50,26 @@ export class SelectedOfferStep2Component extends NgWizardStep implements OnInit 
     console.log(this.data);
   }
  
+
+  setSelectedBenefits(){
+    for(let i=0; i< this.data.persons.length; i++){
+      let listbenefits = this.getListElementSelected(this.data.persons[i].benefits);
+      if(this.getListElementSelected(this.data.persons[i].hospital).length>0){
+        listbenefits.push(this.getListElementSelected(this.data.persons[i].hospital));
+      }
+      this.data.selectedOffert['persone'][i]['listbenefits'] = listbenefits;
+    }      
+  }
+
+  getListElementSelected(benefits){
+    let list = [];
+    benefits.forEach(benefit => {
+      if(benefit['selected'] == 'true'){
+        list.push(benefit['title']);
+      }
+    });
+    return list;
+  }
   
   initPersons(){
     let persons: Array<Person> = this.data.persons;
@@ -100,7 +120,8 @@ export class SelectedOfferStep2Component extends NgWizardStep implements OnInit 
                 alert(response['message']);
                 localStorage.removeItem('session');
                 localStorage.removeItem('data'); 
-                this.router.navigate(['rechner/step-1']);
+                //this.router.navigate(['rechner/step-1']);
+                window.location.href='https://onezone.ch/app/';
               }
               else{
                 alert(response['message']);

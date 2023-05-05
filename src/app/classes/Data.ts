@@ -66,7 +66,7 @@ export class Utils{
       }
 
     public static calculateAge(birthday) { // birthday is a date
-        var anno_corrente = 2020;
+        var anno_corrente = 2022;
         var array = birthday.split('.');
         var eta = anno_corrente - array[2];
         

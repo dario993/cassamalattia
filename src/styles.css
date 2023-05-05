@@ -8,7 +8,8 @@
 
 
 html, body{
-    color: #333;
+    font-family: 'Encode Sans', sans-serif;
+    color: #1e3264;
     height: 100%;
     
 }
@@ -67,7 +68,7 @@ div.ng-wizard-buttons-container {
 }
 
 .dark-background{
-   background-color: #333c4e;
+   background-color: #1e3264;
 }
 
 .color-light{
@@ -83,9 +84,9 @@ div.ng-wizard-buttons-container {
  }
 
  .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
-    color: #3bafbf;
+    color: #1e3264;
     background-color: #fff;
-    border-color: #3bafbf;
+    border-color: #1e3264;
 }
 .btn-light {
     color: #495057;
@@ -205,7 +206,7 @@ div.ng-wizard-buttons-container {
 
 #benefits .additional-benefits {
     margin-bottom: 1rem;
-    color: #1289ba;
+    color: #1e3264;
 }
 
 #benefits .additional-benefits__header {
@@ -252,15 +253,15 @@ div.ng-wizard-buttons-container {
         background: #92b3c14a;
     }
     #benefits .additional-benefits__tile--selected:hover{
-        background: #1888ad;
+        background: #1e3264;
     }
 }
 
 #benefits .additional-benefits__tile--selected {
-    background: #1888ad;
+    background: #1e3264;
     color: #fff;
     font-weight: 700;
-    border: .1rem solid #1888ad;
+    border: .1rem solid #1e3264;
 }
 
 #benefits .additional-benefits__tile--wrapper {
@@ -320,34 +321,34 @@ div.ng-wizard-buttons-container {
 }
 
 .link{
-    color: #3bafbf;
+    color: #1e3264;
 }
 
 
 
 .btn-dark{
-    background-color: #3bafbf;
-    border: 2px solid #3bafbf;
+    background-color: #1e3264;
+    border: 2px solid #1e3264;
     color: #fff; 
     
 }
 
 .btn-dark:hover{
     background-color: #fff;
-    border: 2px solid #3bafbf;
-    color: #3bafbf;
+    border: 2px solid #1e3264;
+    color: #1e3264;
 }
 
 .btn-dark.disabled, .btn-dark:disabled {
-    background-color: #3bafbf;
-    border: 2px solid #3bafbf;
+    background-color: #1e3264;
+    border: 2px solid #1e3264;
     color: #fff;
 }
 
 
 .btn-link {
     font-weight: 400;
-    color: #3bafbf;
+    color: #1e3264;
     text-decoration: none;
 }
 
@@ -357,14 +358,14 @@ div.ng-wizard-buttons-container {
 }
 
 .btn-outline-primary {
-    color: #3bafbf;
-    border: 2px solid #3bafbf;
+    color: #1e3264;
+    border: 2px solid #1e3264;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #3bafbf;
-    border: 2px solid #3bafbf;
+    background-color: #1e3264;
+    border: 2px solid #1e3264;
 }
 
   .title{

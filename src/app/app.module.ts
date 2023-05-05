@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PersonalDetails1Component } from './personal-details1/personal-details1.component';
 import { PersonalDetails2Component } from './personal-details2/personal-details2.component';
 import { Routes } from '@angular/router'; 
@@ -17,11 +17,15 @@ import { AuthService } from './services/auth.service';
 import { DetailOfferComponent } from './detail-offer/detail-offer.component';
 import { SelectedOfferComponent } from './selected-offer/selected-offer.component';
 import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
-import { NavbarStepComponent } from './navbar-step/navbar-step.component';
 import '@angular/common/locales/global/de-CH';
 import { NgWizardModule } from '@cmdap/ng-wizard';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { HttpErrorIntercept } from './http-interceptors/http-error.interceptor';
+import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './admin/login/login.component';
+import { OffertsComponent } from './admin/offerts/offerts.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ViewOffertComponent } from './admin/view-offert/view-offert.component';
 
 const httpInterceptProviders= [
   { provide: HTTP_INTERCEPTORS, useClass: HttpErrorIntercept, multi: true }
@@ -29,7 +33,6 @@ const httpInterceptProviders= [
 
 @NgModule({
   declarations: [
-    NavbarStepComponent,
     AppComponent,
     PersonalDetails1Component,
     PersonalDetails2Component,
@@ -37,7 +40,14 @@ const httpInterceptProviders= [
     DetailOfferComponent,
     SelectedOfferComponent,
     SelectedOfferStep2Component,
-    SpinnerComponent
+    SpinnerComponent,
+    NavComponent,
+
+    LoginComponent,
+    OffertsComponent,
+    SignupComponent,
+    ViewOffertComponent
+
   ],
   imports: [
     BrowserModule,
@@ -46,7 +56,9 @@ const httpInterceptProviders= [
     RoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgWizardModule
+    NgWizardModule,
+    
+    FormsModule
   ],
   providers: [DataService, HttpClientService, httpInterceptProviders, AuthService, { provide: LOCALE_ID, useValue: 'de-CH' } ],
   bootstrap: [AppComponent]

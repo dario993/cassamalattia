@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      
+      <!-- 
       <div class="row level-offert title" style="margin-top: 2rem">
         <div class="col nopadding">
           <h4><span i18n="livello assicurazione">Livello di assicurazione</span></h4>
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      
+      -->
 
 
       <div class="row basic-insurance title"  style="margin-top: 2rem;">
@@ -53,6 +53,21 @@
                 <i class="fas fa-info-circle" font-size="medium" ngbPopover="{{basic.value.descrizione_poupop}}" triggers="mouseenter:mouseleave" ></i>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div formGroupName="person" *ngIf="viewMedico">
+        <div class="row">
+          <div class="col-12 col-md-6 form-group">
+              <label for="inputNomeMedico" i18n="Medico di famiglia">Medico di Famiglia</label>
+              <input  id="inputNomeMedico" type="text" formControlName="nomeMedico"  class="form-control form-control-lg" value=" "   placeholder="Nome"   >
+          </div>
+          <div class="col-12 col-md-6">
+              <label for="inputPlzMedico" i18n="Plz">PLZ Medico</label>
+              <input  id="inputPlzMedico" type="text" formControlName="plzMedico" class="form-control form-control-lg" value=" "  placeholder="PLZ"  >
+            
           </div>
         </div>
       </div>
@@ -88,7 +103,7 @@
       </div>
       <div class="row basic-insurance" formArrayName="hospital">
         <div class="col">
-          <div  *ngFor="let hospital of hospitalForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="changeHospital(hospital)" [ngClass]="{'basic-insurance__tile--selected': isSelected(hospital), 'basic-insurance__tile--disabled': isDisabled() }" >
+          <div  *ngFor="let hospital of hospitalForm.controls; let j=index" class="basic-insurance__tile" [formGroupName]="j" (click)="changeHospital(hospital)" [ngClass]="{'basic-insurance__tile--selected': isSelected(hospital) }" >
             <div class="basic-insurance__tile--wrapper"  >
               <div class="basic-insurance__tile--content">
                 <div >{{hospital.value.title}}</div>

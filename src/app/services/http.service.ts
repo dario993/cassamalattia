@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Data } from '../classes/Data';
 import { IOfferta } from '../interfaces/interface-offerta';
 import { environment } from '../../environments/environment';
+import { Offert } from '../classes/Offert';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -66,6 +67,20 @@ export class HttpClientService {
 
     sendMail(id: number){
         return this.http.get(this.APIURL+"api_data.php?act=sendMail&XDEBUG_SESSION_START=netbeans-xdebug&lang="+this.siteLocale+"&id="+id);
+    }
+
+    getOfferts(){
+        return this.http.get(this.APIURL+"api_data.php?act=getOfferts&XDEBUG_SESSION_START=netbeans-xdebug");
+    }
+
+    getOffertbyid(id: number){
+        return this.http.get(this.APIURL+"api_data.php?act=getOffertbyid&id="+id);
+    }
+
+
+    login(email: string, password: string){
+        return this.http.post(this.APIURL+"api_data.php?act=login&XDEBUG_SESSION_START=netbeans-xdebug", { "email" : "email" }, httpOptions);
+
     }
 
 

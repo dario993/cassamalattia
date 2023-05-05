@@ -44,7 +44,7 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
   
 
     this.myForm = this.fb.group({
-      plz_localita: [this.data.plz_localita,  [Validators.required]],
+      plz_localita: [this.data.plz_localita,  [Validators.required, Validators.minLength(5)]],
       paese_di_domicilio:  this.data.paese_di_domicilio,
       persons: this.fb.array([])
     })
@@ -87,6 +87,10 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
     }
   }
 
+  get myFormFormControl() {
+    return this.myForm.controls;
+  }
+
 
   get personForms(){
     return this.myForm.get('persons') as FormArray;
@@ -116,7 +120,9 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
       nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
       franchigie: this.fb.array(person.franchigie),
       sesso: [person.sesso, [Validators.required]],
-      infortunio: [person.infortunio, [Validators.required]]
+      infortunio: [person.infortunio, [Validators.required]],
+      nomeMedico: [person.nomeMedico],
+      plzMedico: [person.plzMedico]
     }));
     
   }

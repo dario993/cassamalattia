@@ -1,0 +1,195 @@
+<div *ngIf="offerta">
+    <div class="row title" style="margin-top: 2rem; margin-bottom:0.2rem">
+        <div class="col nopadding">
+        <h3 style="margin:auto; padding-top: 25px; color: #636363" class="" i18n="riepilogo dell offerta">Riepilogo dell'offerta numero</h3>
+        </div> 
+        <div class="col nopadding " >
+            <h4 class="text-right" style="margin:auto; padding-top: 30px; color: #000000; " >{{offerta['id_offerta_ricevuta']}} </h4> 
+        </div>
+    </div>
+
+
+    <div class="row title">
+        <div class="col nopadding ">
+            <h4 style="margin:auto; padding-top: 25px; color: #636363" i18n="assicurato presso">Assicurato presso</h4>
+        </div>
+        <div class="col nopadding " >
+        <h4 class="text-right" style="margin:auto; padding-top: 25px; color: #000000; " >{{offerta['assicurato_presso']}} </h4> 
+        </div>
+    </div>
+
+
+
+    <div class="row title" style="margin-top: 5rem;">
+        <div class="col nopadding">
+            <h4 style="margin-bottom: 0; color: #636363; padding-top: 8px" i18n="anteprima dell'offerta">Anteprima dell'offerta</h4>
+        </div>
+        <div class="col nopadding" style="margin-top: auto; margin-bottom: 5px;">
+            <div class="div-price">
+                <p class="label-price"><span i18n="premio">Premio</span> <br/>CHF / <span i18n="mese">mese</span></p>
+                <span class="price" style="margin-top: auto;">{{totale | number : '1.2-2' }}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row title" style="margin-top: 5rem;">
+        <div class="col nopadding">
+            <h4 style="margin-bottom: 0; color: #636363" i18n="prodotti per persona">Prodotti per persona</h4>
+        </div>
+    </div>
+
+      <!-- //dati offerta persone-->
+      <div  *ngFor="let persona of offerta['base']; index as i" class="row" >
+        <div class="col box-dati-personali" style="margin-left: 15px; margin-right: 15px; margin-bottom: 20px; padding:30px; ">
+          
+          <!-- NOME --- totale persona -->
+          <div class="row" style="border-bottom: solid 0px #bfbfbf; margin-top: 20px; color:#636363">
+            <div class="col">
+              <div class="d-inline-block">
+                <div *ngIf="persona.sesso_persona; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock> <i class="fa fa-male fa-outline" style="padding-right: 0.5rem; font-size: 2.5rem;"></i> </ng-template>
+                <ng-template #elseBlock> <i class="fa fa-female fa-outline" style="padding-right: 0.5rem; font-size: 2.5rem;"></i> </ng-template>
+              </div>
+              <div class="d-inline-block">
+                <h4 style="line-height: 1;"><span style="font-size: 0.8rem; display: block; margin-bottom: 5px; margin-left: 2px; color: #3bafbf">{{persona.nascita_persona}}</span><span style="display: block; color: #3bafbf"><strong>{{persona.nome_persona}} {{persona.cognome_persona}}</strong></span></h4>
+              </div>
+             
+            </div>
+            <div class="col" style="margin-top:auto; margin-bottom:5px">
+              <div class="div-price" style="margin-top: 5px">
+                  <p class="label-price"></p>
+                  <span class="price-persona" style="color: inherit; font-size:1.8rem">{{persona.totale_persona | number : '1.2-2' }}</span>
+              </div>
+            </div>
+          </div>
+      
+          <!-- ASSICURAZIONE BASE-->
+          <div class="base-benefits">
+            <div class="row">
+              <div class="col">
+                <p class="title-base-benefits" i18n="assicurazione di base">Assicurazione di Base</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <!-- Tariffa assicurazione di Base -->
+                <p style="font-size:1.1rem; margin-bottom:0px">{{offerta.assicurato_presso}}</p>
+                <p style="color: rgb(133, 133, 133); margin-bottom: 0;">{{persona.nome_tariffa}}</p> <!-- inserire tariffa base -->
+              </div>
+              <div class="col-12 col-md-6">
+                <div *ngIf="persona.infortunio_persona; then conInfortunio else senzaInfortunio"></div>
+            <ng-template #conInfortunio><span i18n="con infortunio">Con infortunio</span></ng-template>
+            <ng-template #senzaInfortunio><span i18n="senza infortunio">Senza infortunio</span></ng-template>
+            - <span i18n="franchigia">Franchigia</span>: {{persona.franchigia}} 
+              </div>
+              <div class="col-12 col-md-2 float-right">
+                <p class="float-right" style="margin-bottom: 0;">{{persona.premio | number : '1.2-2' }}</p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- ASSICURAZIONE SUPPLEMENTARE in caso di premi calcolati-->
+          <div class="base-benefits" *ngIf="persona.benefits?.length >  0">
+            <div class="row">
+              <div class="col">
+                <p class="title-base-benefits" i18n="assicurazione supplementare">Assicurazione Supplementare</p>
+              </div>
+            </div>
+            <div class="row" *ngFor="let supp of persona.benefits">
+              <div class="col-6">
+                <p style="font-size:1.1rem; margin-bottom:0px">{{supp.descrizione}}</p>
+              </div>
+              
+              <div class="col-6 float-right">
+                    <p class="float-right" style="margin-bottom: 0;">{{supp.premio | number : '1.2-2' }}</p>
+              </div>
+            </div>
+          </div>
+      
+      
+           <!-- ASSICURAZIONE SUPPLEMENTARE 
+                I PREMI NON CI SONO NEL CALCOLATORE      
+          -->
+          <div class="base-benefits" *ngIf="!checkBenefits(persona)">
+            <div class="row">
+              <div class="col">
+                <p class="title-base-benefits" i18n="assicurazione supplementare">Assicurazione Supplementare</p>
+                <p class="" i18n="avviso premi suppelementari non disponibili"><strong>Nota bene:</strong> Le tariffe dei premi supplementai attualmente per questa cassa malattia non sono disponibili.<br> 
+                  Verrà inviato un preventivo specifico a seguito dell'invio della richiesta.<br>
+                  Di seguito sono elencate i servizi selezionati precedentemente.</p>
+              </div>
+            </div>
+            <div class="row" *ngFor="let benefit of persona.listbenefits">
+              <div class="col-12">
+                <p style="font-size:1.1rem; margin-bottom:0px">{{persona.list_benefits}}</p>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div> <!-- FINE CICLO TARIFFE -->
+
+      
+      <!-- RIGA DATI PERSONALI -->
+      <div class="row title" style="margin-top: 5rem;">
+        <div class="col nopadding">
+            <h4 style="margin-bottom: 0; color: #636363" i18n="Dati personali">Dati personali</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--BOX  DATI PERSONALI -->
+        <div class="col box-dati-personali" style="margin-left: 15px; margin-right: 15px; margin-bottom: 20px; padding:30px; ">
+          <div class="row">
+            <div class="col">
+                <p>Nome contraente</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.nome_contraente}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <p class="">PLZ - Località</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.plz_localita}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <p class="">Via</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.via}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <p class="">Telefono</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.telefono}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <p class="">Email</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.email}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <p class="">Lingua dell'offerta</p>
+            </div>
+            <div class="col">
+                <p class="font-weight-bold">{{offerta.lingua}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+

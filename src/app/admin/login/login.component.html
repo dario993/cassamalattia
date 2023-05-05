@@ -1,0 +1,46 @@
+ <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>
+        Login
+      </h1>
+      <form name="loginForm" #f="ngForm" (ngSubmit)="signIn(f)" >
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" required email type="email" ngModel #email="ngModel" name="email" id="email" 
+          [ngClass]="{
+            'is-invalid': email.invalid && (email.dirty || email.touched),
+            'is-valid': email.valid && (email.dirty || email.touched) }">
+          <div *ngIf="email.dirty && email.touched && email.invalid">
+            <div class="text-danger" *ngIf="email.errors.required">
+              Il campo Email è richiesto!
+            </div>
+            <div class="text-danger" *ngIf="email.errors.email">
+              Inserire una mail valida!
+            </div>
+          </div>
+        </div>
+       
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" required minlength="3" ngModel  type="password" #password="ngModel" name="password" id="password"
+          [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched),
+                      'is-valid': email.valid && (password.dirty || password.touched) }">
+          <div *ngIf="password.dirty && password.touched && password.invalid">
+            <div class="text-danger" *ngIf="password.errors.required">
+              Il campo password è richiesto!
+            </div>
+            <div class="text-danger" *ngIf="password.errors.minlength">
+              Inserire almeno {{password.errors.minlength.requiredLength}} caratteri
+            </div>
+          </div>
+    
+        </div>
+        
+        <div class="form-group">
+          <button [disabled]="!f.valid"  class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>  
+  </div>
+ 

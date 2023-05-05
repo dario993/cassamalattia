@@ -7,6 +7,11 @@ import { DetailOfferComponent } from './detail-offer/detail-offer.component';
 import { SelectedOfferComponent } from './selected-offer/selected-offer.component';
 import { SelectedOfferStep2Component } from './selected-offer-step2/selected-offer-step2.component';
 import { NgWizardComponent } from '@cmdap/ng-wizard';
+import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './admin/login/login.component';
+import { OffertsComponent } from './admin/offerts/offerts.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ViewOffertComponent } from './admin/view-offert/view-offert.component';
 
 const wizardConfig = {
   name: 'MyWizard',
@@ -31,15 +36,16 @@ const wizardConfig = {
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'rechner/step-1',
+    redirectTo: '/rechner/step-1',
     pathMatch: 'full'
   },
+  
   {
     path: 'rechner',
     component: NgWizardComponent,
     children: [
       {
-        path: 'step-1',
+        path: 'step-1',  
         component: PersonalDetails1Component
       },
     
@@ -73,7 +79,25 @@ const routes: Routes = [
       }
     ],
     data: wizardConfig
+  },
+  
+  {
+    path: 'admin/login',
+    component: LoginComponent  
+  },
+  {
+    path: 'admin/offerts',
+    component: OffertsComponent  
+  },
+  {
+    path: 'admin/signup',
+    component: SignupComponent
+  },
+  { 
+    path: 'admin/offert/:id',
+    component: ViewOffertComponent
   }
+
 ];
 
 
@@ -82,6 +106,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [ RouteGuardService ]
+  providers: [ RouteGuardService, AuthGuardService ]
 })
 export class RoutingModule { }
