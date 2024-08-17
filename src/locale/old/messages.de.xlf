@@ -401,7 +401,7 @@
       <note from="description" priority="1">ciao</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit>
       <trans-unit id="7ddc5d18095e5b69dc69c94e3ecea6eaabbd75f3" datatype="html">
         <source>Ci esponga le sue esigenze e le consiglieremo le assicurazioni adeguate.</source>
-        <target state="translated">Wähle deine Leistungen</target>
+        <target state="translated">Zeigen Sie uns Ihre Bedürfnisse und wir werden Ihnen die passenden Lösungen vorschlagen.</target>
         
       <note from="description" priority="1">ci espogna le sue eisgneze</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="f6807ebfeecc6592faa2d00a2946ddf4b86260ae" datatype="html">
@@ -508,7 +508,7 @@
         
         <note priority="1" from="description">prodotti per persona</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">72</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="fa4748055a77e8258c5e9050c398197224d63eb0" datatype="html">
-        <source>Assicurazione di Base</source><target state="translated">Modell</target>
+        <source>Assicurazione di Base</source><target state="translated">Grundversicherung</target>
         
         <note priority="1" from="description">assicurazione di base</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">108</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">72</context></context-group></trans-unit><trans-unit id="9194e8764c7656f1dd9f0d70c5d9ae833a26b896" datatype="html">

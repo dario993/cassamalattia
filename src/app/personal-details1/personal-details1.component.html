@@ -16,7 +16,7 @@
       <div class="col-sm-7 form-group " >
 
           <label for="inputPlz" i18n= "npa / lacalita">NPA / Località</label>
-          <input  id="inputPlz" type="text"  class="form-control form-control-lg" placeholder="8000" formControlName="plz_localita" name="plz_localita"
+          <input  id="inputPlz" type="text"  class="form-control form-control-lg" placeholder="1000" formControlName="plz_localita" name="plz_localita"
           
           [maxlength]="4"
           [ngbTypeahead]="search"
@@ -30,7 +30,7 @@
             
     
           <div *ngIf=" myFormFormControl.plz_localita.dirty &&  myFormFormControl.plz_localita.touched &&  myFormFormControl.plz_localita.invalid">
-            <div class="text-danger" *ngIf=" myFormFormControl.plz_localita.errors.required" i18n="Il campo nome e richiesto">Inserire PLZ composto da 4 numeri!</div>
+            <div class="text-danger" *ngIf=" myFormFormControl.plz_localita.errors.required" i18n="Inserire PLZ corretto">Inserire PLZ corretto!</div>
           </div>
 
       </div>
