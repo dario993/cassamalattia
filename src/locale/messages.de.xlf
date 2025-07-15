@@ -335,12 +335,15 @@
         <source>Il campo nascita è richiesto!</source>
         <target state="translated">Das Feld Geburtstag ist obligatorisch</target>
         
-      <note from="description" priority="1">il campo nascita e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit>
-      <trans-unit id="9720aad7e0367a94992d70481ac6542dc8ce3888" datatype="html">
-        <source>Inserire data formato GG.MM.AAAA</source>
-        <target state="translated">Datum einfügen im Format TT.MM.JJJJ</target>
-        
-      <note from="description" priority="1">inserire data formato</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">76</context></context-group></trans-unit>
+      <note from="description" priority="1">il campo nascita e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit><trans-unit id="0752b1e82ef89bc43ee763b2838a7967c0c9a608" datatype="html">
+        <source>Inserire data formato GG-MM-AAAA</source><target state="new">Inserire data formato GG-MM-AAAA</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+        <note priority="1" from="description">inserire data formato</note>
+      </trans-unit>
+      
       <trans-unit id="65dced6bf7ff0370fbcb766eda90058d216c3bea" datatype="html">
         <source>Seleziona</source>
         <target state="translated">Auswählen</target>

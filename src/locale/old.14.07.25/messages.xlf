@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="ngb.alert.close" datatype="html">
         <source>Close</source>
@@ -327,8 +327,8 @@
         </context-group>
         <note priority="1" from="description">il campo nascita e richiesto</note>
       </trans-unit>
-      <trans-unit id="0752b1e82ef89bc43ee763b2838a7967c0c9a608" datatype="html">
-        <source>Inserire data formato GG-MM-AAAA</source>
+      <trans-unit id="9720aad7e0367a94992d70481ac6542dc8ce3888" datatype="html">
+        <source>Inserire data formato GG.MM.AAAA</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context>
           <context context-type="linenumber">76</context>

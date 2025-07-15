@@ -60,14 +60,14 @@ export class Utils{
             { id: "300", value: "300", selected: 'false' }, 
             { id: "200", value: "200", selected: 'false' }, 
             { id: "100", value: "100", selected: 'false' },
-            { id: "0", value: "0", selected: 'false' },
+            { id:   "0", value:   "0", selected: 'false' },
             ];
         return franchigia; 
       }
 
     public static calculateAge(birthday) { // birthday is a date
-        var anno_corrente = 2022;
-        var array = birthday.split('.');
+        var anno_corrente = 2025;
+        var array = birthday.split('-');
         var eta = anno_corrente - array[2];
         
         return eta;

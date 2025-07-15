@@ -121,7 +121,7 @@ export class SelectedOfferStep2Component extends NgWizardStep implements OnInit 
                 localStorage.removeItem('session');
                 localStorage.removeItem('data'); 
                 //this.router.navigate(['rechner/step-1']);
-                window.location.href='https://onezone.ch/app/';
+                window.location.href='https://onezone.ch/anfragenbestaetigung';
               }
               else{
                 alert(response['message']);

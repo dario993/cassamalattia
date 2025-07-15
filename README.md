@@ -40,6 +40,12 @@ aggiungere la seguente riga nelle proprietà "production" nel file angular.json
                 }
               ],
 
+quando si cambiano le tariffe aggiornare anche la variabile 
+
+src/app/classes/Data.ts
+
+anno_corrente
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

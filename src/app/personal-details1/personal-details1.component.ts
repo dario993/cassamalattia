@@ -78,7 +78,7 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
       
       this.personForms.push(this.fb.group({
         nome: [persons[i].nome, [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
-        nascita: [persons[i].nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
+        nascita: [persons[i].nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01])\-(0[1-9]|1[012])\-[0-9]{4}')]],
         franchigie: this.fb.array([]),
         sesso: [persons[i].sesso, [Validators.required]],
         infortunio: [persons[i].infortunio, [Validators.required]]
@@ -97,12 +97,14 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
   }
 
 
+  
+
   initFranchigie(person, k){
     const franchigiaArray = (<FormArray>this.myForm.controls['persons']).at(k).get('franchigie') as FormArray;
     while (franchigiaArray.length) {
       franchigiaArray.removeAt(0);
     }
-    for(let i=0; i< person.franchigie.length; i++){
+    for(let i=0; i< this.data.persons[k].franchigie.length; i++){
       franchigiaArray.push(this.fb.group({
         id:[this.data.persons[k].franchigie[i].id],
         value: [this.data.persons[k].franchigie[i].value, [Validators.required]],
@@ -117,7 +119,7 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
     this.data.persons.push(person);
     this.personForms.push(this.fb.group({
       nome: [person.nome, [Validators.required, Validators.minLength(3) ]],
-      nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}')]],
+      nascita: [person.nascita, [Validators.required, Validators.minLength(8), Validators.pattern('^(0[1-9]|[12][0-9]|3[01])-?(0[1-9]|1[0-2])-?\\d{4}$')]],
       franchigie: this.fb.array(person.franchigie),
       sesso: [person.sesso, [Validators.required]],
       infortunio: [person.infortunio, [Validators.required]],
@@ -157,6 +159,20 @@ export class PersonalDetails1Component  extends NgWizardStep  implements OnInit 
 
     this.initFranchigie(this.myForm.value.persons[i], i);
     
+  }
+
+  formatDateInput(event: Event, i): void {
+    const input = event.target as HTMLInputElement;
+    let value = input.value.replace(/\D/g, ''); // Rimuove tutto tranne i numeri
+
+    if (value.length >= 2) {
+      value = value.slice(0, 2) + '-' + value.slice(2);
+    }
+    if (value.length >= 5) {
+      value = value.slice(0, 5) + '-' + value.slice(5, 9);
+    }
+    input.value = value;
+    (<FormArray>this.myForm.controls['persons']).at(i).get('nascita')?.setValue(value); // Aggiorna il valore del FormControl
   }
 
   deletePerson(i){

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="it" datatype="plaintext" original="ng2.template" target-language="en">
+  <file source-language="it" datatype="plaintext" original="ng2.template" target-language="de">
     <body>
       <trans-unit id="ngb.alert.close" datatype="html">
         <source>Close</source>
-        <target state="translated">Close</target>
+        <target state="translated">Schliessen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/alert/alert.d.ts</context>
           <context context-type="linenumber">3</context>
@@ -12,7 +12,7 @@
       </trans-unit>
       <trans-unit id="ngb.carousel.previous" datatype="html">
         <source>Previous</source>
-        <target state="translated">Back</target>
+        <target state="translated">Zurück</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
           <context context-type="linenumber">13</context>
@@ -20,7 +20,7 @@
       </trans-unit>
       <trans-unit id="ngb.carousel.next" datatype="html">
         <source>Next</source>
-        <target state="translated">Next</target>
+        <target state="translated">Weiter</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/carousel/carousel.d.ts</context>
           <context context-type="linenumber">17</context>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="ngb.datepicker.previous-month" datatype="html">
         <source>Previous month</source>
-        <target state="translated">Previous month</target>
+        <target state="translated">Vorheriger Monat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
           <context context-type="linenumber">4</context>
@@ -40,7 +40,7 @@
       </trans-unit>
       <trans-unit id="ngb.datepicker.next-month" datatype="html">
         <source>Next month</source>
-        <target state="translated">Next month</target>
+        <target state="translated">Nächster Monat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.d.ts</context>
           <context context-type="linenumber">26</context>
@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit id="ngb.datepicker.select-month" datatype="html">
         <source>Select month</source>
-        <target state="translated">Select month</target>
+        <target state="translated">Monat auswählen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
           <context context-type="linenumber">5</context>
@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="ngb.datepicker.select-year" datatype="html">
         <source>Select year</source>
-        <target state="translated">Select year</target>
+        <target state="translated">Jahr auswählen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation-select.d.ts</context>
           <context context-type="linenumber">13</context>
@@ -116,7 +116,7 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.previous-aria" datatype="html">
         <source>Previous</source>
-        <target state="translated">Back</target>
+        <target state="translated">Zurück</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
           <context context-type="linenumber">24</context>
@@ -124,7 +124,7 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.next-aria" datatype="html">
         <source>Next</source>
-        <target state="translated">Next</target>
+        <target state="translated">Weiter</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
           <context context-type="linenumber">44</context>
@@ -132,7 +132,7 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
-        <target state="translated">Last</target>
+        <target state="translated">Letzte</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/pagination/pagination.d.ts</context>
           <context context-type="linenumber">53</context>
@@ -260,13 +260,13 @@
       </trans-unit>
       <trans-unit id="ngb.toast.close-aria" datatype="html">
         <source>Close</source>
-        <target state="translated">Close</target>
+        <target state="translated">Schliessen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../node_modules/@ng-bootstrap/ng-bootstrap/toast/toast.d.ts</context>
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit><trans-unit id="518160e13db942adb73836a6e7bd7461e99a7104" datatype="html">
-        <source>Località</source><target state="translated">Place</target>
+        <source>Località</source><target state="translated">Wohnort</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context>
           <context context-type="linenumber">9</context>
@@ -275,7 +275,7 @@
       </trans-unit>
       <trans-unit id="17d3b0ba88e7449148787f6a8b32df30f4cacbeb" datatype="html">
         <source>Dati persona</source>
-        <target state="translated">Personal data</target>
+        <target state="translated">Personendaten</target>
         
       <note from="description" priority="1">dati persona</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">41</context></context-group></trans-unit>
       <trans-unit id="06d0491684a3972bb9ec45b5f05b18ce11488080" datatype="html">
@@ -287,78 +287,75 @@
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">51</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">22</context></context-group></trans-unit>
       <trans-unit id="77b9b1b6d3bded7f5fcf00ba16555468558478a7" datatype="html">
         <source>Data di Nascita</source>
-        <target state="translated">Birthdate</target>
+        <target state="translated">Geburtstag</target>
         
       <note from="description" priority="1">data di nascita</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">68</context></context-group></trans-unit>
       <trans-unit id="97da65747f8b01ede94c159a352d87717da1ef59" datatype="html">
         <source>Franchigia</source>
-        <target state="translated">Deductible</target>
+        <target state="translated">Franchise</target>
         
         <note priority="1" from="description">franchigia</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">85</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">118</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">85</context></context-group></trans-unit>
       <trans-unit id="826d1e3e88c5752e9bdfb857565adc828142d11e" datatype="html">
         <source>Infortunio</source>
-        <target state="translated">Accident</target>
+        <target state="translated">Unfall</target>
         
         <note priority="1" from="description">infortunio</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">100</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">118</context></context-group></trans-unit><trans-unit id="73a98e814f0e1cd02620d8965b78944bdea71fa7" datatype="html">
-        <source>Si</source><target state="translated">Yes</target>
+        <source>Si</source><target state="translated">Ja</target>
         
         <note priority="1" from="description">Si</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">106</context></context-group></trans-unit><trans-unit id="3d3ae7deebc5949b0c1c78b9847886a94321d9fd" datatype="html">
-        <source>No</source><target state="translated">No</target>
+        <source>No</source><target state="translated">Nein</target>
         
         <note priority="1" from="description">Si</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">110</context></context-group></trans-unit>
       <trans-unit id="74d186d0b663b5d9a3d778cc51cf1ccb12c9c5c2" datatype="html">
         <source>Sesso</source>
-        <target state="translated">Gender</target>
+        <target state="translated">Geschlecht</target>
         
         <note priority="1" from="description">sesso</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">118</context></context-group></trans-unit>
       <trans-unit id="ce45ff56ea2b393f5ccb1d9191b602f942732663" datatype="html">
         <source>Il campo nome è richiesto!</source>
-        <target state="translated">The field Name is compulsory!</target>
+        <target state="translated">Das Feld Name ist obligatorisch</target>
         
       <note from="description" priority="1">Il campo nome e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">59</context></context-group></trans-unit>
       <trans-unit id="8fb25ebdf2c113e24653c17a1333cf6ce5aef079" datatype="html">
         <source>Inserire almeno <x id="INTERPOLATION" equiv-text="{{person.controls.nome.errors.minlength.requiredLength}}"/> caratteri</source>
-        <target state="translated">Please enter almost <x id="INTERPOLATION" equiv-text="{{person.controls.nome.errors.minlength.requiredLength}}"/> characters</target>
+        <target state="translated">Mindestens <x id="INTERPOLATION" equiv-text="{{person.controls.nome.errors.minlength.requiredLength}}"/> Zeichen einfügen</target>
         
       <note from="description" priority="1">inserire almeno * caratteri</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">60</context></context-group></trans-unit><trans-unit id="28d078306e73f1b1fd5cbf357aff692ab8f160a0" datatype="html">
-        <source>Inserire caratteri dalla a-z-A-Z</source><target state="translated">Please enter characters from a-z-A-Z</target>
+        <source>Inserire caratteri dalla a-z-A-Z</source><target state="translated">Bitte Zeichen a-z-A-Z einfügen</target>
         
         <note priority="1" from="description">inserire caratteri dalla a-z</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">61</context></context-group></trans-unit>
       
       <trans-unit id="30c58795ea5b87f4619e297242556df780f127a2" datatype="html">
         <source>Il campo nascita è richiesto!</source>
-        <target state="translated">The field Birthdate is compulsory</target>
+        <target state="translated">Das Feld Geburtstag ist obligatorisch</target>
         
-      <note from="description" priority="1">il campo nascita e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit><trans-unit id="0752b1e82ef89bc43ee763b2838a7967c0c9a608" datatype="html">
-        <source>Inserire data formato GG-MM-AAAA</source><target state="final">Inserire data formato GG-MM-AAAA</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context>
-          <context context-type="linenumber">76</context>
-        </context-group>
-        <note priority="1" from="description">inserire data formato</note>
-      </trans-unit>
-      
+      <note from="description" priority="1">il campo nascita e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit>
+      <trans-unit id="9720aad7e0367a94992d70481ac6542dc8ce3888" datatype="html">
+        <source>Inserire data formato GG.MM.AAAA</source>
+        <target state="translated">Datum einfügen im Format TT.MM.JJJJ</target>
+        
+      <note from="description" priority="1">inserire data formato</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">76</context></context-group></trans-unit>
       <trans-unit id="65dced6bf7ff0370fbcb766eda90058d216c3bea" datatype="html">
         <source>Seleziona</source>
-        <target state="translated">Select</target>
+        <target state="translated">Auswählen</target>
         
         <note priority="1" from="description">seleziona</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">91</context></context-group></trans-unit>
       <trans-unit id="9fb35a633db3a4755fa81782cec6cadb6be19485" datatype="html">
         <source>Aggiugi persona</source>
-        <target state="translated">Add person</target>
+        <target state="translated">Person hinzufügen</target>
         
         <note priority="1" from="description">aggiungi persona</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">150</context></context-group></trans-unit>
       <trans-unit id="1544c0a38e522503cf9a489e3697d7673c23eeeb" datatype="html">
         <source>Avanti</source>
-        <target state="translated">Next</target>
+        <target state="translated">Weiter</target>
         
         
         
@@ -367,11 +364,11 @@
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">153</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/personal-details2/personal-details2.component.html</context><context context-type="linenumber">42</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">122</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">213</context></context-group></trans-unit>
       <trans-unit id="15d94e1bc31726706c728177c5b8bb8f8481b848" datatype="html">
         <source>NPA / Località</source>
-        <target state="translated">PLZ / Place</target>
+        <target state="translated">PLZ / Ort</target>
         
         
       <note from="description" priority="1">npa / lacalita</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context><context context-type="linenumber">18</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/personal-details2/personal-details2.component.html</context><context context-type="linenumber">6</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">85</context></context-group></trans-unit><trans-unit id="309198de2ef783e87f951f3e22beda52b9bec6d6" datatype="html">
-        <source>Inserire PLZ corretto!</source><target state="translated">Enter correct PLZ</target>
+        <source>Inserire PLZ corretto!</source><target state="translated">Korrekten PLZ eingeben</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/personal-details1/personal-details1.component.html</context>
           <context context-type="linenumber">33</context>
@@ -380,18 +377,18 @@
       </trans-unit>
       <trans-unit id="a4074f2c0cab8ce44b15c3f48d41ca5d69eeb02a" datatype="html">
         <source>Paese di domicilio</source>
-        <target state="translated">Country</target>
+        <target state="translated">Wohnland</target>
         
       <note from="description" priority="1">paese di domicilio</note><context-group purpose="location"><context context-type="sourcefile">app/personal-details2/personal-details2.component.html</context><context context-type="linenumber">18</context></context-group></trans-unit>
       <trans-unit id="c9b05980effbc1afa1011e60bb4ece474e9e2b64" datatype="html">
         <source>Il campo è richiesto!</source>
-        <target state="translated">This field is compulsory</target>
+        <target state="translated">Dieses Feld ist obligatorisch</target>
         
         <note priority="1" from="description">il campo e richiesto</note>
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details2/personal-details2.component.html</context><context context-type="linenumber">26</context></context-group></trans-unit>
       <trans-unit id="53decc6d03be72fe1b6f6eecb666fb8d5fb1447a" datatype="html">
         <source>Indietro</source>
-        <target state="translated">Back</target>
+        <target state="translated">Zurück</target>
         
         
         
@@ -399,36 +396,36 @@
       <context-group purpose="location"><context context-type="sourcefile">app/personal-details2/personal-details2.component.html</context><context context-type="linenumber">39</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">119</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">210</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">139</context></context-group></trans-unit>
       <trans-unit id="7d2969553e5fd8345d987ddd83e6b623fd68ec6a" datatype="html">
         <source>Ciao <x id="INTERPOLATION" equiv-text="{{person.nome}}"/></source>
-        <target state="translated">Hello <x id="INTERPOLATION" equiv-text="{{person.nome}}"/></target>
+        <target state="translated">Hallo <x id="INTERPOLATION" equiv-text="{{person.nome}}"/></target>
         
       <note from="description" priority="1">ciao</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit>
       <trans-unit id="7ddc5d18095e5b69dc69c94e3ecea6eaabbd75f3" datatype="html">
         <source>Ci esponga le sue esigenze e le consiglieremo le assicurazioni adeguate.</source>
-        <target state="translated">Select your services.</target>
+        <target state="translated">Wähle deine Leistungen</target>
         
       <note from="description" priority="1">ci espogna le sue eisgneze</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit>
       <trans-unit id="f6807ebfeecc6592faa2d00a2946ddf4b86260ae" datatype="html">
         <source>Assicurazione di base</source>
-        <target state="translated">Model</target>
+        <target state="translated">Grundversicherung</target>
         
       <note from="description" priority="1">assicurazione di base</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">42</context></context-group></trans-unit>
       <trans-unit id="f6e592a8e8775bd90d9e2505d4ad23ca716cfd84" datatype="html">
         <source>Assicurazione complementare</source>
-        <target state="translated">Supplemental insurance</target>
+        <target state="translated">Zusatzversicherung</target>
         
       <note from="description" priority="1">assicurazione complementare</note><context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">78</context></context-group></trans-unit><trans-unit id="e2a6f8159fae24f9d586da1ca5bf57629fce6404" datatype="html">
-        <source>Assicurazioni ospedaliere</source><target state="final">Assicurazioni ospedaliere</target>
+        <source>Assicurazioni ospedaliere</source><target state="translated">Spitalversicherungen</target>
         
         <note priority="1" from="description">assicurazione ospedaliera</note>
       <context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">101</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">187</context></context-group></trans-unit><trans-unit id="aca49924b11a527cde54a3f6d53f807c9fde63f7" datatype="html">
-        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/>Modifica</source><target state="translated"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/>Edit</target>
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/>Modifica</source><target state="translated"><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i>"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i>"/>Bearbeiten</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
         <note priority="1" from="description">Modifica</note>
       </trans-unit><trans-unit id="f482a4ed627d35cd696cfa953bf75a62674010fa" datatype="html">
-        <source>I suoi risultati</source><target state="translated">Your results</target>
+        <source>I suoi risultati</source><target state="translated">Ihre Resultate</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context>
           <context context-type="linenumber">12</context>
@@ -438,16 +435,16 @@
       
       <trans-unit id="d3c651ac7b0e29354244363cc80e1857a23b54b3" datatype="html">
         <source>Modello:</source>
-        <target state="translated">Model:</target>
+        <target state="translated">Modell:</target>
         
       <context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">45</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">129</context></context-group></trans-unit><trans-unit id="2e8f115db65a1aeb88a47a1da75089c0104fdce3" datatype="html">
-        <source>Premio totale base / mese</source><target state="translated">Total premium base / month</target>
+        <source>Premio totale base / mese</source><target state="translated">Gesamtprämie Basis / Monat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit><trans-unit id="4456c4e585a317fe516f8c4afbe108b8fe72445c" datatype="html">
-        <source>Premio totale benefits / mese</source><target state="translated">Total premium Benefits / month</target>
+        <source>Premio totale benefits / mese</source><target state="translated">Gesamtprämie Zusätze / Monat</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context>
           <context context-type="linenumber">61</context>
@@ -455,39 +452,39 @@
       </trans-unit>
       <trans-unit id="4065c593e3d7a06bbaaa2048bf07477bdad1ff4f" datatype="html">
         <source>Premio / mese</source>
-        <target state="translated">Premium / Month</target>
+        <target state="translated">Prämie / Monat</target>
         
       <context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">144</context></context-group></trans-unit>
       <trans-unit id="7cef4e2b125390c9a71d260fd1af97b881babd4c" datatype="html">
         <source>RICHIEDI OFFERTA</source>
-        <target state="translated">REQUEST A QUOTE</target>
+        <target state="translated">OFFERTE ANFRAGEN</target>
         
       <context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">66</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">149</context></context-group></trans-unit>
       <trans-unit id="317788e0386c3771831564c4f8b5f3e0c2de54f8" datatype="html">
         <source>Dettaglio </source>
-        <target state="translated">Detail</target>
+        <target state="translated">Details</target>
         
       <context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">76</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">159</context></context-group></trans-unit><trans-unit id="77faab60ea1b14cfa7e249de3ceed9dd28838703" datatype="html">
-        <source>I suoi risultati base</source><target state="translated">Your basic insurance results</target>
+        <source>I suoi risultati base</source><target state="translated">Ihr Resultat für Grundversicherung</target>
         
         <note priority="1" from="description">i suoi risultati base</note>
       <context-group purpose="location"><context context-type="sourcefile">app/detail-offer/detail-offer.component.html</context><context context-type="linenumber">97</context></context-group></trans-unit><trans-unit id="e9775fb08a000d1c04de665972c68091b373a71e" datatype="html">
-        <source>Riepilogo di offerta gratuita e non vincolante</source><target state="translated">Free and non-binding offer summary</target>
+        <source>Riepilogo di offerta gratuita e non vincolante</source><target state="translated">Kostenlose und unverbindliche Angebotszusammenfassung</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context>
           <context context-type="linenumber">3</context>
         </context-group>
         <note priority="1" from="description">riepilogo di offerta gratuita</note>
       </trans-unit><trans-unit id="069302bdca9af4388ef6ed1b25d1f8c17af48bd2" datatype="html">
-        <source>La sua offerta verrà presa in carico da Versicherungs Broker Ag</source><target state="translated">Your offer-request will be elaborated by versicherungs-broker.ch</target>
+        <source>La sua offerta verrà presa in carico da Versicherungs Broker Ag</source><target state="translated">Ihre Offertenanfrage wird von versicherungs-broker.ch verarbeitet</target>
         
         <note priority="1" from="description">offerta presa in carico</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">8</context></context-group></trans-unit><trans-unit id="8fd40678aac3c9ad78e6d62ef7201c3ad9d0d2d0" datatype="html">
-        <source>Assicurazione malattia scelta</source><target state="translated">Selected Health insurance</target>
+        <source>Assicurazione malattia scelta</source><target state="translated">Gewählte Krankenkasse</target>
         
         <note priority="1" from="description">assicurazione malattia scelta</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">17</context></context-group></trans-unit><trans-unit id="a49d02726657d6641eefebdb6c3accabd65367e5" datatype="html">
-        <source>Anteprima dell'offerta</source><target state="translated">Preview offer</target>
+        <source>Anteprima dell'offerta</source><target state="translated">Vorschau der Offerte</target>
         
         <note priority="1" from="description">anteprima dell'offerta</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">29</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">25</context></context-group></trans-unit>
@@ -497,41 +494,41 @@
       
       <trans-unit id="94c41f2bdf1306ef4a3b3fc54ca120daa10153ef" datatype="html">
         <source>Premio</source>
-        <target state="translated">Premium</target>
+        <target state="translated">Prämie</target>
         
         <note priority="1" from="description">premio</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">33</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit>
       <trans-unit id="aff475b12ce46d77f673cb85dac31299ab73925c" datatype="html">
         <source>mese</source>
-        <target state="translated">Month</target>
+        <target state="translated">Monat</target>
         
         <note priority="1" from="description">mese</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">33</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">29</context></context-group></trans-unit><trans-unit id="682e7f516d586848b4502fc0abb4ab7c42f50605" datatype="html">
-        <source>Prodotti per persona</source><target state="translated">Products per Person</target>
+        <source>Prodotti per persona</source><target state="translated">Produkte pro Person</target>
         
         <note priority="1" from="description">prodotti per persona</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">72</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">39</context></context-group></trans-unit><trans-unit id="fa4748055a77e8258c5e9050c398197224d63eb0" datatype="html">
-        <source>Assicurazione di Base</source><target state="translated">Basic insurance</target>
+        <source>Assicurazione di Base</source><target state="translated">Modell</target>
         
         <note priority="1" from="description">assicurazione di base</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">108</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">72</context></context-group></trans-unit><trans-unit id="9194e8764c7656f1dd9f0d70c5d9ae833a26b896" datatype="html">
-        <source>Assicurazione Supplementare</source><target state="translated">Supplemental insurance</target>
+        <source>Assicurazione Supplementare</source><target state="translated">Zusatzversicherung</target>
         
         
         <note priority="1" from="description">assicurazione supplementare</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">130</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context><context context-type="linenumber">151</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">97</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context><context context-type="linenumber">118</context></context-group></trans-unit><trans-unit id="72bbecf4c007a5a47b0bf37f46625aeb69f24166" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Nota bene:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Le tariffe dei premi supplementai attualmente per questa cassa malattia non sono disponibili.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> 
               Verrà inviato un preventivo specifico a seguito dell'invio della richiesta.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
-              Di seguito sono elencate i servizi selezionati precedentemente.</source><target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Please note:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> The prices of the supplemental insurances of this health insurer are not available yet. <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
-You will receive a specific offer with prices once you sent this request for proposal.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
-Below you see the list of the previously chosen supplemental services.</target>
+              Di seguito sono elencate i servizi selezionati precedentemente.</source><target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Bitte beachten:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Die Tarife der Zusatzversicherung von dieser Krankenkasse sind leider noch nicht verfügbar.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> 
+Sie werden eine entsprechende Offerte mit Preisangaben erhalten nach Absenden dieser Anfrage.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+Folgend sehen Sie die vorher angewählten Leistungen aufgelistet.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context>
           <context context-type="linenumber">152</context>
         </context-group>
         <note priority="1" from="description">avviso premi suppelementari non disponibili</note>
       </trans-unit><trans-unit id="2a733d1166dc35de0138ffad2b89002aebdc416e" datatype="html">
-        <source>Sei ancora in tempo per scegliere i supplementari</source><target state="translated">Chose now your supplements</target>
+        <source>Sei ancora in tempo per scegliere i supplementari</source><target state="translated">Jetzt noch Zusatzversicherungen wählen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/selected-offer/selected-offer.component.html</context>
           <context context-type="linenumber">167</context>
@@ -549,7 +546,7 @@ Below you see the list of the previously chosen supplemental services.</target>
       
       <trans-unit id="7135e65e52302c8de4b691bf4ce7e90d5eebd9d1" datatype="html">
         <source>Persone assicurate</source>
-        <target state="translated">Insured persons</target>
+        <target state="translated">Versicherte Personen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context>
           <context context-type="linenumber">3</context>
@@ -565,23 +562,23 @@ Below you see the list of the previously chosen supplemental services.</target>
       <note from="description" priority="1">persona n</note></trans-unit>
       <trans-unit id="00150b54a3b5915b6ad641a8cfc7d619b82e122d" datatype="html">
         <source>Cognome</source>
-        <target state="translated">Surname</target>
+        <target state="translated">Nachname</target>
         
       <note from="description" priority="1">cognome</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">26</context></context-group></trans-unit>
       <trans-unit id="468375f582046846f0be1e81005cccbb23d8b539" datatype="html">
         <source>Il campo Cognome è richiesto!</source>
-        <target state="translated">The field Surname is compulsory</target>
+        <target state="translated">Das Feld Nachname ist obligatorisch</target>
         
       <note from="description" priority="1">il campo e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">32</context></context-group></trans-unit><trans-unit id="48707546b24302a925a23625e75076534702ba66" datatype="html">
-        <source>Inserisci cognome valido</source><target state="translated">Please enter valid Surname</target>
+        <source>Inserisci cognome valido</source><target state="translated">Gültiger Nachname eingeben</target>
         
         <note priority="1" from="description">inserisci cognome valido</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">33</context></context-group></trans-unit><trans-unit id="07b5daaf8c37f7d3f55a6200361fd57398a5c990" datatype="html">
-        <source>Medico di Famiglia</source><target state="translated">Practitioner/Medical center</target>
+        <source>Medico di Famiglia</source><target state="translated">Hausarzt/Praxis</target>
         
         <note priority="1" from="description">Medico di famiglia</note>
       <context-group purpose="location"><context context-type="sourcefile">app/offer/offer.component.html</context><context context-type="linenumber">64</context></context-group></trans-unit><trans-unit id="f5c7a51eb5d6322feeddc3d732b3affe93944894" datatype="html">
-        <source>PLZ Medico</source><target state="translated">Postal Code Family Doctor</target>
+        <source>PLZ Medico</source><target state="translated">PLZ Hausrazt</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/offer/offer.component.html</context>
           <context context-type="linenumber">68</context>
@@ -591,38 +588,38 @@ Below you see the list of the previously chosen supplemental services.</target>
       
       <trans-unit id="8ac22a0e412c83770ccd3cbb7ced7f7ccf7ecad4" datatype="html">
         <source>Dati di contatto</source>
-        <target state="translated">Contact data</target>
+        <target state="translated">Kontaktangaben</target>
         
       <note from="description" priority="1">dati di contatto</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">49</context></context-group></trans-unit>
       <trans-unit id="64abaee1e9e167a5b6e5f898e379802dcb8cbc88" datatype="html">
         <source>Nome contraente</source>
-        <target state="translated">Name policyholder</target>
+        <target state="translated">Name Versicherungsnehmer</target>
         
       <note from="description" priority="1">nome contraente</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">58</context></context-group></trans-unit>
       <trans-unit id="8681d12676e294772304d9af9f354991184aa032" datatype="html">
         <source>Seleziona...</source>
-        <target state="translated">Select...</target>
+        <target state="translated">Auswählen...</target>
         
         
       <note from="description" priority="1">seleziona</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">63</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">73</context></context-group></trans-unit>
       <trans-unit id="2a5d850a622a29b55ef138845e4799f022760b61" datatype="html">
         <source>Via, n°</source>
-        <target state="translated">Street, Nr.</target>
+        <target state="translated">Strasse, Nr.</target>
         
       <note from="description" priority="1">via, n.</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">89</context></context-group></trans-unit>
       <trans-unit id="a5daa242f4deb66d3b063d071fb42a30736e4985" datatype="html">
         <source>Il campo via è richiesto!</source>
-        <target state="translated">The field Street is compulsory</target>
+        <target state="translated">Das Feld Strasse ist obligatorisch</target>
         
       <note from="description" priority="1">il campo via e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">95</context></context-group></trans-unit>
       <trans-unit id="fe396ae1786da71294a010f9bbcf418753bf256e" datatype="html">
         <source>Inserisci via valida</source>
-        <target state="translated">Please enter valid Street</target>
+        <target state="translated">Gültige Strasse eingeben</target>
         
       <note from="description" priority="1">inserisci via valida</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">96</context></context-group></trans-unit>
       <trans-unit id="7c38873769d52761357ee184abd9925abb88c695" datatype="html">
         <source>Telefono</source>
-        <target state="translated">Telephone</target>
+        <target state="translated">Telefon</target>
         
       <note from="description" priority="1">telefono</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">103</context></context-group></trans-unit>
       <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
@@ -632,80 +629,80 @@ Below you see the list of the previously chosen supplemental services.</target>
       <note from="description" priority="1">email</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">117</context></context-group></trans-unit>
       <trans-unit id="6262d857a8bbc86348bd5bf93d5110e9f1f3e5b0" datatype="html">
         <source>Il campo telefono è richiesto!</source>
-        <target state="translated">The field Telephone is compulsory</target>
+        <target state="translated">Das Feld Telefon ist obligatorisch</target>
         
       <note from="description" priority="1">il campo telefono e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">110</context></context-group></trans-unit>
       <trans-unit id="514fd0fc26110764afc814e8b0696bf6b9c4a51e" datatype="html">
         <source>Inserire almeno <x id="INTERPOLATION" equiv-text="{{telefono.errors.minlength.requiredLength}}"/> numeri</source>
-        <target state="translated">Please almost enter <x id="INTERPOLATION" equiv-text="{{telefono.errors.minlength.requiredLength}}"/> numbers</target>
+        <target state="translated">Mindestens <x id="INTERPOLATION" equiv-text="{{telefono.errors.minlength.requiredLength}}"/> Ziffern eingeben</target>
         
       <note from="description" priority="1">inserire almeno * numeri</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">111</context></context-group></trans-unit>
       <trans-unit id="3ee70ce08761343b755a10658a57a333049bdedf" datatype="html">
         <source>Inserisci un numero valido</source>
-        <target state="translated">Please enter valid number</target>
+        <target state="translated">Gültige Nummer eingeben</target>
         
       <note from="description" priority="1">inserisci un numero valido</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">112</context></context-group></trans-unit>
       <trans-unit id="7d5d6e3446831e97712ad4a1bb462620d5d00f2e" datatype="html">
         <source>Il campo email è richiesto!</source>
-        <target state="translated">The field Email is compulsory</target>
+        <target state="translated">Das Feld Email ist obligatorisch</target>
         
       <note from="description" priority="1">il campo email e richiesto</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">124</context></context-group></trans-unit>
       <trans-unit id="8ce27f74343a8a0813d80cfb2be8d04759c36d26" datatype="html">
         <source>Inserisci una email valida</source>
-        <target state="translated">Please enter valid email</target>
+        <target state="translated">Gültige Email eingeben</target>
         
       <note from="description" priority="1">inserisci una email valida</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">125</context></context-group></trans-unit>
       <trans-unit id="a77539dfad2b593151e0cfca0494b5ace4191bc0" datatype="html">
         <source>Lingua dell'offerta</source>
-        <target state="translated">Language for offer</target>
+        <target state="translated">Sprache der Offerte</target>
         
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">68</context></context-group></trans-unit>
       <trans-unit id="a7599abbc0f8d26c91cf4e70e644b808dfaa3042" datatype="html">
         <source>Tedesco</source>
-        <target state="translated">German</target>
+        <target state="translated">Deutsch</target>
         
       <note from="description" priority="1">tedesco</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">74</context></context-group></trans-unit>
       <trans-unit id="94a8a848a64c2b2217c41186962a296642b1bc36" datatype="html">
         <source>Inglese</source>
-        <target state="translated">English</target>
+        <target state="translated">Englisch</target>
         
       <note from="description" priority="1">inglese</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">75</context></context-group></trans-unit>
       <trans-unit id="06693a67c962d40960bcd9eb21b8fd210d92fd7b" datatype="html">
         <source>Francese</source>
-        <target state="translated">French</target>
+        <target state="translated">Französisch</target>
         
       <note from="description" priority="1">francese</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">76</context></context-group></trans-unit>
       <trans-unit id="a75197c86e131f9d39f2393cd145d5d7e33992a5" datatype="html">
         <source>Italiano</source>
-        <target state="translated">Italian</target>
+        <target state="translated">Italienisch</target>
         
       <note from="description" priority="1">italiano</note><context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">77</context></context-group></trans-unit><trans-unit id="c401458e4071143c587eeb85ea543fc0bb5584e1" datatype="html">
-        <source>Invia</source><target state="translated">Send</target>
+        <source>Invia</source><target state="translated">Absenden</target>
         
         <note priority="1" from="description">Invia</note>
       <context-group purpose="location"><context context-type="sourcefile">app/selected-offer-step2/selected-offer-step2.component.html</context><context context-type="linenumber">142</context></context-group></trans-unit><trans-unit id="5144fdedcc98a0a589891eabf20d4107dd0700d9" datatype="html">
-        <source>Riepilogo dell'offerta numero</source><target state="translated">Summary of the offer Nr.</target>
+        <source>Riepilogo dell'offerta numero</source><target state="translated">Zusammenfassung Offerte Nr.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">4</context>
         </context-group>
         <note priority="1" from="description">riepilogo dell offerta</note>
       </trans-unit><trans-unit id="20613673b029b2667bf21e7991f6962c01ea3f18" datatype="html">
-        <source>Assicurato presso</source><target state="translated">Insured with</target>
+        <source>Assicurato presso</source><target state="translated">Versichert bei</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">assicurato presso</note>
       </trans-unit><trans-unit id="084d664d03336715cc72439f26e51f582d083683" datatype="html">
-        <source>Con infortunio</source><target state="translated">With accident</target>
+        <source>Con infortunio</source><target state="translated">Mit Unfall</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">83</context>
         </context-group>
         <note priority="1" from="description">con infortunio</note>
       </trans-unit><trans-unit id="bb7ccc78a1d9fc8636cf419777fe2004ed0fbc85" datatype="html">
-        <source>Senza infortunio</source><target state="translated">Without accident</target>
+        <source>Senza infortunio</source><target state="translated">Ohne Unfall</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">84</context>
@@ -714,16 +711,16 @@ Below you see the list of the previously chosen supplemental services.</target>
       </trans-unit><trans-unit id="5c7e3e56001767e63d2d61ff7cf677b6a28201d2" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Nota bene:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Le tariffe dei premi supplementai attualmente per questa cassa malattia non sono disponibili.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> 
                   Verrà inviato un preventivo specifico a seguito dell'invio della richiesta.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
-                  Di seguito sono elencate i servizi selezionati precedentemente.</source><target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Please note:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/>Unfortunately, the prices for the supplemental insurances of the insurance company you selected, are not availbale yet.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> 
-            You will receive a quote with all premiums by email after sending this online request.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
-            Below, please find the list of the previously selected supplemental insurances.</target>
+                  Di seguito sono elencate i servizi selezionati precedentemente.</source><target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong>"/>Bitte beachten:<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong>"/> Die Tarife der Zusatzversicherungen für diese Krankenkasse sind leider noch nicht verfügbar.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/> 
+                  Sie erhalten per Email eine entsprechende Offerte nach Abschicken dieser Anfrage.<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/>"/>
+                  Folgend sind die vorher gewählten Services aufgelistet.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">119</context>
         </context-group>
         <note priority="1" from="description">avviso premi suppelementari non disponibili</note>
       </trans-unit><trans-unit id="1a3d6eba5f865c47813a56a5d5b2b12fcb623620" datatype="html">
-        <source>Dati personali</source><target state="translated">Personal data</target>
+        <source>Dati personali</source><target state="translated">Persönliche Daten</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/admin/view-offert/view-offert.component.html</context>
           <context context-type="linenumber">138</context>

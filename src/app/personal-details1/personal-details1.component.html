@@ -66,14 +66,14 @@
           
             <div class="col-md-6 form-group">
                 <label for="inputNascita" i18n="data di nascita">Data di Nascita</label>
-                <input id="inputNascita" type="text" class="form-control form-control-lg"  placeholder="GG.MM.AA"  formControlName="nascita" (change)="refreshFranchigia($event, i)"
+                <input id="inputNascita" type="text" class="form-control form-control-lg"  placeholder="GG-MM-AAAA"  formControlName="nascita" (change)="refreshFranchigia($event, i)"  (input)="formatDateInput($event, i)"
                 [ngClass]="{
                   'is-invalid': person.controls.nascita.invalid && (person.controls.nascita.dirty || person.controls.nascita.touched),
                   'is-valid': person.controls.nascita.valid && (person.controls.nascita.dirty || person.controls.nascita.touched) }">
                   
                   <div *ngIf="person.controls.nascita.dirty && person.controls.nascita.touched && person.controls.nascita.invalid">
                     <div class="text-danger" *ngIf="person.controls.nascita.errors.required" i18n="il campo nascita e richiesto">Il campo nascita è richiesto!</div>
-                    <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern" i18n="inserire data formato">Inserire data formato GG.MM.AAAA</div>
+                    <div class="text-danger" *ngIf="person.controls.nascita.errors.pattern" i18n="inserire data formato">Inserire data formato GG-MM-AAAA</div>
                   </div>
             </div>
           </div>
